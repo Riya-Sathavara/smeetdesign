@@ -1,0 +1,83 @@
+<openerp>
+    <data>
+
+       <record id="sale_order_view_ext"  model="ir.ui.view" >
+            <field name="name">add.lengt.line.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="after">
+                <field name="zpro_length"/>
+                <field name="total_length"/>
+            </xpath>  
+            <xpath expr="//notebook/page/field[@name='order_line']/form//field[@name='price_unit']" position="after">
+                <field name="zpro_length"/>
+                <field name="total_length"/>
+            </xpath>
+<!--            <xpath expr="//field[@name='order_line']/form//field[@name='name']" position="replace"></xpath> -->
+            <xpath expr="//field[@name='order_line']/tree//field[@name='name']" position="replace"></xpath>
+<!--                <attribute name="invisible">1</attribute> -->
+<!--            </xpath> -->
+            </field>
+        </record>
+
+        <record id="view_order_tree_inherit" model="ir.ui.view">
+            <field name="name">sale.order.tree</field>
+            <field name="model">sale.order</field>
+            <field name="priority">2</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_status']" position="after">
+                    <field name="delivery_status"/>
+                    <field name="is_print"/>
+                </xpath>
+				<xpath expr="//tree" position="attributes">
+					<attribute name="colors">blue:delivery_status=='draft';black:delivery_status=='delivered';red:delivery_status=='partial';</attribute>  
+				</xpath>                
+            </field>
+        </record>
+
+        <record id="view_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_order']" position="after">
+                    <field name="delivery_status"/>
+                </xpath>
+            </field>
+        </record>
+       </data>
+     <record id="view_sales_order_filter_inherit" model="ir.ui.view">
+            <field name="name">sale.order.list.select</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//filter[@name='sales']" position="after">
+                    <filter string="To Be Done" name="to_be_done" domain="['|', ('is_print','=',False), '&amp;',('invoice_status', '!=', 'to_invoice'),('delivery_status', '!=', 'delivered')]"/>
+                </xpath>
+            </field>
+    </record>
+
+	 <!--         remove invoiced sale order List view -->
+	<record id="sale.action_orders" model="ir.actions.act_window">
+		<field name="name">Sales Orders</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">sale.order</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,kanban,form,calendar,pivot,graph</field>
+		<field name="search_view_id" ref="inherit_product.view_sales_order_filter_inherit"/>
+		<field name="context">{'show_sale': True,'search_default_to_be_done':1}</field>
+		<field name="domain">[('state', 'not in', ('draft', 'sent', 'cancel')),('invoice_status','in',('upselling','to invoice','no'))]</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+			Create a Quotation, the first step of a new sale.
+			</p><p>
+			Your next actions should flow efficiently: confirm the Quotation to a Sale Order, then create the Invoice and collect the Payment.
+			</p><p>
+			Note that once a Quotation becomes a Sale Order, it will be moved from the Quotations list to the Sales Order list.
+			</p>
+		</field>
+	</record>
+       
+</openerp>

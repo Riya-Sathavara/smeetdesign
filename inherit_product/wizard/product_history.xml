@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_sale_advance_product_history" model="ir.ui.view">
+            <field name="name">Sale Orders</field>
+            <field name="model">sale.advance.product.history</field>
+            <field name="arch" type="xml">
+                <form string="Sales Order">
+                    <p class="oe_grey">
+                        Sale Order will be created in draft so that you can update
+                        them before Confirmation.
+                    </p>
+                    <notebook>
+                        <page name="page_history" string="Page History">
+                            <field name="product_his_ids">
+                                <tree editable="bottom">
+                                    <field name="product_id" readonly="True"/>
+                                    <field name="ordered_qty"/>
+                                    <field name="line_id" readonly="True"/>
+                                    <field name="sale_wiz_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <footer>
+                        <button name="create_sale_order" string="Create and View Sale Order" type="object"
+                            context="{'open_sale': True}" class="btn-primary"/>
+                        <button name="create_sale_order" string="Create Sale Order" type="object"
+                            class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_sale_advance_product_history" model="ir.actions.act_window">
+            <field name="name">Sale Orders</field>
+            <field name="res_model">sale.advance.product.history</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="groups_id" eval="[(4,ref('base.group_sale_salesman'))]"/>
+        </record>
+
+        <!-- TODO: check if we need this -->
+        <record model="ir.values" id="sale_advance_product_history">
+            <field name="model_id" ref="model_sale_advance_payment_inv" />
+            <field name="name">Sale Orders</field>
+            <field name="key2">client_action_multi</field>
+            <field name="value" eval="'ir.actions.act_window,' + str(ref('inherit_product.action_sale_advance_product_history'))" />
+            <field name="key">action</field>
+            <field name="model">sale.order.line</field>
+        </record>
+</data>
+</openerp>

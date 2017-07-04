@@ -1,0 +1,45 @@
+<openerp>
+    <data>
+       <record id="inherit_product_view"  model="ir.ui.view" >
+            <field name="name">inherit.product.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+            <xpath expr="//form/sheet/notebook/page[@name='notes']" position="after">
+                <page string="Product Detail">
+                    <group>
+                        <group>
+                            <field name="zmat_no"/>
+                            <field name="zpro_width"/>
+                            <field name="zpro_length"/>
+                            <field name="zpro_measur"/>
+                            <field name="zpro_thik"/>
+                            <field name="zcoating"/>
+                        </group>
+                        <group>
+                            <field name="zcolor"/>
+                            <field name="zemb"/>
+                            <field name="zpro_vol"/>
+                            <field name="zean"/>
+                            <field name="zpro_palnt_ids" widget="many2many_tags" />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            </field>
+        </record>
+
+        <record id="product_template_tree_view_inherited" model="ir.ui.view">
+            <field name="name">product.template.product.tree</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="default_code"/>
+                </xpath>
+            </field>
+        </record>
+        
+        
+    </data>
+</openerp>

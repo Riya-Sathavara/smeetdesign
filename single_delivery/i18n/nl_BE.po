@@ -1,0 +1,228 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* single_delivery
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0e-20161223\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-09 10:08+0000\n"
+"PO-Revision-Date: 2017-06-09 10:08+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: single_delivery
+#: selection:sale.order.delivery.line,state:0
+msgid "Available"
+msgstr "Beschikbaar"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_availability
+#: model:ir.ui.view,arch_db:single_delivery.sale_order_delivery_line_view
+msgid "Available Quantity"
+msgstr "Beschikbare Kwaliteit"
+
+#. module: single_delivery
+#: code:addons/single_delivery/wizard/multi_so.py:241
+#, python-format
+msgid "Back order <em>%s</em> <b>cancelled</b>."
+msgstr "Back order <em>%s</em> <b>cancelled</b>."
+
+#. module: single_delivery
+#: model:ir.model,name:single_delivery.model_stock_backorder_confirmation
+msgid "Backorder Confirmation"
+msgstr "Backorder bevestiging"
+
+#. module: single_delivery
+#: model:ir.ui.view,arch_db:single_delivery.sale_order_confirm_view
+msgid "Cancel"
+msgstr "Annuleren"
+
+#. module: single_delivery
+#: model:ir.ui.view,arch_db:single_delivery.sale_order_confirm_view
+#: model:ir.ui.view,arch_db:single_delivery.sale_order_delivery_line_view
+msgid "Confirm Draft SO"
+msgstr "Bevestigen Draft SO"
+
+#. module: single_delivery
+#: model:ir.ui.view,arch_db:single_delivery.sale_order_confirm_view
+msgid "Confirm SO"
+msgstr "Bevestigen SO"
+
+#. module: single_delivery
+#: model:ir.actions.act_window,name:single_delivery.action_sale_order_confirm
+msgid "Create Delivery"
+msgstr "Maak Levering"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_confirm_create_uid
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_create_uid
+msgid "Created by"
+msgstr "Gemaakt door"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_confirm_create_date
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_create_date
+msgid "Created on"
+msgstr "Gemaakt op"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_deliver_qty
+msgid "Deliver Quantity"
+msgstr "Deliver Quantity"
+
+#. module: single_delivery
+#: model:ir.ui.view,arch_db:single_delivery.sale_order_delivery_line_view
+msgid "Delivery Quantity"
+msgstr "Delivery Quantity"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_confirm_display_name
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_display_name
+msgid "Display Name"
+msgstr "Schermnaam"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_confirm_id
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_id
+msgid "ID"
+msgstr "ID"
+
+#. module: single_delivery
+#: code:addons/single_delivery/wizard/multi_so.py:69
+#, python-format
+msgid "In order to make single delivery order of multiple SO at once, they must belong to the same customer."
+msgstr "In order to make single delivery order of multiple SO at once, they must belong to the same customer."
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_line_is_multi_delivered
+msgid "Is multi delivered"
+msgstr "Is multi delivered"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_confirm___last_update
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line___last_update
+msgid "Last Modified on"
+msgstr "Laatst Aangepast op"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_confirm_write_uid
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_confirm_write_date
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_confirm_multi_so_line_ids
+msgid "Multi so line ids"
+msgstr "Multi so line ids"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_multiso_id
+msgid "Multiso id"
+msgstr "Multiso id"
+
+#. module: single_delivery
+#: model:ir.ui.view,arch_db:single_delivery.sale_order_confirm_view
+msgid "Once draft SO are confirmed, you will not be able\n"
+"                        to modify them."
+msgstr "Once draft SO are confirmed, you will not be able\n"
+"                        to modify them."
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_order_id
+#: model:ir.ui.view,arch_db:single_delivery.sale_order_delivery_line_view
+msgid "Order"
+msgstr "Bestelling"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_sale_line_id
+msgid "Order Line"
+msgstr "Order Line"
+
+#. module: single_delivery
+#: code:addons/single_delivery/wizard/multi_so.py:80
+#, python-format
+msgid "Please select Product to Delivery or There is not any product to Delivery."
+msgstr "Please select Product to Delivery or There is not any product to Delivery."
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_product_id
+#: model:ir.ui.view,arch_db:single_delivery.sale_order_delivery_line_view
+msgid "Product"
+msgstr "Product"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_line_qty_in_delivery
+msgid "Qty in delivery"
+msgstr "Qty in delivery"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_product_qty
+#: model:ir.ui.view,arch_db:single_delivery.sale_order_delivery_line_view
+msgid "Quantity"
+msgstr "Hoeveelheid"
+
+#. module: single_delivery
+#: model:ir.model.fields,help:single_delivery.field_sale_order_delivery_line_availability
+msgid "Quantity in stock that can still be reserved for this move"
+msgstr "Hoeveelheid op voorraad dat nog steeds kan worden gereserveerd voor deze mutatie"
+
+#. module: single_delivery
+#: model:ir.model,name:single_delivery.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Verkooporderlijn"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_state
+#: model:ir.ui.view,arch_db:single_delivery.sale_order_delivery_line_view
+msgid "Status"
+msgstr "Provincie/Staat"
+
+#. module: single_delivery
+#: model:ir.model,name:single_delivery.model_stock_move
+msgid "Stock Move"
+msgstr "Voorraadbeweging"
+
+#. module: single_delivery
+#: code:addons/single_delivery/wizard/multi_so.py:139
+#, python-format
+msgid "Stock Operations"
+msgstr "Stock Operations"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_transfer
+#: model:ir.ui.view,arch_db:single_delivery.sale_order_delivery_line_view
+msgid "Transfer"
+msgstr "Verplaatsing"
+
+#. module: single_delivery
+#: model:ir.model.fields,field_description:single_delivery.field_sale_order_delivery_line_product_uom
+#: model:ir.ui.view,arch_db:single_delivery.sale_order_delivery_line_view
+msgid "Unit of Measure"
+msgstr "Maateenheid"
+
+#. module: single_delivery
+#: selection:sale.order.delivery.line,state:0
+msgid "Waiting Availability"
+msgstr "Waiting Availability"
+
+#. module: single_delivery
+#: model:ir.model,name:single_delivery.model_sale_order_confirm
+msgid "sale.order.confirm"
+msgstr "sale.order.confirm"
+
+#. module: single_delivery
+#: model:ir.model,name:single_delivery.model_sale_order_delivery_line
+msgid "sale.order.delivery.line"
+msgstr "sale.order.delivery.line"
+

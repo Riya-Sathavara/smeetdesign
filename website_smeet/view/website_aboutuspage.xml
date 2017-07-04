@@ -1,0 +1,63 @@
+<openerp>
+	<data>
+		
+ 		<template id="website_smeets_about"  name="website smeets about page">
+			<t t-call="website.layout">
+				<div class="oe_structure"/>
+				<div class="smeet_aboutus_page">
+					<section class="news_sec_1 about_sec_1">
+					    <div class="news_header about_header1">
+					        <img class="news_banner_img about_banner_img1" src="/website_smeet/static/src/image/news/News-Banner.jpg"  alt=""/>
+					        <div class="container">
+					            <h1 class="news_heading about_heading1">Over Ons</h1>
+					        </div>
+					    </div>
+					</section>
+					<div class="about_middle_menu">
+						<div class="container">
+							<div class="col-md-12 about-middle-menu-left">
+								<div class="news-breadcrumbs-menu">
+					                <ul>
+					                    <li><a href="/page/homepage">Home </a></li>
+					                    <img src="/website_smeet/static/src/image/about/breadcrumb-img.png" alt="Chania"/>
+					                    <li><a href="/page/about">Over ons</a></li>
+					                </ul>
+					            </div>
+							</div>
+						</div>
+					</div>
+					<div class="about_middle_parts">
+						<div class="about-top-right-bg-img"><img src="/website_smeet/static/src/image/about-right.png" alt=""/></div>
+							<div class="about_middle_header">
+								<div class="container">
+									<h1>Over ons</h1>
+								</div> 
+							</div>
+							<div class="col-md-12 about_midddle_part_2">
+								<div class="container">
+									<div class="col-md-5 about_middle_part_2_left">
+										<div class="part2_left_header">
+											<h2>TOELEVERANCIER: KANTENBAND, FINEERBAND, LIJMEN, REINIGINGSMIDDEL EN KLEMGEREEDSCHAPPEN VOOR DE KEUKEN- EN INTERIEURBOUW. UW DEALER VAN REHAU, JOWAT, HENKEL, RIEPE, ZETTEX, SCHWAIGER.</h2>
+										</div>
+										<div class="part2_left_middle">
+											<p class="part2_left_middle_text">In 2006 richtten Kristof Smeets en zijn echtgenote het toeleveringsbedrijf Smeets Trading op, een bedrijf dat gespecialiseerd is in kantenband, lijmen en reinigingsproducten voor de keuken- en interieurindustrie. In het gamma zitten niet alleen diverse kantafwerkingen, maar ook verschillende lijmsoorten en reinigingsproducten. “Schrijnwerkers en interieurbouwers vinden bij ons dus al het nodige om plaatmateriaal van een mooie en kwalitatieve afwerkrand te voorzien.”</p>
+										</div>
+<!-- 										<div class="part2_left_bottom"> -->
+<!-- 											<p class="part2_left_bottom_text">Our products are designed for small to medium businesses that want to optimize their performance.</p> -->
+<!-- 										</div> -->
+									</div>
+									<div class="col-md-6 about_middle_part_2_right">
+										<div class="part2_right_img">
+											<img src="/website_smeet/static/src/image/about-section.jpg" alt="Chania"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="testing-bd-img"><div class="testing"></div></div>
+				</div>
+			</t>
+		</template>
+		
+	</data>
+</openerp>

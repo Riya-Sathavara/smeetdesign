@@ -1,0 +1,47 @@
+<openerp>
+	<data>
+	
+ 		<template id="website_smeets_product_6"  name="Product 6">
+			<t t-call="website.layout">
+				<div class="oe_structure"/>
+				<div class="smeet product page 6">
+					<div class="product_page_1">
+						<section class="news_sec_1">
+						    <div class="news_header">
+						        <img class="news_banner_img" src="/website_smeet/static/src/image/news/News-Banner.jpg"  alt=""/>
+						        <div class="container">
+						            <h1 class="news_heading">Klemgereedschap</h1>
+						        </div>
+						    </div>
+						</section>
+						<div class="news_middle_menu">
+							<div class="container">
+								<div class="col-md-12 news-middle-menu-left">
+									<div class="news-breadcrumbs-menu">
+						                <ul>
+						                    <li><a href="#"> products </a></li>
+						                    <img src="/website_smeet/static/src/image/about/breadcrumb-img.png" alt="Chania"/>
+						                    <li><a href="/page/product/6">produkt</a></li>
+						                 </ul>
+						             </div>
+								 </div>
+							 </div>
+						</div>
+						<div class="smeet-product-middl-content">
+							<div class="container">
+								<div class="col-md-12 products-page-1-top">
+									<div class="product-page-1-top-header"><h1>Klemgereedschap</h1></div>
+								</div>
+								<div class="col-md-12 products-page-1-middle">
+									<div class="product-page-1-images">
+										<img src="/website_smeet/static/src/image/product/pro-6.jpg" alt="Chania"/>									
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</t>
+		</template>
+	</data>
+</openerp>

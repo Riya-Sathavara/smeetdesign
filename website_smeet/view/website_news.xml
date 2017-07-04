@@ -1,0 +1,117 @@
+<openerp>
+	<data>
+	
+ 		<template id="website_smeets_news_page"  name="website smeets news page">
+			<t t-call="website.layout">
+				<div class="oe_structure"/>
+				<div class="smeet_news_page">
+					<section class="news_sec_1">
+					    <div class="news_header">
+					        <img class="news_banner_img" src="/website_smeet/static/src/image/news/News-Banner.jpg"  alt=""/>
+					        <div class="container">
+					            <h1 class="news_heading">Nieuws</h1>
+					        </div>
+					    </div>
+					</section>
+					<div class="news_middle_menu">
+						<div class="container">
+							<div class="col-md-12 news-middle-menu-left">
+								<div class="news-breadcrumbs-menu">
+					                <ul>
+					                    <li><a href="/page/homepage">Home </a></li>
+					                    <img src="/website_smeet/static/src/image/about/breadcrumb-img.png" alt="Chania"/>
+					                    <li><a href="/page/news">Nieuws</a></li>
+					                </ul>
+					            </div>
+							</div>
+						</div>
+					</div>
+					<div class="news-page-top-right-bg-img"><img src="/website_smeet/static/src/image/about-right.png" alt=""/></div>
+					<div class="col-md-12 smeet_news_middle_parts">
+						<div class="container">
+						<div class="smeet_news_part1">
+							<div class="col-md-12 news_middle_parts1">
+								<div class="container">
+									<div class="col-md-6 news_middle_parts1_left">
+										<div class="news_middle_parts1_left_header">
+											<b>Voor Het Leven Verbonden</b>
+										</div>
+										<div class="news_middle_parts1_left_middle">
+											<p>Oktober, 2016</p>
+										</div>
+										<div class="news_middle_parts1_left_bottom">
+	                    					<p class="news_middle_parts1_left_bottom_text">Materialen kunnen op veel verschillende manieren met elkaar verbonden worden. Wie schroeven of bouten gebruikt, kan de stukken nadien opnieuw los maken. Solderen, lassen en lijmen zijn voorbeelden van permanente verbindingstechnieken.</p>
+	                    					<p class="news_middle_parts1_left_bottom_text">Lijmen blijft nog steeds één van de meest efficiënte oplossingen.Jowat is al bijna 100 jaar actief op de markt van de industrië-le lijmen en is door z’n drang naar innovatie uitgegroeid tot één van de toonaangevende fabrikanten.</p>
+										</div>
+										<div class="new_middle_part1_button">
+											<div class="news-readmore-buttton" id="news_detail"><a href="/page/newsdetail/1">Lees Meer</a></div>
+										</div>
+									</div>
+									<div class="col-md-5 news_middle_parts1_right">
+										<div class="news_middle_parts_right_img">
+						                    <img src="/website_smeet/static/src/image/img-1.png" alt="Chania"/>						
+										</div>
+									</div>
+								</div>
+							</div>
+							</div>
+							<div class="smeet_news_part2">
+							<div class="col-md-12 news_middle_parts2">
+								<div class="container">
+									<div class="col-md-6 news_middle_parts2_left">
+										<div class="news_middle_parts2_left_header">
+											<b>Nauwe Samenwerking</b>
+										</div>
+										<div class="news_middle_parts2_left_middle">
+											<p>April, 2016</p>
+										</div>
+										<div class="news_middle_parts2_left_bottom">
+	                    					<p class="news_middle_parts1_left_bottom_text">Smeets Trading is toeleverancier van producten voor de keuken- en interieurbouw, zoals kantenbanden van Rehau en lijmen van Jowat. Het bedrijf levert ook reinigingsproducten voor kantenlijmers en sproeisystemen van het Duitse merk Riepe.</p>
+	                    					<p class="news_middle_parts1_left_bottom_text">Door de jarenlange professionele samenwerking is er een erg hechte band ontstaan.</p>
+										</div>
+										<div class="new_middle_part2_button">
+											<div class="news-readmore-buttton"><a href="/page/newsdetail/2">Lees Meer</a></div>
+										</div>
+									</div>
+									<div class="col-md-5 news_middle_parts2_right">
+										<div class="news_middle_parts_right_img">
+						                    <img src="/website_smeet/static/src/image/img-2.png" alt="Chania"/>						
+										</div>
+									</div>
+								</div>
+							</div>
+							</div>
+							<div class="smeet_news_part3">
+							<div class="col-md-12 news_middle_parts3">
+								<div class="container">
+									<div class="col-md-6 news_middle_parts3_left">
+										<div class="news_middle_parts1_left_header">
+											<b>Kwalitatieve kantafwerkers</b>
+										</div>
+										<div class="news_middle_parts3_left_middle">
+											<p>Februari, 2016</p>
+										</div>
+										<div class="news_middle_parts3_left_bottom">
+											<p class="news_middle_parts1_left_bottom_text" >Smeets Trading is gespecialiseerd in kantenband, fineerbanden, lijmen en reinigingsproducten voor de keuken- en interieurin-dustrie. In het gamma zitten niet alleen diverse kantafwerkingen, maarook verschillende lijmsoorten enreinigingsproducten. Schrijnwerkers en interieurbouwers kunnen bij deze firma dus al het nodige vinden om plaatmateriaal van een mooie en kwali-tatieve afwerkrand te voorzien.</p>										</div>
+										<div class="new_middle_part3_button">
+											<div class="news-readmore-buttton"><a href="/page/newsdetail/3">Lees Meer</a></div>
+										</div>
+									</div>
+									<div class="col-md-5 news_middle_parts3_right">
+										<div class="news_middle_parts_right_img">
+						                    <img src="/website_smeet/static/src/image/build.jpg" alt="Chania"/>						
+										</div>
+								   </div>
+								</div>
+						   </div>
+						   </div>                   		
+						</div>
+					</div>
+					<div class="testing-bd-img"><div class="testing"></div></div>	
+		
+				</div>
+			</t>
+		</template>
+	
+	</data>
+</openerp>

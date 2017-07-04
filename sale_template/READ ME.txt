@@ -1,0 +1,11 @@
+List of Modules which you need to install 
+=========================================
+	1. sale
+	2. website_quote
+	3. portal_sale
+
+
+functionality of modules
+========================================================
+	
+Added custom email template for sale order and quotation.

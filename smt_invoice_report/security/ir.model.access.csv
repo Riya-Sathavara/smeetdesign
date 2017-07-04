@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fin_reduction,access_fin_reduction,model_financial_reduction,base.group_sale_salesman_all_leads,1,1,1,1

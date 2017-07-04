@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<template id="assets_backend" name="static_resources_demo assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+		<!--These links will be called when loading your Odoo -->
+                <script type="text/javascript" src="/menu_banner/static/src/js/customer_counter.js"></script>
+                <script type="text/javascript" src="/menu_banner/static/src/js/customer_manager.js"></script>
+                <script type="text/javascript" src="/menu_banner/static/src/js/customer_icon.js"></script>
+            </xpath>
+        </template>
+	</data>
+</odoo>

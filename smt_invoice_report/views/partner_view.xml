@@ -1,0 +1,41 @@
+<openerp>
+	<data>
+       <record id="partner_view_ext"  model="ir.ui.view" >
+            <field name="name">partner.view.ext</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+ 			<xpath expr="//page[@name='accounting']/group//group/field[@name='credit']" position="after">
+                <label for="fin_reduction_id" />
+				<div>
+					<field name="fin_reduction_id" class="oe_inline"/>
+					<label string="%" class="oe_inline"/>
+				</div>
+			</xpath>  
+            </field>
+        </record>
+
+        <record id="financial_reduction_form" model="ir.ui.view">
+            <field name="name">financial.reduction.form</field>
+            <field name="model">financial.reduction</field>
+            <field name="arch" type="xml">
+                <form string="">
+                	<group col="2">
+	                    <field name="fin_reduction"/>
+                	</group>
+                </form>
+            </field>
+        </record>
+
+        <record id="financial_reduction_tree" model="ir.ui.view">
+            <field name="name">financial.reduction.tree</field>
+            <field name="model">financial.reduction</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="fin_reduction"/>
+                </tree>
+            </field>
+        </record>
+
+	</data>
+</openerp>

@@ -1,0 +1,495 @@
+<openerp>
+	<data>
+
+		<record id="paperformat_picking" model="report.paperformat">
+			<field name="name">Picking A4</field>
+			<field name="default" eval="True" />
+			<field name="format">A4</field>
+			<field name="page_height">0</field>
+			<field name="page_width">0</field>
+			<field name="orientation">Portrait</field>
+			<field name="margin_top">10</field>
+			<field name="margin_bottom">15</field>
+			<field name="margin_left">20</field>
+			<field name="margin_right">15</field>
+			<field name="header_line" eval="False" />
+			<field name="header_spacing">35</field>
+			<field name="dpi">90</field>
+		</record>
+
+		<template id="stock.report_picking">
+			<t t-call="report.html_container">
+				<t t-foreach="docs" t-as="o">
+					<!-- <t t-call="smt_delivery_report.inherit_smeet_header_picking_operation"/> -->
+					<div class="page">
+						<div class="row" style="width:100%;margin-top: 10px;">
+							<div style="width:60%;">
+								<img src="/smt_delivery_report/static/src/image/company_logo.png"
+									style="width: 70%;margin-top: 15px;" />
+							</div>
+							<div
+								style="width:40%;margin-top: -90px;float: right;margin-right: -120px;line-height: 0;color: #654129;">
+								<p>
+									<img src="/smt_delivery_report/static/src/image/address.png"
+										style="height: 20px;padding-right: 11px;" />
+									Ambachtslaan 1021, B-3990 PEER
+								</p>
+								<p>
+									<img src="/smt_delivery_report/static/src/image/phone.png"
+										style="height: 16px;padding-right: 4px;" />
+									+32 (0) 11 79 17 34
+								</p>
+								<p>
+									<img src="/smt_delivery_report/static/src/image/fax.png"
+										style="height: 16px;padding-right: 8px;" />
+									+32 (0) 11 79 17 31
+								</p>
+								<p>
+									<img src="/smt_delivery_report/static/src/image/mail.png"
+										style="height: 12px;padding-right: 8px;" />
+									info@smeets-trading.be
+								</p>
+								<p>
+									<img src="/smt_delivery_report/static/src/image/web.png"
+										style="height: 16px;padding-right: 8px;" />
+									www.smeets-trading.be
+								</p>
+							</div>
+						</div>
+						<div>
+							<div style="color: #654129;margin-top: 45px;font-size: 33px;">
+								<b>Pickinglist voor:</b>
+							</div>
+
+						</div>
+						<div style="margin-top: 10px; width:100%; float:left;">
+							<div style="width:50%; float:left;">
+								<table width="100%">
+									<tr>
+										<td width="50%">
+											<p style="margin:0; padding:0;">
+												<b>
+													<span t-esc="set_company_name(o)" />
+												</b>
+											</p>
+											<p style="margin:0; padding:0;">
+												<b>
+													<span t-esc="set_name(o)" />
+												</b>
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td width="50%">
+											<b>
+												<span t-field="o.partner_id.street" />
+											</b>
+										</td>
+									</tr>
+									<tr>
+										<td width="50%">
+											<b>
+												<span t-field="o.partner_id.street2" />
+											</b>
+										</td>
+									</tr>
+									<tr>
+										<td width="50%">
+											<b>
+												<span t-field="o.partner_id.zip" />
+												&amp;nbsp;
+												<span t-field="o.partner_id.city" />
+											</b>
+										</td>
+									</tr>
+									<tr>
+										<td width="50%">
+											<b>
+												<span t-field="o.partner_id.country_id.name" />
+											</b>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div style="width:50%; float:left;">
+								<table width="100%">
+									<tr>
+										<td width="50%" style="padding-left: 50px;">
+											<t t-set="sale_company_name" t-value="o.sale_company_name()" />
+											<p style="margin:0; padding:0;">
+												<b>
+													<span t-esc="sale_company_name" />
+												</b>
+											</p>
+
+											<t t-set="sale_customer_name" t-value="o.sale_customer_name()" />
+											<p style="margin:0; padding:0;">
+												<b>
+													<span t-esc="sale_customer_name" />
+												</b>
+											</p>
+
+											<!-- <span t-esc="set_company_name(o)"/></p> -->
+											<!-- <p style="margin:0; padding:0;"><span t-esc="set_name(o)" 
+												/></p> -->
+										</td>
+									</tr>
+									<tr>
+										<td width="50%" style="padding-left: 50px;">
+											<t t-set="cust_street" t-value="o.cust_street()" />
+											<b>
+												<span t-esc="cust_street" />
+											</b>
+										</td>
+									</tr>
+									<tr>
+										<td width="50%" style="padding-left: 50px;">
+											<!-- <span t-field="o.partner_id.street2"/> -->
+											<t t-set="cust_street2" t-value="o.cust_street2()" />
+											<b>
+												<span t-esc="cust_street2" />
+											</b>
+										</td>
+									</tr>
+									<tr>
+										<td width="50%" style="padding-left: 50px;">
+											<!-- <span t-field="o.partner_id.zip"/>&amp;nbsp;<span t-field="o.partner_id.city"/> -->
+											<t t-set="cust_zip" t-value="o.cust_zip()" />
+											<b>
+												<span t-esc="cust_zip" />
+												&amp;nbsp;
+											</b>
+											<t t-set="cust_city" t-value="o.cust_city()" />
+											<b>
+												<span t-esc="cust_city" />
+											</b>
+
+										</td>
+									</tr>
+									<tr>
+										<td width="50%" style="padding-left: 50px;">
+											<!-- <span t-field="o.partner_id.country_id.name"/> -->
+
+											<t t-set="cust_count_name" t-value="o.cust_count_name()" />
+											<b>
+												<span t-esc="cust_count_name" />
+											</b>
+										</td>
+									</tr>
+
+								</table>
+							</div>
+						</div>
+						<br />
+						<!-- <div class="row"> -->
+						<!-- <div class="col-xs-6"> -->
+						<!-- <div t-if="o.picking_type_id.code=='incoming' and o.partner_id"> -->
+						<!-- <span><strong>Vendor Address:</strong></span> -->
+						<!-- </div> -->
+						<!-- <div t-if="o.picking_type_id.code=='internal' and o.partner_id"> -->
+						<!-- <span><strong>Warehouse Address:</strong></span> -->
+						<!-- </div> -->
+						<!-- <div t-if="o.picking_type_id.code=='outgoing' and o.partner_id"> -->
+						<!-- <span><strong>Customer Address:</strong></span> -->
+						<!-- </div> -->
+						<!-- <div t-if="o.partner_id" name="partner_header"> -->
+						<!-- <div t-field="o.partner_id" -->
+						<!-- t-field-options='{"widget": "contact", "fields": ["address", "name", 
+							"phone", "fax"], "no_marker": true, "phone_icons": true}'/> -->
+						<!-- <p t-if="o.sudo().partner_id.vat">VAT: <span t-field="o.sudo().partner_id.vat"/></p> -->
+						<!-- </div> -->
+						<!-- </div> -->
+						<!-- <div class="col-xs-5 col-xs-offset-1"> -->
+						<!-- <div t-if="o.move_lines and o.move_lines[0].partner_id and o.move_lines[0].partner_id.id 
+							!= o.partner_id.id"> -->
+						<!-- <span><strong>Delivery Address:</strong></span> -->
+						<!-- <div t-field="o.move_lines[0].partner_id" -->
+						<!-- t-field-options='{"widget": "contact", "fields": ["address", "name", 
+							"phone", "fax"], "no_marker": true, "phone_icons": true}'/> -->
+						<!-- </div> -->
+						<!-- <div t-if="o.picking_type_id.code != 'internal' and (not o.move_lines 
+							or not o.move_lines[0].partner_id) and o.picking_type_id.warehouse_id.partner_id"> -->
+						<!-- <span><strong>Warehouse Address:</strong></span> -->
+						<!-- <div t-field="o.picking_type_id.warehouse_id.partner_id" -->
+						<!-- t-field-options='{"widget": "contact", "fields": ["address", "name", 
+							"phone", "fax"], "no_marker": true, "phone_icons": true}'/> -->
+						<!-- </div> -->
+						<!-- </div> -->
+						<!-- </div> -->
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<p style="font-size:18px;">Picking nummer</p>
+						<h1 t-field="o.name" class="mt0" />
+						<table class="table table-condensed">
+							<thead>
+								<tr>
+									<th>
+										<strong>Bestelbonnr</strong>
+									</th>
+									<th>
+										<strong>Status</strong>
+									</th>
+									<th>
+										<strong>Vrijgegeven op</strong>
+									</th>
+									<th name="td_sched_date_h">
+										<strong>Geplande leverdatum</strong>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<span t-field="o.origin" />
+									</td>
+									<td>
+										<span t-field="o.state" />
+									</td>
+									<td>
+										<span t-field="o.date" />
+									</td>
+									<td name="td_sched_date">
+										<span t-field="o.min_date" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<br />
+						<br />
+						<table class="table table-condensed" t-if="o.pack_operation_ids">
+							<thead>
+								<tr>
+									<th></th>
+									<th>
+										<strong>product</strong>
+									</th>
+									<th class="text-right">
+										<strong>Aantal</strong>
+									</th>
+									<th class="text-right">
+										<strong>Lengte</strong>
+									</th>
+									<th class="text-right">
+										<strong>Tot.lengte</strong>
+									</th>
+									<t t-if="o.picking_type_id.code != 'incoming'">
+										<th>
+											<strong>Locatie</strong>
+										</th>
+									</t>
+									<th>
+										<strong>Barcode</strong>
+									</th>
+									<t t-if="o.picking_type_id.code != 'outgoing'">
+										<th>
+											<strong>Bestemming</strong>
+										</th>
+									</t>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- <t t-foreach = "o.move_lines_related" t-as="move"> -->
+								<tr t-foreach="o.pack_operation_ids" t-as="pack_operation">
+									<td>
+										<div
+											style=" width:15px; height:15px; border: 2px solid black; display: inline-flex;margin-right:3px;"></div>
+									</td>
+									<td>
+										<span t-field="pack_operation.product_id" />
+										<t
+											t-if="not pack_operation.product_id and pack_operation.package_id">
+											<span t-field="pack_operation.package_id" />
+										</t>
+									</td>
+									<td class="text-right">
+										<span t-field="pack_operation.product_qty" />
+										<span t-field="pack_operation.product_uom_id" groups="product.group_uom" />
+									</td>
+									<td class="text-right">
+										<span t-field="pack_operation.zpro_length" />
+									</td>
+									<td class="text-right">
+										<span t-field="pack_operation.total_length" />
+									</td>
+									<t t-if="o.picking_type_id.code != 'incoming'">
+										<td>
+											<span t-field="pack_operation.location_id" />
+											<span t-if="pack_operation.package_id">:</span>
+											<span t-field="pack_operation.package_id" />
+										</td>
+									</t>
+									<td>
+										<span
+											t-if="pack_operation.product_id and pack_operation.product_id.barcode">
+											<img
+												t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', pack_operation.product_id.barcode, 600, 100)"
+												style="width:300px;height:50px" />
+										</span>
+										<span
+											t-if="pack_operation.package_id and not pack_operation.product_id">
+											<img
+												t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', pack_operation.package_id.name, 600, 100)"
+												style="width:300px;height:50px" />
+										</span>
+										<table class="table table-condensed" t-if="pack_operation.pack_lot_ids">
+											<thead>
+												<tr>
+													<th>Lot</th>
+													<th>Qty</th>
+												</tr>
+											</thead>
+											<tr t-foreach="pack_operation.pack_lot_ids" t-as="packlot">
+												<td>
+													<span t-field="packlot.lot_id" />
+													<t t-if="not packlot.lot_id">
+														<span t-field="packlot.lot_name" />
+													</t>
+												</td>
+												<td>
+													<span t-field="packlot.qty" />
+													<t
+														t-if="o.picking_type_id.use_existing_lots and o.state!='done'">
+														/
+														<span t-field="packlot.qty_todo" />
+													</t>
+												</td>
+											</tr>
+										</table>
+									</td>
+									<t t-if="o.picking_type_id.code != 'outgoing'">
+										<td>
+											<span t-field="pack_operation.location_dest_id" />
+											<span t-if="pack_operation.result_package_id">:</span>
+											<span t-field="pack_operation.result_package_id" />
+										</td>
+									</t>
+								</tr>
+								<!-- </t> -->
+							</tbody>
+						</table>
+						<p t-if="not o.pack_operation_ids">
+							You do not have any products reserved for this picking. Please click
+							the 'Reserve' button
+							to check if products are available.
+						</p>
+						<p style="page-break-before:always;" />
+						<p>ALGEMENE VERKOOPSVOORWAARDEN</p>
+
+						<p>1. De bedingen van onze algemene voorwaarden maken deel uit van
+							al onze offertes, overeenkomsten, leveringen en facturen. De
+							klant wordt geacht kennis ervan te hebben genomen en er alle
+							bedingen van te hebben aanvaard behoudens wanneer uitdrukkelijk
+							en schriftelijk anders werd overeengekomen. Afwijkingen van deze
+							algemene voorwaarden, zelfs indien vermeld op documenten
+							afkomstig van de klant, zijn alleen van toepassing wanneer deze
+							door ons uitdrukkelijk schriftelijk aanvaard zijn.
+						</p>
+						<p>2. Al onze offertes en prijzen zijn vrijblijvend en verbinden
+							ons niet, tenzij uitdrukkelijk bevestigd zijn. Iedere nieuwe
+							offerte doet alle vorige teniet. Al onze prijzen worden steeds
+							vermeld exclusief BTW en zonder leveringskosten, die behouden
+							wanneer anders voorzien. Wij houden ons het recht voor onze
+							prijzen te wijzigen ook als de order bevestigd zou zijn, wanneer
+							er veranderingen optreden in de faktoren die een de berekening
+							van de prijzen ten grondslag liggen; wijzigingen van de koers van
+							buitenlandse valuta, verhoging invoerkosten, lonen, prijzen van
+							grondstoffen etc. Behoudens anders voorzien bedraagt de
+							geldigheidsduur van de offerte één maand.
+						</p>
+						<p>3. Ingeval van annulering van de bestelling of overeenkomst
+							door de klant zal de klant een forfaitaire schadevergoeding
+							verschuldigd zijn 25% van het bedrag van de overeenkomst of
+							bestelling, tenzij en dit van rechtswege en zonder
+							ingebrekestelling en dit onverminderd ons recht om een hogere
+							schadevergoeding te betalen in geval van bewezen grotere schade,
+							tevens onverminderd ons recht de gedwongen uitvoering van de
+							overeenkomst te vorderen.
+						</p>
+						<p>4. Al onze facturen zijn betaalbaar op 30 dagen factuurdatum op
+							de maatschappelijke zetel van ons bedrijf te Peer, ingeval van
+							betaling binnen de 8 dagen zal echter een korting toegestaan
+							worden van 2%.
+						</p>
+						<p>5. Iedere op de vervaldag onbetaalde factuur zal van rechtswege
+							en zonder ingebrekestelling verhoogd worden met een
+							nalatigheidintrest van 1% per maand en met een forfaitaire
+							schadevergoeding van 10%. De verkochte goederen worden pas
+							eigendom van de klant nadat de verschuldigde bedragen volledig
+							zijn betaald. De risico’s die de goederen lopen zijn volledig ten
+							laste van de klant zodra deze ter zijne beschikking worden
+							gesteld. In geval van wanbetaling houden wij ons het recht voor
+							om met de uitvoering van alle lopende bestellingen te wachten tot
+							de betaling verricht is.
+						</p>
+						<p>6. De klant die ons een opdracht geeft wordt steeds
+							verondersteld als zijnde daartoe gerechtigd. Hij draagt
+							gebeurlijk samen met zijn lastgevers en bij uitsluiting van ons
+							al de verantwoordelijkheid ten opzichte van derden. Al de door
+							ons gebruikte technieken zijn uitsluitend onze eigendom en mogen
+							niet nagemaakt worden, behoudens onze voorafgaande schriftelijke
+							toestemming.
+						</p>
+						<p>7. Onze leveringstermijn is niet bindend. Indien er zich
+							moeilijkheden of vertraging in geval van heirkracht voordoen
+							tijdens de uitvoering van de opdracht.
+						</p>
+						<p>8. De levering heeft plaats bij vertrek uit ons magazijn. Zij
+							heeft in beginsel plaats op kosten en risico van de klant tenzij
+							uitdrukkelijk anders werd overeengekomen.
+						</p>
+						<p>9. De klant dient de door ons geleverde goederen te controleren
+							bij ontvangstnamen van de materialen. Eventuele klachten
+							betreffende zichtbare gebreken moeten ons schriftelijk toekomen
+							binnen de 8 dagen na ontvangst der goederen en voor de verwerking
+							van de goederen, per aangetekend schrijven. Na deze termijn zijn
+							klachten onontvankelijk . Klachten in verband met
+							kleurverschillen zullen slechts geldig zijn indien de geleverde
+							kleur niet overeenstemt met het aan de hand van ons catalogus
+							stelde kleurnummer. Er dient, zowel bij platenfabricage als bij
+							de kantenproductie rekening gehouden te worden met een zekere
+							kleurnuanceverschillen per productie per serie. Een bepaalde
+							kleur kan bij een volgende levering licht afwijken.
+						</p>
+						<p>10. Op straffe van verval moet elke klacht op protest
+							betreffende verborgen gebreken per aangetekend schrijven binnen
+							de 8 dagen na ontvangst van de goederen geschieden. Indien de
+							klant verzuimt de goederen in ontvangst te nemen begint de
+							termijn van 8 dagen te lopen bij ontvangst van de verzendingsnota
+							of van elk gelijkwaardig document, bij ontstentenis hiervan vanaf
+							de ontvangst van de factuur. Op al onze overeenkomsten is steeds
+							het Belgisch recht van toepassing alsmede deze
+							verkoopsvoorwaarden, tenzij uitdrukkelijk anders overeengekomen
+							wordt. Voor alle geschillen zijn uitsluitend de Rechtbanken van
+							het arrondissement Tongeren en het Vredegerecht van Bree bevoegd.
+							Nietigheid van een beding van deze overeenkomst kan nooit de
+							algehele nietigheid van de overeenkomst met zich meebrengen.
+						</p>
+					</div>
+					<!-- </t> -->
+					<div class="footer">
+						<div class="text-center" style="border-top: 1px solid black;">
+							<ul class="list-inline">
+								<li>Page:</li>
+								<li>
+									<span class="page" />
+								</li>
+								<li>/</li>
+								<li>
+									<span class="topage" />
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</t>
+			</t>
+		</template>
+
+
+
+	</data>
+</openerp>

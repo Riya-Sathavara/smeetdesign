@@ -1,0 +1,37 @@
+<openerp>
+    <data>
+
+       <record id="customer_import_form"  model="ir.ui.view" >
+            <field name="name">customer.import.wiz.form</field>
+            <field name="model">customer.import.wiz</field>
+            <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="file_name" filename="datas_fname"/>
+                        <field name="datas_fname"/>
+                    </group>
+                    <footer>
+                        <button string='Import' name="import_partners" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+            </field>
+       </record>
+        <record model="ir.actions.act_window" id="action_customer_import">
+            <field name="name">Import Partners</field>
+            <field name="res_model">customer.import.wiz</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="customer_import_form"/>
+            <field name="view_type">form</field>
+        </record>
+
+        <menuitem name="Import Customer"
+            id="menu_customer_import"
+            groups="base.group_configuration"
+            parent="base.menu_sale_config"
+            action="action_customer_import"/>
+            
+</data>
+</openerp>

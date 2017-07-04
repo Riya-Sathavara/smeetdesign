@@ -1,0 +1,294 @@
+<openerp>
+	<data>
+	
+		<template id="smeets_contact" inherit_id="website.contactus" name="smeets contact page">
+	        <xpath expr="//div" position="replace">
+	          	<div class="oe_structure"/>
+	          		<div class="contact_smeet_page">
+					<section class="news_sec_1 contact_sec_1">
+					    <div class="news_header">
+					        <img class="news_banner_img contact_banner_img1" src="/website_smeet/static/src/image/news/News-Banner.jpg"  alt=""/>
+					        <div class="container">
+					            <h1 class="news_heading contact_heading1">Contacteer ons</h1>
+					        </div>
+					    </div>
+					</section>
+					<div class="contact_middle_menu">
+						<div class="container">
+							<div class="col-md-12 contact-middle-menu-left">
+								<div class="contact-breadcrumbs-menu">
+					                <ul>
+					                    <li><a href="/page/homepage">Home </a></li>
+					                    <img src="/website_smeet/static/src/image/contact/breadcrumb-img.png" alt="Chania"/>
+					                    <li><a href="/page/contactus">Contacteer ons</a></li>
+					                </ul>
+					            </div>
+							</div>
+						</div>
+					</div>
+					<div class="contact_middle_parts">
+						<!-- <div class="contact-top-right-bg-img"><img src="/website_smeet/static/src/image/about-right.png" alt=""/></div> -->
+								<div class="col-md-12 contact_content_middle_header">
+									<div class="container">
+										<div class="content_middle_header">
+											<h1>Stuur ons een bericht</h1>
+										</div>
+									</div> 
+								</div>
+							<div class="col-md-12 col-sm-12 content_middle_part_1">
+								<div class="container">
+									<div class="col-md-7 middle_part_1_left">
+										<div class="part_1_left_text">
+											<p class="part_1_left_text_para">Vul onderstaand formulier in en we nemen zo spoedig mogelijk contact met je op.</p>
+										</div>
+									</div>
+									<div class="col-md-5 middle_part_1_right">
+										<div class="part_1_right_social_icon">
+											 <a class="con_soci_face" t-att-href="website.social_facebook"  target="_blank">
+					                          	<i class="fa fa-facebook"></i>
+					                         </a>
+											<a class="con_soci_google_pl" t-att-href="website.social_googleplus"  title="Follow with Google Plus" target="_blank"><i class="fa fa-google-plus"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						<div class="col-md-12 col-sm-12 content_middle_part_2">
+							<div class="container">
+								<div class="col-md-7 con_middle_part2_left">
+									<div class="part_2_left_form_group">
+										   <form action="/website_form/" method="post" data-model_name="crm.lead" data-success_page="/page/website_crm.contactus_thanks" class="s_website_form form-horizontal container-fluid mt32 smeet-contact-form" enctype="multipart/form-data">
+						                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+						                        <div class="form-group form-field o_website_form_required_custom">
+						                            <div class="col-md-12 form_group_fir">
+						                                <input type="text" class="form-control o_website_form_input from-contact-input" name="contact_name" placeholder="uw naam" t-att-value="request.params.get('contact_name', '')" required="" />
+						                            </div>
+						                        </div>
+						                        <div class="form-group form-field">
+						                            <div class="col-xs-6">
+						                                <input type="text" class="form-control o_website_form_input from-contact-input" name="phone"  placeholder="Telefoonnummer" t-att-value="request.params.get('phone', '')" />
+						                              </div>
+						                              <div class="col-xs-6">
+						                                <input type="text" class="form-control o_website_form_input from-contact-input"  placeholder="E-Mail" name="email_from" required="" t-att-value="request.params.get('email_from', '')" />
+						                            </div>
+						                        </div>
+						                        <div class="form-group form-field">
+						                            <div class="col-xs-6">
+						                                <input type="text" class="form-control o_website_form_input from-contact-input" placeholder="uw bedrijf" name="partner_name" required="" t-att-value="request.params.get('partner_name', '')"/>
+						                              </div>
+						                              <div class="col-xs-6">
+						                                <input type="text" class="form-control o_website_form_input from-contact-input"  placeholder="onderwerp" name="name" required="" t-att-value="request.params.get('name', '')"/>
+						                            </div>
+						                        </div>
+						                         <div class="form-group form-field o_website_form_required_custom">
+							                            <div class="col-md-12">
+							                                <textarea class="form-control o_website_form_input from-contact-textarea "  placeholder="Uw vraag" name="description" required=""><t t-esc="request.params.get('description', '')"/></textarea>
+							                            </div>
+							                        </div>
+						                        
+<!-- 						                        <div class="form-group form-field o_website_form_required_custom"> -->
+<!-- 						                            <label class="control-label" for="email_from">Email</label> -->
+<!-- 						                            <div class=""> -->
+<!-- 						                                <input type="text" class="form-control o_website_form_input" name="email_from" required="" t-att-value="request.params.get('email_from', '')" /> -->
+<!-- 						                            </div> -->
+<!-- 						                        </div> -->
+<!-- 						                        <div class="form-group form-field o_website_form_required_custom"> -->
+<!-- 						                            <label class="control-label" for="partner_name">Your Company</label> -->
+<!-- 						                            <div class=""> -->
+<!-- 						                                <input type="text" class="form-control o_website_form_input" name="partner_name" required="" t-att-value="request.params.get('partner_name', '')" /> -->
+<!-- 						                            </div> -->
+<!-- 						                        </div> -->
+<!-- 						                        <div class="form-group form-field o_website_form_required"> -->
+<!-- 						                            <label class=" control-label" for="name">Subject</label> -->
+<!-- 						                            <div class=""> -->
+<!-- 						                                <input type="text" class="form-control o_website_form_input" name="name" required="" t-att-value="request.params.get('name', '')" /> -->
+<!-- 						                            </div> -->
+<!-- 						                        </div> -->
+<!-- 						                        <div class="form-group form-field o_website_form_required_custom"> -->
+<!-- 						                            <label class="control-label" for="description">Your Question</label> -->
+<!-- 						                            <div class=""> -->
+<!-- 						                                <textarea class="form-control o_website_form_input" name="description" required=""><t t-esc="request.params.get('description', '')"/></textarea> -->
+<!-- 						                            </div> -->
+<!-- 						                        </div> -->
+						                        <div class="form-group">
+						                            <div class="col-md-offset-3 contact_buttton_shilp">
+						                                <button class="contact-ship-buttton  btn-lg o_website_form_send">Verstuur</button>
+						                                <span id="o_website_form_result"></span>
+						                            </div>
+						                        </div>
+						                    </form>
+									</div>
+								</div>
+								<div class="col-md-5 con_middle_part2_right">
+									<div class="part-2-rightbox">
+										<div class="contact-with">
+			                                <h1>Contacteer ons</h1>
+			                                <ul>
+			                                    <li>
+			                                        <span>
+			                                        	<i aria-hidden="true" class="fa fa-map-marker"></i>
+			                                        </span>
+			                                        <p>Smeets Trading bvba<br></br>
+			                                            Ambachtslaan 1021<br></br>
+			                                            3990 Peer<br></br>
+			                                            België
+			                                        </p>
+			                                    </li>
+			                                    <li>
+			                                        <span>
+			                                        	<i aria-hidden="true" class="fa fa-phone"></i>
+			                                        </span>
+			                                        <p> +32 (0)11 79 17 34</p>
+			                                    </li>
+			                                    <li>
+			                                        <span>
+			                                        	<i aria-hidden="true" class="fa fa-print"></i>
+			                                        </span>
+			                                        <p> +32 (0)11 79 17 31</p>
+			                                    </li>
+			                                    <li>
+			                                        <span>
+			                                        	<i aria-hidden="true" class="fa fa-envelope-o"></i>
+			                                        </span> 
+			                                        <p>info@smeets-trading.be</p>
+			                                    </li>
+			                                </ul>
+			                            </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						 <!-- <div class="contact-bottom-left-bg-img"><img src="/website_smeet/static/src/image/about-left.png" alt=""/></div>	 -->                   		
+					</div>
+					<div class="contact_bottom_page">
+						<div class="contact_map">
+					        <img src="/website_smeet/static/src/image/contact/map.jpg" alt=""/> 
+					    </div>
+					</div>
+					</div>	          
+				</xpath>
+	    </template>
+	    
+	   <template id="website_crm.contactus_thanks" name="Contact us">
+            <t t-call="website.layout">   
+	          	<div class="oe_structure"/>
+	          		<div class="contact_smeet_page">
+	          		<section class="contact_sec_1">
+					    <div class="contact_header">
+					        <img class="contact_banner_img" src="/website_smeet/static/src/image/news/News-Banner.jpg" alt=""/>
+					        <div class="container">
+					            <h1 class="contact_heading">Contacteer ons</h1>
+					        </div>
+					    </div>
+					</section>
+					<div class="contact_middle_menu">
+						<div class="container">
+							<div class="col-md-12 contact-middle-menu-left">
+								<div class="contact-breadcrumbs-menu">
+					                <ul>
+					                    <li><a href="/page/homepage">Home </a></li>
+					                    <img src="/website_smeet/static/src/image/contact/breadcrumb-img.png" alt="Chania"/>
+					                    <li><a href="/page/contactus">Contacteer ons</a></li>
+					                </ul>
+					            </div>
+							</div>
+						</div>
+					</div>
+					<div class="contact_middle_parts">
+<!-- 						<div class="contact-thanks-top-right-bg-img"><img src="/website_smeet/static/src/image/about-right.png" alt=""/></div> -->
+							<div class="contact_content_middle_header">
+								<div class="content_middle_header">
+									<div class="container">
+										<h1>Stuur ons een bericht</h1>
+									</div> 
+								</div>
+							</div>
+							<div class="col-md-12 col-sm-12 content_middle_part_1">
+								<div class="container">
+									<div class="col-md-7 middle_part_1_left">
+										<div class="part_1_left_text">
+											<p class="part_1_left_text_para">Vul onderstaand formulier in en we nemen zo spoedig mogelijk contact met je op.</p>
+										</div>
+									</div>
+									<div class="col-md-5 middle_part_1_right">
+										<div class="part_1_right_social_icon">
+											 <a class="con_soci_face" t-att-href="website.social_facebook" target="_blank">
+					                          	<i class="fa fa-facebook" aria-hidden="true"></i>
+					                         </a>
+											<a class="con_soci_google_pl" t-att-href="website.social_googleplus" title="Follow with Google Plus" target="_blank"><i class="fa fa-google-plus"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						<div class="col-md-12 col-sm-12 content_middle_part_2">
+							<div class="container">
+								<div class="col-md-7 con_middle_part2_left">
+								<div class="thanks">
+		                            <div id="wrap">
+									    <div class="oe_structure"/>
+										    <div class="container">
+										        <h1>Thanks!</h1>
+										        <div class="row">
+										            <div class="con-thanks-box">
+										                <div class="alert alert-success">
+										                    Your message has been sent successfully.
+										                    <button type="button" class="close" data-dismiss="alert">&amp;times;</button>
+										                </div>
+										            </div>
+										        </div>
+										    </div>
+									    <div class="oe_structure"/>
+									</div>
+								</div>
+								</div>
+								<div class="col-md-5 con_middle_part2_right">
+									<div class="part-2-rightbox">
+										<div class="contact-with">
+			                                <h1>Contacteer ons</h1>
+			                                <ul>
+			                                    <li>
+			                                        <span>
+			                                        	<i aria-hidden="true" class="fa fa-map-marker"></i>
+			                                        </span>
+			                                        <p>Smeets Trading bvba<br></br>
+			                                            Ambachtslaan 1021<br></br>
+			                                            3990 Peer<br></br>
+			                                            België 
+			                                        </p>
+			                                    </li>
+			                                    <li>
+			                                        <span>
+			                                        	<i aria-hidden="true" class="fa fa-phone"></i>
+			                                        </span>
+			                                        <p> +32 (0)11 79 17 34</p>
+			                                    </li>
+			                                    <li>
+			                                        <span>
+			                                        	<i aria-hidden="true" class="fa fa-print"></i>
+			                                        </span>
+			                                        <p> +32 (0)11 79 17 31</p>
+			                                    </li>
+			                                    <li>
+			                                        <span>
+			                                        	<i aria-hidden="true" class="fa fa-envelope-o"></i>
+			                                        </span> 
+			                                        <p>info@smeets-trading.be</p>
+			                                    </li>
+			                                </ul>
+			                            </div>
+									</div>
+								</div>
+							</div>
+						</div>
+<!-- 						 <div class="contact-thanks-bottom-left-bg-img"><img src="/website_smeet/static/src/image/about-left.png" alt=""/></div>	                   		 -->
+					</div>
+					<div class="contact_bottom_page">
+						<div class="contact_map">
+					        <img src="/website_smeet/static/src/image/contact/map.jpg" alt=""/> 
+					    </div>
+					</div>
+					</div>
+				</t>	          
+	    </template>
+	
+	</data>
+</openerp>

@@ -1,0 +1,64 @@
+<openerp>
+	<data>
+	
+ 		<template id="website_smeets_news_detail_3"  name=" News Detail 3">
+			<t t-call="website.layout">
+				<div class="oe_structure"/>
+				<title>News Detail 3</title>
+				<div class="smeet_news_detail_3">
+					<section class="news_sec_1">
+					    <div class="news_header">
+					        <img class="news_banner_img" src="/website_smeet/static/src/image/news/News-Banner.jpg"  alt=""/>
+					        <div class="container">
+					            <h1 class="news_heading">Nieuws Informatie</h1>
+					        </div>
+					    </div>
+					</section>
+					<div class="news_middle_menu">
+						<div class="container">
+							<div class="col-md-12 news-middle-menu-left">
+								<div class="news-breadcrumbs-menu">
+					                <ul>
+					                    <li><a href="/page/homepage">Home </a></li>
+					                    <img src="/website_smeet/static/src/image/about/breadcrumb-img.png" alt="Chania"/>
+					                    <li><a href="/page/newsdetail/3">Nieuws Informatie</a></li>
+					                </ul>
+					            </div>
+							</div>
+						</div>
+					</div>
+					<div class="news-page-detail-1-top-right-bg-img"><img src="/website_smeet/static/src/image/about-right.png" alt=""/></div>
+					<div class="news_detail_1_middle">
+						<div class="container">
+							<div class="col-md-12 news_detail1_middle_parts">
+								<div class="col-md-6 news_detail1_middle_left">
+									<div class="news_detail1_middle_left_header">
+										<h1>Kwalitatieve kantafwerkers</h1>
+									</div>
+									<div class="news_detail1_middle_left_middle">
+										<p class="news_detail1_middle_left_middle_text">Februari, 2016</p>
+									</div>
+									<div class="news_detail1_middle_left_bottom">
+											<p class="news_detail1_middle_left_bottom_text1" >Smeets Trading is gespecialiseerd in kantenband, fineerbanden, lijmen en reinigingsproducten voor de keuken- en interieurin-dustrie. In het gamma zitten niet alleen diverse kantafwerkingen, maar ook verschillende lijmsoorten enreinigingsproducten.Schrijnwerkers en interieurbouwers kunnen bij deze firma dus al het nodige vinden om plaatmateriaal van een mooie en kwali-tatieve afwerkrand te voorzien.</p>
+											<p class="news_detail1_middle_left_bottom_text2" >STEEDS IN VOORRAAD</p>
+											<p class="news_detail1_middle_left_bottom_text3" >Naast kantenband van het merk Rehau biedt Smeets Trading ook een compleet gamma kwaliteitslijmen van het merk Jowat aan. Het gamma omvat witte houtlijmen, PU en EVA lijmen voor kantenaanlijmmachi-nes alsook contactlijmen. Voor siliconenkit-ten en verspuitbare contactlijm s Smeets Trading het verdeelpunt van het merk Zettex. Interieurbouwers en schrijnwer-kers vinden bij deze verdeler ook manuele cleaners en reinigingsproducten voor alle kantenlijmers met elektronisch gestuurde sproei-installaties. Smeets werkt daarvoor samen met het merk Riepe en heeft alle reinigingsproducten van dit merk steeds opvoorraad. Smeets Trading garandeert zijn klanten dan ook steeds producten van een zeer hoge kwaliteit, een snelle levertermijn en een uitstekende service.</p>
+
+									</div>
+								</div>
+								<div class="col-md-4 news_detail1_middle_right">
+									<img src="/website_smeet/static/src/image/build.jpg" alt="Chania"/>
+								</div>
+							</div>
+							<div class="col-md-11 news_detail1_bottom_parts">
+								<p class="news_detail1_bottom_parts_text1" >LASERTECHNOLOGIE VAN REHAU</p>
+								<p class="news_detail1_bottom_parts_text2" >Rehau biedt met zicht op design, functie en verwerking voor iedere eis de perfecte oplossing. Deze firma heeft een oneindige variatie met meer als 18.000 decors en elke kantenband is ook in alle afmetingen verkrijgbaar, zowel in PP, ABS, PMMA,PVC, PET. Er bestaan 3 soorten techno-logieën voor de verwerking van de band.Zo is er de lasertechnologie, waarbij een laser de functionele laag activeert. De hot airtechnologie gebruikt hete druklucht om de functionele laag te smelten, terwijl bij de NIR technologie warmteënergie snel ennauwkeurig overgedragen wordt.</p>
+								<p class="news_detail1_bottom_parts_text3" >Smeets Trading heeft het merendeel van de collec-tie in de gebruikelijke afmetingen op voor-raad liggen en garandeert op die manier een snelle levering. Verder produceert het merk Rehau kanten op maat waarbij de structuur en glansafwerking vrij gekozen kunnen worden.</p>
+							</div>
+						</div>
+					</div>
+					<div class="testing-bd-img"><div class="testing"></div></div>
+				</div>
+			</t>
+		</template>
+	</data>
+</openerp>

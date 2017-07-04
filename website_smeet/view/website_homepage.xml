@@ -1,0 +1,318 @@
+<openerp>
+<data>
+	<template id="smeet_website__assets" inherit_id="website.assets_frontend" name="smeets website  Assets">
+        	<xpath expr="." position="inside">
+			        
+        	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        	
+        	<link href="/website_smeet/static/src/css/style.css" rel="stylesheet" type="text/css"/> 
+        	<link href="/website_smeet/static/src/css/custom.css" rel="stylesheet" type="text/css"/> 
+            <link href="/website_smeet/static/src/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>        	
+            <link href="/website_smeet/static/src/css/menu-styles.css" rel="stylesheet" type="text/css"/>
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet"/>         	
+            <link href="/website_smeet/static/src/css/fonts.css" rel="stylesheet" type="text/css"/>
+<!--              <link href="/website_smeet/static/src/css/font-awesome.min.css" rel="stylesheet" type="text/css"/> -->
+			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+
+                <script src="/website_smeet/static/src/js/odoo.js"></script>
+                <script src="/website_smeet/static/src/js/menu-script.js"></script>
+                
+                	
+      
+        	</xpath>
+        </template> 
+
+       <template id="website_smeet_header" inherit_id="website.layout" name="Top Header page">
+        	<xpath expr="//header" position="replace">
+        	
+        		<div class="oe_structure"/>
+					<div class="header-top ">
+                		<div class="container">
+								<div class=" col-md-3 header-top-left">
+                                    <div class="logo-home"><a href="/page/homepage"><img src="/website_smeet/static/src/image/logo.png" alt=""/></a></div>
+                                    <div class="logo"><a href="/page/homepage"><img src="/website_smeet/static/src/image/page-logo.png" alt=""/></a></div>
+                                </div>
+                                <div class="col-md-9 header-top-right">
+                                    <!-- <div class="menu">
+                                        <ul>
+                                            <li>
+                                                <a href="/page/homepage" class="">Home</a>
+                                            </li>
+                                            <li>
+                                                <a href="/page/product" class="">Products</a>
+                                            </li>
+                                            <li>
+                                                <a href="/page/news" class="">News</a>
+                                            </li>
+                                            <li>
+                                                <a href="/page/contactus" class="">Contact Us</a>
+                                            </li>
+                                            <li groups="base.group_public" t-if="website.user_id == user_id">
+                                                <a t-attf-href="/web/login">
+                                                    <b>Sign in</b>
+                                                </a>
+                                            </li>                         
+                                            <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <b>
+                                                        <span t-esc="user_id.name"/>
+                                                        <span class="caret"></span>
+                                                    </b>
+                                                </a>
+                                                <ul class="dropdown-menu js_usermenu" role="menu">
+                                                    <li>
+                                                        <a href="/web" role="menuitem">My Account</a>
+                                                    </li>
+                                                    <li>
+                                                        <a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div> -->
+                                    <div id='cssmenu' class="cssmenu">
+                                        <ul>
+                                            <li class='active'><a href='/page/homepage'>HOME</a></li>
+                                         	    <li class="dropdown smeet-dropdown">
+											          <a href="javascript:void(0)" class="dropdown-toggle " data-toggle="dropdown">Produkten<b class="caret"></b></a>
+												          <ul class="dropdown-menu smeet-drop-menu" role="menuitem" aria-labelledby="dropdownMenu">
+												            <li><a href="/page/product/1">Kantenband</a></li>
+												            <li><a href="/page/product/2">Fineer</a></li>
+												            <li><a href="/page/product/3">Lijmen</a></li>
+												            <li><a href="/page/product/4">Reinigingsmiddelen</a></li>
+												            <li><a href="/page/product/5">Siliconen</a></li>
+												            <li><a href="/page/product/6">Klemgereedschap</a></li>
+												          </ul>
+										        	</li>
+                                            <li class=''><a href='/page/news'>Nieuws</a></li>
+                                            <li class=''><a href='/page/contactus'> Contacteer ons </a></li>
+<!-- 											<li groups="base.group_public" t-if="website.user_id == user_id"> -->
+<!--                                                 <a t-attf-href="/web/login"> -->
+<!--                                                     <b>Sign in</b> -->
+<!--                                                 </a> -->
+<!--                                             </li> -->
+<!--                                             <li t-if="website.user_id != user_id"> -->
+<!-- 												<a href="#"> -->
+<!-- 													<b> <span t-esc="user_id.name"/></b> -->
+<!-- 												</a> -->
+<!-- 												 <ul role="menu"> -->
+<!-- 	                                                    <li> -->
+<!-- 	                                                        <a href="/web" role="menuitem">My Account</a> -->
+<!-- 	                                                    </li> -->
+<!-- 	                                                    <li> -->
+<!-- 	                                                        <a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a> -->
+<!-- 	                                                    </li> -->
+<!--                                                 </ul> -->
+<!-- 											</li>     -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+							</div>
+        	</xpath>
+        </template>
+        <template id="smeet_home" inherit_id="website.homepage" name="smeets home page">
+            <xpath expr="//div[@id='wrap']" position="inside">
+                <div class="oe_structure"/>
+        		<div class="smeet_page">
+        		<!-- slider Start -->
+	                <div class="header_slider">
+	                    <div id="myCarousel" class="carousel slide homepage_slider" data-ride="carousel">
+	                        <div class="carousel-inner" role="listbox">
+	                            <div class="item active">
+	                                <img src="/website_smeet/static/src/image/Banner-3-2.jpg" alt="Chania"/>
+	                            </div>
+<!-- 	                            <div class="item"> -->
+<!-- 	                                <img src="/website_smeet/static/src/image/Banner-3-2.jpg" alt="Ch"/> -->
+<!-- 	                                <div class="carousel-caption"> -->
+<!-- 	                                </div> -->
+<!-- 	                            </div> -->
+	                            <div class="banner-hedding">
+	                                <div class="hedding">
+	                                    <p class="heading-1"><strong>Smeets</strong> Trading</p>
+	                                    <p class="heading-2">TOELEVERANCIER: KANTENBAND, FINEERBAND, LIJMEN, REINIGINGSMIDDEL EN KLEMGEREEDSCHAPPEN VOOR DE KEUKEN- EN INTERIEURBOUW. UW DEALER VAN REHAU, JOWAT, HENKEL, RIEPE, ZETTEX, SCHWAIGER.</p>
+	                                </div>
+
+	                                <div class="smeet-button">
+	                                    <a href="#website-smeet-product">Produktgamma<span class="arrow"><img src="/website_smeet/static/src/image/arrow.jpg" width="61" height="50" alt=""/></span></a>
+	                                </div>
+	                                <div class="section-button">
+	                                   <a href="#about-smeet"><img src="/website_smeet/static/src/image/down-arrow.png" alt="demo"/></a>
+	                                </div>
+<!-- 	                                <div class="container"> -->
+<!-- 	                                    <div class="scroll-main"> -->
+<!-- 	                                        <a class="scroll" href="#about-main"></a>    -->
+<!-- 	                                    </div> -->
+<!-- 	                                </div> -->
+	                            </div>
+	                        </div>                        
+	                    </div>
+	                   </div>
+	                   <!-- slider End -->
+	                   <!-- Banner-1 Start -->
+	                   <div class="smeet-pages-banners" id="about-smeet">
+	                   <div class="col-md-12  smeet-banner-1" >
+	                   <div class="baneer-1-about-top-right-bg-img"><img src="/website_smeet/static/src/image/about-right.png" alt=""/></div>
+	                   		<div class="container">
+	                   			<div class="col-md-5 banner-1-left">
+	                   				<div class="banner-1-left-top">
+	                   					<h1>Wie is - <strong>Smeets Trading</strong></h1>
+	                   				</div>
+	                   				<div class="banner-1-left-middle">
+	                   					<p class="left-mid-text">TOELEVERANCIER: KANTENBAND, FINEERBAND, LIJMEN, REINIGINGSMIDDEL EN KLEMGEREEDSCHAPPEN VOOR DE KEUKEN- EN INTERIEURBOUW. UW DEALER VAN REHAU, JOWAT, HENKEL, RIEPE, ZETTEX, SCHWAIGER.</p>
+	                   				</div>
+	                   				<div class="banner-1-left-bottom">
+	                   					<p class="left-btm-text">In 2006 richtten Kristof Smeets en zijn echtgenote het toeleveringsbedrijf Smeets Trading op, een bedrijf dat gespecialiseerd is in kantenband, lijmen en reinigingsproducten voor de keuken- en interieurindustrie. In het gamma zitten niet alleen diverse kantafwerkingen, maar ook verschillende lijmsoorten en reinigingsproducten. “Schrijnwerkers en interieurbouwers vinden bij ons dus al het nodige om plaatmateriaal van een mooie en kwalitatieve afwerkrand te voorzien.”</p>
+	                   				</div>
+	                   			</div>
+	            	       		<div class="col-md-7 banner-1-right">
+	            	       			<img class="ban-1-right-img" src="/website_smeet/static/src/image/about-section.jpg" alt="about"/>
+	            	       		</div>
+	                   		</div>
+                    		<div class="baneer-1-about-bottom-left-bg-img"><img src="/website_smeet/static/src/image/about-left.png" alt=""/></div>	                   		
+	                   </div>
+	                   </div>
+	                   <!-- Banner-1 End -->
+	                   <!-- Banner-2 Start -->
+	                  <div class="ban-2-product-id" >
+	                  <div class="banner-2-product-page" id="website-smeet-product">
+						<div class="banner-2">
+							<div class="container">
+								<div class="col-md-12  banner-2-top">
+									<h1>Produktgamma</h1>
+								</div>
+								<div class="col-md-12 col-sm-12 banner-2-bottom">
+									<div class="col-md-3 col-sm-3 bane-2-bott1">
+											<img class="img-thumbnail  bot-ima1" src="/website_smeet/static/src/image/product/pro-1.jpg" alt="service"/>
+										<span><img src="/website_smeet/static/src/image/product-shadow.png" alt=""/></span>
+										<p class="bane-2-bot-text"> Kantenband </p>
+									</div>
+									<div class="col-md-3 col-sm-3 bane-2-bott2">
+	           	       						<img class="img-thumbnail bot-ima1" src="/website_smeet/static/src/image/product/pro-2.jpg" alt="service"/>
+										<span><img src="/website_smeet/static/src/image/product-shadow.png" alt=""/></span>	           	       					
+	           	       					<p class="bane-2-bot-text"> Fineer </p>
+           	       					</div>
+           	       					<div class="col-md-3 col-sm-3 bane-2-bott3">
+           	       							<img class="img-thumbnail bot-ima1" src="/website_smeet/static/src/image/product/pro-3.jpg" alt="service"/>
+										<span><img src="/website_smeet/static/src/image/product-shadow.png" alt=""/></span>           	       						
+           	       						<p class="bane-2-bot-text"> Lijmen </p>
+									</div>
+								</div>
+								<div class="col-md-12 col-sm-12 banner-2-bottom1">
+									<div class="col-md-3 col-sm-3 bane-2-bott1">
+											<img class="img-thumbnail  bot-ima1" src="/website_smeet/static/src/image/product/pro-4.jpg" alt="service"/>
+										<span><img src="/website_smeet/static/src/image/product-shadow.png" alt=""/></span>
+										<p class="bane-2-bot-text"> Reinigingsmiddelen </p>
+									</div>
+									<div class="col-md-3 col-sm-3 bane-2-bott2">
+	           	       						<img class="img-thumbnail bot-ima1" src="/website_smeet/static/src/image/product/pro-5.jpg" alt="service"/>
+										<span><img src="/website_smeet/static/src/image/product-shadow.png" alt=""/></span>	           	       					
+	           	       					<p class="bane-2-bot-text"> Siliconen </p>
+           	       					</div>
+           	       					<div class="col-md-3 col-sm-3 bane-2-bott3">
+           	       							<img class="img-thumbnail bot-ima1" src="/website_smeet/static/src/image/product/pro-6.jpg" alt="service"/>
+										<span><img src="/website_smeet/static/src/image/product-shadow.png" alt=""/></span>           	       						
+           	       						<p class="bane-2-bot-text"> Klemgereedschap </p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+	                   <!-- Banner-2 End -->
+	                    <!-- Banner-3 Start -->
+	                    <div class="banner-3">
+	                    	<div class="container">
+	                    		<div class="col-md-6 banner-3-left">
+	                    			<div class=" banner-3-left-header">
+	                    				<h1>Ons - <strong>Nieuws</strong></h1>
+	                    			</div>
+	                    			<div class="banner-3-left-parts">
+	                    			<div class="banner-3-left-left1">
+	                    				<div class="banner-3-left-left1-top">
+	                    					<h4>Voor Het Leven Verbonden</h4>
+	                    					<p>Oktober, 2016</p>
+	                    				</div>
+	                    				<div class="banner-3-left-left1-bottom">
+	                    					<p>Materialen kunnen op veel verschillende manieren met elkaar verbonden worden. Wie schroeven of bouten gebruikt, kan de stukken nadien opnieuw los maken. Solderen,lassen en lijmen zijn voorbeelden van permanente verbindingstechnieken.</p>
+	                    					<p>Lijmen blijft nog steeds één van de meest efficiënte oplossingen.</p>
+	                    				</div>
+	                    				<div class="readmore-buttton"><a href="/page/newsdetail/1">Lees meer</a></div>	                
+	                    			</div>
+	                    			<div class="banner-3-left-right1">
+	                    				<div class="banner-3-left-right1-top">
+	                    					<h4>Nauwe Samenwerking</h4>
+											<p>April, 2016</p>	                    					
+	                    				</div>
+	                    				<div class="banner-3-left-right1-bottom">
+	                    					<p>Smeets Trading is toeleverancier van producten voor de keuken- en interieurbouw, zoals kantenbanden van Rehau en lijmen van Jowat. Het bedrijf levert ook reinigingsproducten voor kantenlijmers en sproeisystemen van het Duitse merk Riepe.</p>
+	                    					<p>Door de jarenlange professionele samenwerking is er een erg hechte band ontstaan.</p>
+	                    				</div>
+	                    				<div class="readmore-buttton"><a href="/page/newsdetail/2">Lees meer</a></div>
+	                    			</div>
+	                    			</div>
+	                    		</div>
+	                    		<div class="col-md-6 banner-3-right">
+	                    			 <div class="news-img">
+	                    			 	<img src="/website_smeet/static/src/image/home-bbl-img.png" class="img-responsive" alt=""/>
+	                    			 </div>
+	                    		</div>
+	                    	</div>
+	                    </div>
+	                   <!-- Banner-3 End -->
+					</div>
+
+        	</xpath>
+        </template>
+        
+        
+        <template id="website_smeets_footer_copyright" inherit_id="website.layout_footer_copyright" name="Smeet website footer copyright">
+        	<xpath expr="//footer" position="replace">
+                <div class="oe_structure"/>
+                <footer class="footer smeeet_footer">
+                <div class="smeet-footer-main">
+                	<div class="smeet_footer_parts">
+                		<div class="footer_bg">
+                				<div class="container">
+                				<div class="footer_logo"><a href="#">
+                                	<img src="/website_smeet/static/src/image/footer-logo.png"  alt=""/> </a></div>
+	                				<div class="smeet_footer_top1">
+	                					<div class="smeet_footer_top_left1">
+                                            <p class="footer_left_text_contact1"><strong>Contacteer ons: </strong>+32 (0)11 79 17 34  / info@smeets-trading.be </p>	                					
+	                					</div>
+	                					<div class=" smeet_footer_top_right">
+	                                        <div class="social-media">
+	                                            <a t-att-href="website.social_facebook" class="smeet_face" target="_blank"><i  class="fa">&#xf09a;</i></a> 
+												<a t-att-href="website.social_googleplus" class="smeet_google" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+											</div>	                					
+	                					</div>
+	                				</div>
+	                			</div>
+                		</div>
+                		</div>
+                </div>
+                <div class="copyright-main">
+                	<div class="container">
+           				<div class="smeet_footer_copyright">
+           					<div class="smeet_footer_copyright_left">
+           						<p class="smeet-copyright-text"> Copyright © Smeets Trading bvba</p>
+           					</div>
+           					<div class="smeet_footer_copyright_right">
+           						 <div class="footer-menu">
+                                      <ul>
+                                          <li><a href="/page/homepage">Home</a></li>
+                                          <li><a href="/page/about">Over ons</a></li>
+                                          <li><a href="/page/news">Nieuws</a></li>
+                                          <li><a href="/page/contactus">Contacteer ons</a></li>
+                                      </ul>
+                                </div>
+           					</div>
+           				</div>                		
+                	</div>
+                </div>
+               </footer>
+			</xpath>
+        </template>
+
+	</data>
+</openerp>

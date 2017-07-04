@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+
+	<t t-extend="mail.Chatter">
+		<t t-jquery="div.o_chatter_topbar" t-operation="replace">
+			<div class="o_chatter_topbar">
+				<button t-if="widget.options.display_log_button" class="btn btn-sm btn-primary o_chatter_button_log_note" title="Log a note. Followers will not be notified.">
+	                    Log an internal note
+	            </button>
+	           
+	            <button type="button" class="btn btn-sm btn-link o_chatter_button_new_message" style="margin-left:4cm;" title="Send a message">
+	                New message
+	            </button>            
+            </div>
+		</t>
+	</t>
+	
+</template>

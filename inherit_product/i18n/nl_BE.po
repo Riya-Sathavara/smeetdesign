@@ -1,0 +1,2940 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* smt_invoice_report
+#	* smt_delivery_report
+#	* inherit_product
+#	* note
+#	* smt_purchaseorder_report
+#	* calendar
+#	* calender_metting
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0e-20160801\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-16 11:02+0000\n"
+"PO-Revision-Date: 2017-01-16 11:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: calendar
+#: model:mail.template,body_html:calendar.calendar_template_meeting_reminder
+msgid "\n"
+"                <style>\n"
+"                    span.oe_mail_footer_access {\n"
+"                        display:block;    \n"
+"                        text-align:center;\n"
+"                        color:grey;                                \n"
+"                    }\n"
+"                </style>\n"
+"                <div style=\"border-radius: 2px; max-width: 1200px; height: auto;margin-left: auto;margin-right: auto;background-color:#f9f9f9;\">\n"
+"                    <div style=\"height:auto;text-align: center;font-size : 30px;color: #8A89BA;\">\n"
+"                        <strong>${object.event_id.name}</strong>                                \n"
+"                    </div>\n"
+"                    <div style=\"height: 50px;text-align: left;font-size : 14px;border-collapse: separate;margin-top:10px\">\n"
+"                        <strong style=\"margin-left:12px\">Dear ${object.cn}</strong> ,<br/>\n"
+"                        <p style=\"margin-left:12px\">That is a reminder for the event below : </p>\n"
+"                    </div>\n"
+"                    <div style=\"height: auto;margin-left:12px;margin-top:30px;\">\n"
+"                        <table>\n"
+"                            <tr>\n"
+"                                <td>\n"
+"                                    <div style=\"border-top-left-radius:3px;border-top-right-radius:3px;font-size:12px;border-collapse:separate;text-align:center;font-weight:bold;color:#ffffff;width:130px;min-height: 18px;border-color:#ffffff;background:#8a89ba;padding-top: 4px;\">${object.event_id.get_interval(object.event_id.start, 'dayname', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                                    <div style=\"font-size:48px;min-height:auto;font-weight:bold;text-align:center;color: #5F5F5F;background-color: #E1E2F8;width: 130px;\">\n"
+"                                      ${object.event_id.get_interval(object.event_id.start,'day', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                                    </div>\n"
+"                                    <div style='font-size:12px;text-align:center;font-weight:bold;color:#ffffff;background-color:#8a89ba'>${object.event_id.get_interval(object.event_id.start, 'month', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                                    <div style=\"border-collapse:separate;color:#8a89ba;text-align:center;width: 128px;font-size:12px;border-bottom-right-radius:3px;font-weight:bold;border:1px solid;border-bottom-left-radius:3px;\">${not object.event_id.allday and object.event_id.get_interval(object.event_id.start, 'time', tz=object.partner_id.tz) or ''}</div>\n"
+"                                </td>\n"
+"                                <td>\n"
+"                                    <table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"margin-top: 15px; margin-left: 10px;font-size: 16px;\">\n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.location:\n"
+"                                                        <div style=\"width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            Where\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td  style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.location:\n"
+"                                                        <div style = \"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;   font-size: 14px\" >\n"
+"                                                            : ${object.event_id.location}\n"
+"                                                            <span style= \"color:#A9A9A9; \">(<a href=\"http://maps.google.com/maps?oi=map&q=${object.event_id.location}\">View Map</a>)\n"
+"                                                                </span>\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>                                                        \n"
+"                                            </tr> \n"
+"                                                                                        \n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.description :\n"
+"                                                        <div style=\"width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            What\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td style=\"vertical-align:text-top;\">\n"
+"                                                    % if object.event_id.description :\n"
+"                                                        <div style=\"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            : ${object.event_id.description}\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                                                                        \n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if not object.event_id.allday and object.event_id.duration:\n"
+"                                                        <div style=\"height:auto; width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            Duration\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td colspan=\"3\" style=\"vertical-align:text-top;\">\n"
+"                                                    % if not object.event_id.allday and object.event_id.duration:\n"
+"                                                        <div style=\"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            : ${('%dH%02d' % (object.event_id.duration,(object.event_id.duration*60)%60))}\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                            </tr>                                                \n"
+"                                        <tr style=\" height: 30px;\">\n"
+"                                            <td style=\"height: 25px;width: 120px; background : # CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                <div>\n"
+"                                                    Attendees\n"
+"                                                </div>\n"
+"                                            </td>\n"
+"                                            <td colspan=\"3\">\n"
+"                                               : \n"
+"                                                % for attendee in object.event_id.attendee_ids:\n"
+"                                                    <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:${'color' in ctx and ctx['color'][attendee.state] or 'white'};\"></div>\n"
+"                                                    % if attendee.cn != object.cn:\n"
+"                                                        <span style=\"margin-left:5px\">${attendee.cn}</span>\n"
+"                                                    % else:\n"
+"                                                        <span style=\"margin-left:5px\">You</span>\n"
+"                                                    % endif\n"
+"                                                % endfor\n"
+"                                            </td>\n"
+"                                        </tr>\n"
+"                                    </table>\n"
+"                                </td>\n"
+"                            </tr>\n"
+"                        </table>\n"
+"                    </div>            \n"
+"                </div>\n"
+"                \n"
+"                "
+msgstr "\n"
+"                <style>\n"
+"                    span.oe_mail_footer_access {\n"
+"                        display:block;    \n"
+"                        text-align:center;\n"
+"                        color:grey;                                \n"
+"                    }\n"
+"                </style>\n"
+"                <div style=\"border-radius: 2px; max-width: 1200px; height: auto;margin-left: auto;margin-right: auto;background-color:#f9f9f9;\">\n"
+"                    <div style=\"height:auto;text-align: center;font-size : 30px;color: #8A89BA;\">\n"
+"                        <strong>${object.event_id.name}</strong>                                \n"
+"                    </div>\n"
+"                    <div style=\"height: 50px;text-align: left;font-size : 14px;border-collapse: separate;margin-top:10px\">\n"
+"                        <strong style=\"margin-left:12px\">Dear ${object.cn}</strong> ,<br/>\n"
+"                        <p style=\"margin-left:12px\">That is a reminder for the event below : </p>\n"
+"                    </div>\n"
+"                    <div style=\"height: auto;margin-left:12px;margin-top:30px;\">\n"
+"                        <table>\n"
+"                            <tr>\n"
+"                                <td>\n"
+"                                    <div style=\"border-top-left-radius:3px;border-top-right-radius:3px;font-size:12px;border-collapse:separate;text-align:center;font-weight:bold;color:#ffffff;width:130px;min-height: 18px;border-color:#ffffff;background:#8a89ba;padding-top: 4px;\">${object.event_id.get_interval(object.event_id.start, 'dayname', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                                    <div style=\"font-size:48px;min-height:auto;font-weight:bold;text-align:center;color: #5F5F5F;background-color: #E1E2F8;width: 130px;\">\n"
+"                                      ${object.event_id.get_interval(object.event_id.start,'day', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                                    </div>\n"
+"                                    <div style='font-size:12px;text-align:center;font-weight:bold;color:#ffffff;background-color:#8a89ba'>${object.event_id.get_interval(object.event_id.start, 'month', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                                    <div style=\"border-collapse:separate;color:#8a89ba;text-align:center;width: 128px;font-size:12px;border-bottom-right-radius:3px;font-weight:bold;border:1px solid;border-bottom-left-radius:3px;\">${not object.event_id.allday and object.event_id.get_interval(object.event_id.start, 'time', tz=object.partner_id.tz) or ''}</div>\n"
+"                                </td>\n"
+"                                <td>\n"
+"                                    <table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"margin-top: 15px; margin-left: 10px;font-size: 16px;\">\n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.location:\n"
+"                                                        <div style=\"width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            Where\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td  style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.location:\n"
+"                                                        <div style = \"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;   font-size: 14px\" >\n"
+"                                                            : ${object.event_id.location}\n"
+"                                                            <span style= \"color:#A9A9A9; \">(<a href=\"http://maps.google.com/maps?oi=map&q=${object.event_id.location}\">View Map</a>)\n"
+"                                                                </span>\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>                                                        \n"
+"                                            </tr> \n"
+"                                                                                        \n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.description :\n"
+"                                                        <div style=\"width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            What\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td style=\"vertical-align:text-top;\">\n"
+"                                                    % if object.event_id.description :\n"
+"                                                        <div style=\"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            : ${object.event_id.description}\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                                                                        \n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if not object.event_id.allday and object.event_id.duration:\n"
+"                                                        <div style=\"height:auto; width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            Duration\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td colspan=\"3\" style=\"vertical-align:text-top;\">\n"
+"                                                    % if not object.event_id.allday and object.event_id.duration:\n"
+"                                                        <div style=\"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            : ${('%dH%02d' % (object.event_id.duration,(object.event_id.duration*60)%60))}\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                            </tr>                                                \n"
+"                                        <tr style=\" height: 30px;\">\n"
+"                                            <td style=\"height: 25px;width: 120px; background : # CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                <div>\n"
+"                                                    Attendees\n"
+"                                                </div>\n"
+"                                            </td>\n"
+"                                            <td colspan=\"3\">\n"
+"                                               : \n"
+"                                                % for attendee in object.event_id.attendee_ids:\n"
+"                                                    <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:${'color' in ctx and ctx['color'][attendee.state] or 'white'};\"></div>\n"
+"                                                    % if attendee.cn != object.cn:\n"
+"                                                        <span style=\"margin-left:5px\">${attendee.cn}</span>\n"
+"                                                    % else:\n"
+"                                                        <span style=\"margin-left:5px\">You</span>\n"
+"                                                    % endif\n"
+"                                                % endfor\n"
+"                                            </td>\n"
+"                                        </tr>\n"
+"                                    </table>\n"
+"                                </td>\n"
+"                            </tr>\n"
+"                        </table>\n"
+"                    </div>            \n"
+"                </div>\n"
+"                \n"
+"                "
+
+#. module: calendar
+#: model:mail.template,body_html:calendar.calendar_template_meeting_invitation
+msgid "\n"
+"                <style> \n"
+"                    span.oe_mail_footer_access {\n"
+"                        display:block;    \n"
+"                        text-align:center;\n"
+"                        color:grey;                                \n"
+"                    }\n"
+"                </style>\n"
+"                <div style=\"border-radius: 2px; max-width: 1200px; height: auto;margin-left: auto;margin-right: auto;background-color:#f9f9f9;\">\n"
+"                    <div style=\"height:auto;text-align: center;font-size : 30px;color: #8A89BA;\">\n"
+"                        <strong>${object.event_id.name}</strong>\n"
+"                    </div>\n"
+"                    <div style=\"height: 50px;text-align: left;font-size : 14px;border-collapse: separate;margin-top:10px\">\n"
+"                        <strong style=\"margin-left:12px\">Dear ${object.cn}</strong> ,<br/><p style=\"margin-left:12px\">${object.event_id.user_id.partner_id.name} invited you for the ${object.event_id.name} meeting of ${object.event_id.user_id.company_id.name}.</p> \n"
+"                    </div>\n"
+"                    <div style=\"height: auto;margin-left:12px;margin-top:30px;\">\n"
+"                        <table>\n"
+"                            <tr>\n"
+"                                <td>\n"
+"                                    <div style=\"border-top-left-radius:3px;border-top-right-radius:3px;font-size:12px;border-collapse:separate;text-align:center;font-weight:bold;color:#ffffff;width:130px;min-height: 18px;border-color:#ffffff;background:#8a89ba;padding-top: 4px;\">${object.event_id.get_interval(object.event_id.start, 'dayname', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                                    <div style=\"font-size:48px;min-height:auto;font-weight:bold;text-align:center;color: #5F5F5F;background-color: #E1E2F8;width: 130px;\">\n"
+"                                      ${object.event_id.get_interval(object.event_id.start,'day', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                                    </div>\n"
+"                                    <div style='font-size:12px;text-align:center;font-weight:bold;color:#ffffff;background-color:#8a89ba'>${object.event_id.get_interval(object.event_id.start, 'month', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                                    <div style=\"border-collapse:separate;color:#8a89ba;text-align:center;width: 128px;font-size:12px;border-bottom-right-radius:3px;font-weight:bold;border:1px solid;border-bottom-left-radius:3px;\">${not object.event_id.allday and object.event_id.get_interval(object.event_id.start, 'time', tz=object.partner_id.tz) or ''}</div>\n"
+"                                </td>\n"
+"                                <td>\n"
+"                                    <table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"margin-top: 15px; margin-left: 10px;font-size: 16px;\">\n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.location:\n"
+"                                                        <div style=\"width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            Where\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td  style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.location:\n"
+"                                                        <div style = \"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;   font-size: 14px\" >\n"
+"                                                            : ${object.event_id.location}\n"
+"                                                            <span style= \"color:#A9A9A9; \">(<a href=\"http://maps.google.com/maps?oi=map&q=${object.event_id.location}\">View Map</a>)\n"
+"                                                                </span>\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>                                                        \n"
+"                                            </tr> \n"
+"                                                                                        \n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.description :\n"
+"                                                        <div style=\"width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            What\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td style=\"vertical-align:text-top;\">\n"
+"                                                    % if object.event_id.description :\n"
+"                                                        <div style=\"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            : ${object.event_id.description}\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                                                                        \n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if not object.event_id.allday and object.event_id.duration:\n"
+"                                                        <div style=\"height:auto; width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            Duration\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td colspan=\"3\" style=\"vertical-align:text-top;\">\n"
+"                                                    % if not object.event_id.allday and object.event_id.duration:\n"
+"                                                        <div style=\"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            : ${('%dH%02d' % (object.event_id.duration,(object.event_id.duration*60)%60))}\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                            </tr>                                                \n"
+"                                        <tr style=\" height: 30px;\">\n"
+"                                            <td style=\"height: 25px;width: 120px; background : # CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                <div>\n"
+"                                                    Attendees\n"
+"                                                </div>\n"
+"                                            </td>\n"
+"                                            <td colspan=\"3\">\n"
+"                                               : \n"
+"                                                % for attendee in object.event_id.attendee_ids:\n"
+"                                                    <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:${'color' in ctx and ctx['color'][attendee.state] or 'white'};\"></div>\n"
+"                                                    % if attendee.cn != object.cn:\n"
+"                                                        <span style=\"margin-left:5px\">${attendee.cn}</span>\n"
+"                                                    % else:\n"
+"                                                        <span style=\"margin-left:5px\">You</span>\n"
+"                                                    % endif\n"
+"                                                % endfor\n"
+"                                            </td>\n"
+"                                        </tr>\n"
+"                                    </table>\n"
+"                                </td>\n"
+"                            </tr>\n"
+"                        </table>\n"
+"                    </div>\n"
+"                    <div style=\"height: auto;width:450px; margin:0 auto;padding-top:20px;padding-bottom:40px;\">\n"
+"                            <a style=\"padding: 8px 30px 8px 30px;border-radius: 6px;border: 1px solid #CCCCCC;background:#8A89BA;margin : 0 15px 0 0;text-decoration: none;color:#FFFFFF;\" href=\"/calendar/meeting/accept?db=${'dbname' in ctx and ctx['dbname'] or ''}&token=${object.access_token}&action=${'action_id' in ctx and ctx['action_id'] or ''}&id=${object.event_id.id}\">Accept</a>\n"
+"                            <a style=\"padding: 8px 30px 8px 30px;border-radius: 6px;border: 1px solid #CCCCCC;background:#808080;margin : 0 15px 0 0;text-decoration: none;color:#FFFFFF;\" href=\"/calendar/meeting/decline?db=${'dbname' in ctx and ctx['dbname'] or '' }&token=${object.access_token}&action=${'action_id' in ctx and ctx['action_id'] or ''}&id=${object.event_id.id}\">Decline</a>\n"
+"                            <a style=\"padding: 8px 30px 8px 30px;border-radius: 6px;border: 1px solid #CCCCCC;background:#D8D8D8;text-decoration: none;color:#FFFFFF;\" href=\"/calendar/meeting/view?db=${'dbname' in ctx and ctx['dbname'] or ''}&token=${object.access_token}&action=${'action_id' in ctx and ctx['action_id'] or ''}&id=${object.event_id.id}\">View</a>\n"
+"                    </div> \n"
+"                </div>\n"
+"                \n"
+"                "
+msgstr "\n"
+"                <style> \n"
+"                    span.oe_mail_footer_access {\n"
+"                        display:block;    \n"
+"                        text-align:center;\n"
+"                        color:grey;                                \n"
+"                    }\n"
+"                </style>\n"
+"                <div style=\"border-radius: 2px; max-width: 1200px; height: auto;margin-left: auto;margin-right: auto;background-color:#f9f9f9;\">\n"
+"                    <div style=\"height:auto;text-align: center;font-size : 30px;color: #8A89BA;\">\n"
+"                        <strong>${object.event_id.name}</strong>\n"
+"                    </div>\n"
+"                    <div style=\"height: 50px;text-align: left;font-size : 14px;border-collapse: separate;margin-top:10px\">\n"
+"                        <strong style=\"margin-left:12px\">Dear ${object.cn}</strong> ,<br/><p style=\"margin-left:12px\">${object.event_id.user_id.partner_id.name} invited you for the ${object.event_id.name} meeting of ${object.event_id.user_id.company_id.name}.</p> \n"
+"                    </div>\n"
+"                    <div style=\"height: auto;margin-left:12px;margin-top:30px;\">\n"
+"                        <table>\n"
+"                            <tr>\n"
+"                                <td>\n"
+"                                    <div style=\"border-top-left-radius:3px;border-top-right-radius:3px;font-size:12px;border-collapse:separate;text-align:center;font-weight:bold;color:#ffffff;width:130px;min-height: 18px;border-color:#ffffff;background:#8a89ba;padding-top: 4px;\">${object.event_id.get_interval(object.event_id.start, 'dayname', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                                    <div style=\"font-size:48px;min-height:auto;font-weight:bold;text-align:center;color: #5F5F5F;background-color: #E1E2F8;width: 130px;\">\n"
+"                                      ${object.event_id.get_interval(object.event_id.start,'day', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                                    </div>\n"
+"                                    <div style='font-size:12px;text-align:center;font-weight:bold;color:#ffffff;background-color:#8a89ba'>${object.event_id.get_interval(object.event_id.start, 'month', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                                    <div style=\"border-collapse:separate;color:#8a89ba;text-align:center;width: 128px;font-size:12px;border-bottom-right-radius:3px;font-weight:bold;border:1px solid;border-bottom-left-radius:3px;\">${not object.event_id.allday and object.event_id.get_interval(object.event_id.start, 'time', tz=object.partner_id.tz) or ''}</div>\n"
+"                                </td>\n"
+"                                <td>\n"
+"                                    <table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"margin-top: 15px; margin-left: 10px;font-size: 16px;\">\n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.location:\n"
+"                                                        <div style=\"width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            Where\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td  style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.location:\n"
+"                                                        <div style = \"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;   font-size: 14px\" >\n"
+"                                                            : ${object.event_id.location}\n"
+"                                                            <span style= \"color:#A9A9A9; \">(<a href=\"http://maps.google.com/maps?oi=map&q=${object.event_id.location}\">View Map</a>)\n"
+"                                                                </span>\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>                                                        \n"
+"                                            </tr> \n"
+"                                                                                        \n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.description :\n"
+"                                                        <div style=\"width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            What\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td style=\"vertical-align:text-top;\">\n"
+"                                                    % if object.event_id.description :\n"
+"                                                        <div style=\"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            : ${object.event_id.description}\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                                                                        \n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if not object.event_id.allday and object.event_id.duration:\n"
+"                                                        <div style=\"height:auto; width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            Duration\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td colspan=\"3\" style=\"vertical-align:text-top;\">\n"
+"                                                    % if not object.event_id.allday and object.event_id.duration:\n"
+"                                                        <div style=\"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            : ${('%dH%02d' % (object.event_id.duration,(object.event_id.duration*60)%60))}\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                            </tr>                                                \n"
+"                                        <tr style=\" height: 30px;\">\n"
+"                                            <td style=\"height: 25px;width: 120px; background : # CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                <div>\n"
+"                                                    Attendees\n"
+"                                                </div>\n"
+"                                            </td>\n"
+"                                            <td colspan=\"3\">\n"
+"                                               : \n"
+"                                                % for attendee in object.event_id.attendee_ids:\n"
+"                                                    <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:${'color' in ctx and ctx['color'][attendee.state] or 'white'};\"></div>\n"
+"                                                    % if attendee.cn != object.cn:\n"
+"                                                        <span style=\"margin-left:5px\">${attendee.cn}</span>\n"
+"                                                    % else:\n"
+"                                                        <span style=\"margin-left:5px\">You</span>\n"
+"                                                    % endif\n"
+"                                                % endfor\n"
+"                                            </td>\n"
+"                                        </tr>\n"
+"                                    </table>\n"
+"                                </td>\n"
+"                            </tr>\n"
+"                        </table>\n"
+"                    </div>\n"
+"                    <div style=\"height: auto;width:450px; margin:0 auto;padding-top:20px;padding-bottom:40px;\">\n"
+"                            <a style=\"padding: 8px 30px 8px 30px;border-radius: 6px;border: 1px solid #CCCCCC;background:#8A89BA;margin : 0 15px 0 0;text-decoration: none;color:#FFFFFF;\" href=\"/calendar/meeting/accept?db=${'dbname' in ctx and ctx['dbname'] or ''}&token=${object.access_token}&action=${'action_id' in ctx and ctx['action_id'] or ''}&id=${object.event_id.id}\">Accept</a>\n"
+"                            <a style=\"padding: 8px 30px 8px 30px;border-radius: 6px;border: 1px solid #CCCCCC;background:#808080;margin : 0 15px 0 0;text-decoration: none;color:#FFFFFF;\" href=\"/calendar/meeting/decline?db=${'dbname' in ctx and ctx['dbname'] or '' }&token=${object.access_token}&action=${'action_id' in ctx and ctx['action_id'] or ''}&id=${object.event_id.id}\">Decline</a>\n"
+"                            <a style=\"padding: 8px 30px 8px 30px;border-radius: 6px;border: 1px solid #CCCCCC;background:#D8D8D8;text-decoration: none;color:#FFFFFF;\" href=\"/calendar/meeting/view?db=${'dbname' in ctx and ctx['dbname'] or ''}&token=${object.access_token}&action=${'action_id' in ctx and ctx['action_id'] or ''}&id=${object.event_id.id}\">View</a>\n"
+"                    </div> \n"
+"                </div>\n"
+"                \n"
+"                "
+
+#. module: calendar
+#: model:mail.template,body_html:calendar.calendar_template_meeting_changedate
+msgid " \n"
+"                <style>\n"
+"                    span.oe_mail_footer_access {\n"
+"                        display:block;    \n"
+"                        text-align:center;\n"
+"                        color:grey;                                \n"
+"                    }\n"
+"                </style>\n"
+"                <div style=\"border-radius: 2px; max-width: 1200px; height: auto;margin-left: auto;margin-right: auto;background-color:#f9f9f9;\">\n"
+"                    <div style=\"height:auto;text-align: center;font-size : 30px;color: #8A89BA;\">\n"
+"                        <strong>${object.event_id.name}</strong>\n"
+"                    </div>\n"
+"                    <div style=\"height: 50px;text-align: left;font-size : 14px;border-collapse: separate;margin-top:10px\">\n"
+"                        <strong style=\"margin-left:12px\">Dear ${object.cn}</strong> ,<br/>\n"
+"                        <p style=\"margin-left:12px\">The date of the meeting has been changed...<br/>\n"
+"                        The meeting created by ${object.event_id.user_id.partner_id.name} is now scheduled for : ${object.event_id.get_display_time_tz(tz=object.partner_id.tz)}.</p>\n"
+"                    </div>\n"
+"                    <div style=\"height: auto;margin-left:12px;margin-top:30px;\">\n"
+"                        <table>\n"
+"                            <tr>                                        \n"
+"                                <td>\n"
+"                                    <div style=\"border-top-left-radius:3px;border-top-right-radius:3px;font-size:12px;border-collapse:separate;text-align:center;font-weight:bold;color:#ffffff;width:130px;min-height: 18px;border-color:#ffffff;background:#8a89ba;padding-top: 4px;\">${object.event_id.get_interval(object.event_id.start, 'dayname', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                                    <div style=\"font-size:48px;min-height:auto;font-weight:bold;text-align:center;color: #5F5F5F;background-color: #E1E2F8;width: 130px;\">\n"
+"                                      ${object.event_id.get_interval(object.event_id.start,'day', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                                    </div>\n"
+"                                    <div style='font-size:12px;text-align:center;font-weight:bold;color:#ffffff;background-color:#8a89ba'>${object.event_id.get_interval(object.event_id.start, 'month', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                                    <div style=\"border-collapse:separate;color:#8a89ba;text-align:center;width: 128px;font-size:12px;border-bottom-right-radius:3px;font-weight:bold;border:1px solid;border-bottom-left-radius:3px;\">${not object.event_id.allday and object.event_id.get_interval(object.event_id.start, 'time', tz=object.partner_id.tz) or ''}</div>\n"
+"                                </td>\n"
+"                                <td>\n"
+"                                    <table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"margin-top: 15px; margin-left: 10px;font-size: 16px;\">\n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.location:\n"
+"                                                        <div style=\"width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            Where\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td  style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.location:\n"
+"                                                        <div style = \"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;   font-size: 14px\" >\n"
+"                                                            : ${object.event_id.location}\n"
+"                                                            <span style= \"color:#A9A9A9; \">(<a href=\"http://maps.google.com/maps?oi=map&q=${object.event_id.location}\">View Map</a>)\n"
+"                                                                </span>\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>                                                        \n"
+"                                            </tr> \n"
+"                                                                                        \n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.description :\n"
+"                                                        <div style=\"width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            What\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td style=\"vertical-align:text-top;\">\n"
+"                                                    % if object.event_id.description :\n"
+"                                                        <div style=\"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            : ${object.event_id.description}\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                                                                        \n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if not object.event_id.allday and object.event_id.duration:\n"
+"                                                        <div style=\"height:auto; width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            Duration\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td colspan=\"3\" style=\"vertical-align:text-top;\">\n"
+"                                                    % if not object.event_id.allday and object.event_id.duration:\n"
+"                                                        <div style=\"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            : ${('%dH%02d' % (object.event_id.duration,(object.event_id.duration*60)%60))}\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                            </tr>                                                \n"
+"                                        <tr style=\" height: 30px;\">\n"
+"                                            <td style=\"height: 25px;width: 120px; background : # CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                <div>\n"
+"                                                    Attendees\n"
+"                                                </div>\n"
+"                                            </td>\n"
+"                                            <td colspan=\"3\">\n"
+"                                               : \n"
+"                                                % for attendee in object.event_id.attendee_ids:\n"
+"                                                    <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:${'color' in ctx and ctx['color'][attendee.state] or 'white'};\"></div>\n"
+"                                                    % if attendee.cn != object.cn:\n"
+"                                                        <span style=\"margin-left:5px\">${attendee.cn}</span>\n"
+"                                                    % else:\n"
+"                                                        <span style=\"margin-left:5px\">You</span>\n"
+"                                                    % endif\n"
+"                                                % endfor\n"
+"                                            </td>\n"
+"                                        </tr>\n"
+"                                    </table>\n"
+"                                </td>\n"
+"                            </tr>\n"
+"                        </table>                                      \n"
+"                    </div>\n"
+"                    <div style=\"height: auto;width:450px; margin:0 auto;padding-top:20px;padding-bottom:40px;\">\n"
+"                            <a style=\"padding: 8px 30px 8px 30px;border-radius: 6px;border: 1px solid #CCCCCC;background:#8A89BA;margin : 0 15px 0 0;text-decoration: none;color:#FFFFFF;\" href=\"/calendar/meeting/accept?db=${'dbname' in ctx and ctx['dbname'] or ''}&token=${object.access_token}&action=${'action_id' in ctx and ctx['action_id'] or ''}&id=${object.event_id.id}\">Accept</a>\n"
+"                            <a style=\"padding: 8px 30px 8px 30px;border-radius: 6px;border: 1px solid #CCCCCC;background:#808080;margin : 0 15px 0 0;text-decoration: none;color:#FFFFFF;\" href=\"/calendar/meeting/decline?db=${'dbname' in ctx and ctx['dbname'] or ''}&token=${object.access_token}&action=${'action_id' in ctx and ctx['action_id'] or ''}&id=${object.event_id.id}\">Decline</a>\n"
+"                            <a style=\"padding: 8px 30px 8px 30px;border-radius: 6px;border: 1px solid #CCCCCC;background:#D8D8D8;text-decoration: none;color:#FFFFFF;\" href=\"/calendar/meeting/view?db=${'dbname' in ctx and ctx['dbname'] or ''}&token=${object.access_token}&action=${'action_id' in ctx and ctx['action_id'] or ''}&id=${object.event_id.id}\">View</a>\n"
+"                    </div>                             \n"
+"                </div>\n"
+"                \n"
+"                "
+msgstr " \n"
+"                <style>\n"
+"                    span.oe_mail_footer_access {\n"
+"                        display:block;    \n"
+"                        text-align:center;\n"
+"                        color:grey;                                \n"
+"                    }\n"
+"                </style>\n"
+"                <div style=\"border-radius: 2px; max-width: 1200px; height: auto;margin-left: auto;margin-right: auto;background-color:#f9f9f9;\">\n"
+"                    <div style=\"height:auto;text-align: center;font-size : 30px;color: #8A89BA;\">\n"
+"                        <strong>${object.event_id.name}</strong>\n"
+"                    </div>\n"
+"                    <div style=\"height: 50px;text-align: left;font-size : 14px;border-collapse: separate;margin-top:10px\">\n"
+"                        <strong style=\"margin-left:12px\">Dear ${object.cn}</strong> ,<br/>\n"
+"                        <p style=\"margin-left:12px\">The date of the meeting has been changed...<br/>\n"
+"                        The meeting created by ${object.event_id.user_id.partner_id.name} is now scheduled for : ${object.event_id.get_display_time_tz(tz=object.partner_id.tz)}.</p>\n"
+"                    </div>\n"
+"                    <div style=\"height: auto;margin-left:12px;margin-top:30px;\">\n"
+"                        <table>\n"
+"                            <tr>                                        \n"
+"                                <td>\n"
+"                                    <div style=\"border-top-left-radius:3px;border-top-right-radius:3px;font-size:12px;border-collapse:separate;text-align:center;font-weight:bold;color:#ffffff;width:130px;min-height: 18px;border-color:#ffffff;background:#8a89ba;padding-top: 4px;\">${object.event_id.get_interval(object.event_id.start, 'dayname', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                                    <div style=\"font-size:48px;min-height:auto;font-weight:bold;text-align:center;color: #5F5F5F;background-color: #E1E2F8;width: 130px;\">\n"
+"                                      ${object.event_id.get_interval(object.event_id.start,'day', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                                    </div>\n"
+"                                    <div style='font-size:12px;text-align:center;font-weight:bold;color:#ffffff;background-color:#8a89ba'>${object.event_id.get_interval(object.event_id.start, 'month', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                                    <div style=\"border-collapse:separate;color:#8a89ba;text-align:center;width: 128px;font-size:12px;border-bottom-right-radius:3px;font-weight:bold;border:1px solid;border-bottom-left-radius:3px;\">${not object.event_id.allday and object.event_id.get_interval(object.event_id.start, 'time', tz=object.partner_id.tz) or ''}</div>\n"
+"                                </td>\n"
+"                                <td>\n"
+"                                    <table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"margin-top: 15px; margin-left: 10px;font-size: 16px;\">\n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.location:\n"
+"                                                        <div style=\"width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            Where\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td  style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.location:\n"
+"                                                        <div style = \"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;   font-size: 14px\" >\n"
+"                                                            : ${object.event_id.location}\n"
+"                                                            <span style= \"color:#A9A9A9; \">(<a href=\"http://maps.google.com/maps?oi=map&q=${object.event_id.location}\">View Map</a>)\n"
+"                                                                </span>\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>                                                        \n"
+"                                            </tr> \n"
+"                                                                                        \n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if object.event_id.description :\n"
+"                                                        <div style=\"width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            What\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td style=\"vertical-align:text-top;\">\n"
+"                                                    % if object.event_id.description :\n"
+"                                                        <div style=\"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            : ${object.event_id.description}\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                                                                        \n"
+"                                            <tr>\n"
+"                                                <td style=\"vertical-align:top;\">\n"
+"                                                    % if not object.event_id.allday and object.event_id.duration:\n"
+"                                                        <div style=\"height:auto; width: 120px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            Duration\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                                <td colspan=\"3\" style=\"vertical-align:text-top;\">\n"
+"                                                    % if not object.event_id.allday and object.event_id.duration:\n"
+"                                                        <div style=\"font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                            : ${('%dH%02d' % (object.event_id.duration,(object.event_id.duration*60)%60))}\n"
+"                                                        </div>\n"
+"                                                    % endif\n"
+"                                                </td>\n"
+"                                            </tr>                                                \n"
+"                                        <tr style=\" height: 30px;\">\n"
+"                                            <td style=\"height: 25px;width: 120px; background : # CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;\">\n"
+"                                                <div>\n"
+"                                                    Attendees\n"
+"                                                </div>\n"
+"                                            </td>\n"
+"                                            <td colspan=\"3\">\n"
+"                                               : \n"
+"                                                % for attendee in object.event_id.attendee_ids:\n"
+"                                                    <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:${'color' in ctx and ctx['color'][attendee.state] or 'white'};\"></div>\n"
+"                                                    % if attendee.cn != object.cn:\n"
+"                                                        <span style=\"margin-left:5px\">${attendee.cn}</span>\n"
+"                                                    % else:\n"
+"                                                        <span style=\"margin-left:5px\">You</span>\n"
+"                                                    % endif\n"
+"                                                % endfor\n"
+"                                            </td>\n"
+"                                        </tr>\n"
+"                                    </table>\n"
+"                                </td>\n"
+"                            </tr>\n"
+"                        </table>                                      \n"
+"                    </div>\n"
+"                    <div style=\"height: auto;width:450px; margin:0 auto;padding-top:20px;padding-bottom:40px;\">\n"
+"                            <a style=\"padding: 8px 30px 8px 30px;border-radius: 6px;border: 1px solid #CCCCCC;background:#8A89BA;margin : 0 15px 0 0;text-decoration: none;color:#FFFFFF;\" href=\"/calendar/meeting/accept?db=${'dbname' in ctx and ctx['dbname'] or ''}&token=${object.access_token}&action=${'action_id' in ctx and ctx['action_id'] or ''}&id=${object.event_id.id}\">Accept</a>\n"
+"                            <a style=\"padding: 8px 30px 8px 30px;border-radius: 6px;border: 1px solid #CCCCCC;background:#808080;margin : 0 15px 0 0;text-decoration: none;color:#FFFFFF;\" href=\"/calendar/meeting/decline?db=${'dbname' in ctx and ctx['dbname'] or ''}&token=${object.access_token}&action=${'action_id' in ctx and ctx['action_id'] or ''}&id=${object.event_id.id}\">Decline</a>\n"
+"                            <a style=\"padding: 8px 30px 8px 30px;border-radius: 6px;border: 1px solid #CCCCCC;background:#D8D8D8;text-decoration: none;color:#FFFFFF;\" href=\"/calendar/meeting/view?db=${'dbname' in ctx and ctx['dbname'] or ''}&token=${object.access_token}&action=${'action_id' in ctx and ctx['action_id'] or ''}&id=${object.event_id.id}\">View</a>\n"
+"                    </div>                             \n"
+"                </div>\n"
+"                \n"
+"                "
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/js/base_calendar.js:35
+#: code:addons/openerp/addons/calendar/static/src/js/base_calendar.js:35
+#, python-format
+msgid " [Me]"
+msgstr " [Ik]"
+
+#. module: calendar
+#: model:mail.template,subject:calendar.calendar_template_meeting_invitation
+msgid "${object.event_id.name}"
+msgstr "${object.event_id.name}"
+
+#. module: calendar
+#: model:mail.template,subject:calendar.calendar_template_meeting_changedate
+msgid "${object.event_id.name} - Date has been updated"
+msgstr "${object.event_id.name} - Datum is aangepast"
+
+#. module: calendar
+#: model:mail.template,subject:calendar.calendar_template_meeting_reminder
+msgid "${object.event_id.name} - Reminder"
+msgstr "${object.event_id.name} - Herinnering"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:776
+#: code:addons/openerp/addons/calendar/calendar.py:776
+#, python-format
+msgid "%s at %s To\n"
+" %s at %s (%s)"
+msgstr "%s van %s t/m\n"
+" %s van %s (%s)"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:774
+#: code:addons/openerp/addons/calendar/calendar.py:774
+#, python-format
+msgid "%s at (%s To %s) (%s)"
+msgstr "%s van (%s Tot %s) (%s)"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:263
+#: code:addons/openerp/addons/calendar/calendar.py:263
+#, python-format
+msgid "%s has accepted invitation"
+msgstr "% heeft de uitnodiging geaccepteerd"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:278
+#: code:addons/openerp/addons/calendar/calendar.py:278
+#, python-format
+msgid "%s has declined invitation"
+msgstr "% heeft de uitnodiging geweigerd"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "&amp;nbsp;"
+msgstr "&amp;nbsp;"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "+32 (0) 11 79 17 34"
+msgstr "+32 (0) 11 79 17 34"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "+32 (0) 11 79 17 31"
+msgstr "+32 (0) 11 79 17 31"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Aantal</b>"
+msgstr "<b>Aantal</b>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Artikel</b>"
+msgstr "<b>Artikel</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+msgid "<b>BESTELLING</b>"
+msgstr "<b>BESTELLING</b>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>BTW%</b>"
+msgstr "<b>BTW%</b>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>BTW</b>"
+msgstr "<b>BTW</b>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Basis</b>"
+msgstr "<b>Basis</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+msgid "<b>Bestelnr</b>"
+msgstr "<b>Bestelnr</b>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Datum</b>"
+msgstr "<b>Datum</b>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Eh.Prijs</b>"
+msgstr "<b>Eh.Prijs</b>"
+
+#. module: smt_invoice_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+msgid "<b>FACTUUR</b>"
+msgstr "<b>FACTUUR</b>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Factuurnr.</b>"
+msgstr "<b>Factuurnr.</b>"
+
+#. module: smt_purchaseorder_report
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>INKOOPORDER BEVESTIGING</b>"
+msgstr "<b>INKOOPORDER BEVESTIGING</b>"
+
+#. module: smt_purchaseorder_report
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Inkoopdatum</b>"
+msgstr "<b>Inkoopdatum</b>"
+
+#. module: smt_purchaseorder_report
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Inkoopnr</b>"
+msgstr "<b>Inkoopnr</b>"
+
+#. modules: smt_invoice_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+msgid "<b>Klant</b>"
+msgstr "<b>Klant</b>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Lengte</b>"
+msgstr "<b>Lengte</b>"
+
+#. modules: smt_invoice_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+msgid "<b>Leveradres</b>"
+msgstr "<b>Leveradres</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+msgid "<b>Leveringnr</b>"
+msgstr "<b>Leveringnr</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+msgid "<b>Leveringsadres</b>"
+msgstr "<b>Leveringsadres</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+msgid "<b>Leveringsbon</b>"
+msgstr "<b>Leveringsbon</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+msgid "<b>OFFERTE</b>"
+msgstr "<b>OFFERTE</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+msgid "<b>Offertdatum</b>"
+msgstr "<b>Offertdatum</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+msgid "<b>Offerteadres</b>"
+msgstr "<b>Offerteadres</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+msgid "<b>Offertenr</b>"
+msgstr "<b>Offertenr</b>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Omschrijving</b>"
+msgstr "<b>Omschrijving</b>"
+
+#. modules: smt_invoice_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+msgid "<b>Te betalen</b>"
+msgstr "<b>Te betalen</b>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Tot. Aantal</b>"
+msgstr "<b>Tot. Aantal</b>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Tot.Aantal</b>"
+msgstr "<b>Tot.Aantal</b>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Tot.Prijs</b>"
+msgstr "<b>Tot.Prijs</b>"
+
+#. module: smt_purchaseorder_report
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Totaal Inkooporder</b>"
+msgstr "<b>Totaal Inkooporder</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+msgid "<b>Totaal bestelling</b>"
+msgstr "<b>Totaal bestelling</b>"
+
+#. module: inherit_product  
+#: model:ir.model.fields,field_description:inherit_product.field_account_invoice_line_order_id
+msgid "Order"
+msgstr "Bestelling"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+msgid "<b>Totaal offerte</b>"
+msgstr "<b>Totaal offerte</b>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<b>Totaal</b>"
+msgstr "<b>Totaal</b>"
+
+#. modules: smt_invoice_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+msgid "<b>Uw referentie</b>"
+msgstr "<b>Uw referentie</b>"
+
+#. module: smt_invoice_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+msgid "<b>Vervaldag</b>"
+msgstr "<b>Vervaldag</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+msgid "<b>Voor ontvangst :</b>"
+msgstr "<b>Voor ontvangst :</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+msgid "<b>bestelbonnr</b>"
+msgstr "<b>bestelbonnr</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+msgid "<b>besteldatum</b>"
+msgstr "<b>besteldatum</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+msgid "<b>tot.lengte</b>"
+msgstr "<b>tot.lengte</b>"
+
+#. module: smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+msgid "<b>uw referentie</b>"
+msgstr "<b>uw referentie</b>"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form_popup
+msgid "<span> hours</span>"
+msgstr "<span> uren</span>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "<span>Pagina </span><span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr "<span>Pagina </span><span class=\"page\"/> / <span class=\"topage\"/>"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:1635
+#: code:addons/openerp/addons/calendar/calendar.py:1635
+#, python-format
+msgid "A email has been send to specify that the date has been changed !"
+msgstr "Er is een e-mail verstuurt met de melding dat de datum is gewijzigd!"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Accept"
+msgstr "Accepteren"
+
+#. module: calendar
+#: selection:calendar.attendee,state:0
+#: selection:calendar.event,attendee_status:0
+msgid "Accepted"
+msgstr "Geaccepteerd"
+
+#. modules: note, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_message_needaction
+#: model:ir.model.fields,field_description:note.field_note_note_message_needaction
+msgid "Action Needed"
+msgstr "Vereist actie"
+
+#. modules: note, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_active
+#: model:ir.model.fields,field_description:note.field_note_note_open
+#: model:ir.ui.view,arch_db:note.view_note_note_filter
+msgid "Active"
+msgstr "Actief"
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/js/base_calendar.js:132
+#: code:addons/openerp/addons/calendar/static/src/js/base_calendar.js:132
+#, python-format
+msgid "Add Favorite Calendar"
+msgstr "Toevoegen favoriete agenda"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_product_template_zcoating
+msgid "Afwerking"
+msgstr "Afwerking"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_allday
+msgid "All Day"
+msgstr "Hele dag"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:771
+#: code:addons/openerp/addons/calendar/calendar.py:771
+#, python-format
+msgid "AllDay , %s"
+msgstr "Hele dag , %s"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "Ambachtslaan 1021, B-3990 PEER"
+msgstr "Ambachtslaan 1021, B-3990 PEER"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_duration
+msgid "Amount"
+msgstr "Bedrag"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:1088
+#: code:addons/openerp/addons/calendar/calendar.py:1088
+#, python-format
+msgid "An invitation email has been sent to attendee %s"
+msgstr "Een uitnodiging e-mail is verstuurt aan deelnemer %s"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:1442
+#: code:addons/openerp/addons/calendar/calendar.py:1442
+#, python-format
+msgid "An invitation email has been sent to attendee(s)"
+msgstr "Een uitnodiging e-mail is verstuurt aan de deelnemers"
+
+#. module: note
+#: model:ir.ui.view,arch_db:note.view_note_note_filter
+msgid "Archive"
+msgstr "Archiveren"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_is_attendee
+msgid "Attendee"
+msgstr "Deelnemer"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_attendee_status
+msgid "Attendee Status"
+msgstr "Deelnemer status"
+
+#. module: calendar
+#: model:ir.model,name:calendar.model_calendar_attendee
+msgid "Attendee information"
+msgstr "Info over aanwezigen"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_attendee_ids
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_partner_ids
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form_popup
+msgid "Attendees"
+msgstr "Deelnemers"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
+msgid "Availability"
+msgstr "Beschikbaarheid"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "BE 0898.796.159"
+msgstr "BE 0898.796.159"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "BE58 0015 5835 1779"
+msgstr "BE58 0015 5835 1779"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "BTW"
+msgstr "BTW"
+
+#. module: smt_invoice_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+msgid "Bij betaling binnen de 8 dagen na factuurdatum geldt een korting van<span style=\"padding-left: 5px;font-size: 15px;\"/>"
+msgstr "Bij betaling binnen de 8 dagen na factuurdatum geldt een korting van<span style=\"padding-left: 5px;font-size: 15px;\"/>"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "BlC"
+msgstr "BlC"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_product_template_zpro_width
+msgid "Breedte"
+msgstr "Breedte"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:1725
+#: code:addons/openerp/addons/calendar/calendar.py:1725
+#: selection:calendar.attendee,availability:0
+#: selection:calendar.event,show_as:0
+#, python-format
+msgid "Busy"
+msgstr "Bezet"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_byday
+msgid "By day"
+msgstr "Op dag"
+
+#. module: note
+#: model:ir.ui.view,arch_db:note.view_note_note_filter
+msgid "By sticky note Category"
+msgstr "Notitie categorie"
+
+#. module: calendar
+#: model:ir.ui.menu,name:calendar.mail_menu_calendar
+#: model:ir.ui.menu,name:calendar.menu_calendar_configuration
+msgid "Calendar"
+msgstr "Agenda"
+
+#. module: calendar
+#: model:ir.actions.act_window,name:calendar.action_calendar_alarm
+#: model:ir.ui.menu,name:calendar.menu_calendar_alarm
+#: model:ir.ui.view,arch_db:calendar.calendar_alarm_view_form
+#: model:ir.ui.view,arch_db:calendar.view_calendar_alarm_tree
+msgid "Calendar Alarm"
+msgstr "Agenda alarm"
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/xml/base_calendar.xml:43
+#: code:addons/openerp/addons/calendar/static/src/xml/base_calendar.xml:43
+#, python-format
+msgid "Calendar Invitation"
+msgstr "Kalender uitnodiging"
+
+#. module: inherit_product
+#: model:ir.ui.view,arch_db:inherit_product.delivery_cancel_wiz_form
+msgid "Cancel"
+msgstr "Annuleren"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Click here to update only this instance and not all recurrences."
+msgstr "Klik hier om alleen deze afspraak te wijzigen en niet alle herhalingen."
+
+#. module: base
+#: model:ir.module.category,name:base.module_category_discuss
+#: model:ir.module.module,shortdesc:base.module_mail
+msgid "Discuss"
+msgstr "Inbox"
+
+#. module: mail
+#: model:ir.ui.menu,name:mail.mail_channel_menu_root_chat
+msgid "Discuss"
+msgstr "Inbox"
+
+#. module: note
+#: model:ir.actions.act_window,help:note.action_note_note
+msgid "Click to add a personal note."
+msgstr "Klik om een persoonlijk bericht toe te voegen."
+
+#. module: calendar
+#: model:ir.actions.act_window,help:calendar.action_calendar_event
+msgid "Click to schedule a new meeting."
+msgstr "Klik om een nieuwe afspraak in te plannen."
+
+#. module: note
+#: model:ir.model.fields,field_description:note.field_note_note_color
+#: model:ir.model.fields,field_description:note.field_note_tag_color
+msgid "Color Index"
+msgstr "Kleurindex"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_color_partner_id
+msgid "Color index of creator"
+msgstr "Kleurindex van de organisator"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee_cn
+msgid "Common name"
+msgstr "Algemene naam"
+
+#. module: smt_purchaseorder_report
+#: code:addons/custome_addons/smt_purchaseorder_report/model/purchase_ext.py:36
+#: code:addons/smt_purchaseorder_report/model/purchase_ext.py:36
+#, python-format
+msgid "Compose Email"
+msgstr "Compose Email"
+
+#. module: note
+#: model:ir.ui.menu,name:note.menu_note_configuration
+msgid "Configuration"
+msgstr "Instellingen"
+
+#. module: inherit_product
+#: model:ir.ui.view,arch_db:inherit_product.delivery_cancel_wiz_form
+msgid "Confirm"
+msgstr "BEVESTIG"
+
+#. module: calendar
+#: selection:calendar.event,state:0
+msgid "Confirmed"
+msgstr "Bevestigd"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee_partner_id
+msgid "Contact"
+msgstr "Contactpersoon"
+
+#. modules: note, calendar, smt_invoice_report, inherit_product
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_create_uid
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee_create_uid
+#: model:ir.model.fields,field_description:calendar.field_calendar_contacts_create_uid
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_create_uid
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_type_create_uid
+#: model:ir.model.fields,field_description:inherit_product.field_delivery_cancel_wiz_create_uid
+#: model:ir.model.fields,field_description:inherit_product.field_product_platnumber_create_uid
+#: model:ir.model.fields,field_description:note.field_note_note_create_uid
+#: model:ir.model.fields,field_description:note.field_note_stage_create_uid
+#: model:ir.model.fields,field_description:note.field_note_tag_create_uid
+#: model:ir.model.fields,field_description:smt_invoice_report.field_financial_reduction_create_uid
+msgid "Created by"
+msgstr "Gemaakt door"
+
+#. modules: note, calendar, smt_invoice_report, inherit_product
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_create_date
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee_create_date
+#: model:ir.model.fields,field_description:calendar.field_calendar_contacts_create_date
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_create_date
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_type_create_date
+#: model:ir.model.fields,field_description:inherit_product.field_delivery_cancel_wiz_create_date
+#: model:ir.model.fields,field_description:inherit_product.field_product_platnumber_create_date
+#: model:ir.model.fields,field_description:note.field_note_note_create_date
+#: model:ir.model.fields,field_description:note.field_note_stage_create_date
+#: model:ir.model.fields,field_description:note.field_note_tag_create_date
+#: model:ir.model.fields,field_description:smt_invoice_report.field_financial_reduction_create_date
+msgid "Created on"
+msgstr "Gemaakt op"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_display_start
+msgid "Date"
+msgstr "Datum"
+
+#. module: note
+#: model:ir.model.fields,field_description:note.field_note_note_date_done
+msgid "Date done"
+msgstr "Datum verwerkt"
+
+#. module: calendar
+#: selection:calendar.event,month_by:0
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_day
+msgid "Date of month"
+msgstr "Dag van de maand"
+
+#. modules: note, calendar
+#: model:ir.model.fields,help:calendar.field_calendar_event_message_last_post
+#: model:ir.model.fields,help:note.field_note_note_message_last_post
+msgid "Date of the last message posted on the record."
+msgstr "Datum laatste bericht voor dit record."
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Day of Month"
+msgstr "Dag van de maand"
+
+#. module: calendar
+#: selection:calendar.event,month_by:0
+msgid "Day of month"
+msgstr "Dag van de maand"
+
+#. module: calendar
+#: selection:calendar.alarm,interval:0
+#: selection:calendar.event,rrule_type:0
+msgid "Day(s)"
+msgstr "Dag(en)"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Decline"
+msgstr "Weigeren"
+
+#. module: calendar
+#: selection:calendar.attendee,state:0
+#: selection:calendar.event,attendee_status:0
+msgid "Declined"
+msgstr "Geweigerd"
+
+#. module: note
+#: model:ir.ui.view,arch_db:note.view_note_note_kanban
+msgid "Delete"
+msgstr "Verwijderen"
+
+#. module: inherit_product
+#: selection:sale.order,delivery_status:0
+msgid "Delivered"
+msgstr "Volledig"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_sale_order_is_print
+msgid "Delivery Print"
+msgstr "Levering geprint"
+
+#. module: smt_delivery_report
+#: model:ir.actions.report.xml,name:smt_delivery_report.report_sale_delivery
+msgid "Delivery Report"
+msgstr "Leveringsbon"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_sale_order_delivery_status
+msgid "Delivery Status"
+msgstr "Levering status"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_description
+msgid "Description"
+msgstr "Omschrijving"
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/xml/base_calendar.xml:18
+#: code:addons/openerp/addons/calendar/static/src/xml/base_calendar.xml:18
+#, python-format
+msgid "Details"
+msgstr "Details"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_product_template_zpro_thik
+msgid "Dikte"
+msgstr "Dikte"
+
+#. modules: smt_invoice_report, smt_delivery_report, inherit_product, note, smt_purchaseorder_report, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_display_name
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_manager_display_name
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee_display_name
+#: model:ir.model.fields,field_description:calendar.field_calendar_contacts_display_name
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_display_name
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_type_display_name
+#: model:ir.model.fields,field_description:inherit_product.field_delivery_cancel_wiz_display_name
+#: model:ir.model.fields,field_description:inherit_product.field_product_platnumber_display_name
+#: model:ir.model.fields,field_description:note.field_note_note_display_name
+#: model:ir.model.fields,field_description:note.field_note_stage_display_name
+#: model:ir.model.fields,field_description:note.field_note_tag_display_name
+#: model:ir.model.fields,field_description:smt_delivery_report.field_report_smt_delivery_report_delivery_report_ext_display_name
+#: model:ir.model.fields,field_description:smt_delivery_report.field_report_smt_delivery_report_delivery_report_price_ext_display_name
+#: model:ir.model.fields,field_description:smt_delivery_report.field_report_smt_delivery_report_sale_quotation_report_display_name
+#: model:ir.model.fields,field_description:smt_delivery_report.field_report_stock_report_picking_display_name
+#: model:ir.model.fields,field_description:smt_invoice_report.field_financial_reduction_display_name
+#: model:ir.model.fields,field_description:smt_invoice_report.field_report_smt_invoice_report_account_invoice_display_name
+#: model:ir.model.fields,field_description:smt_purchaseorder_report.field_report_smt_purchaseorder_report_purchase_order_report_display_name
+msgid "Display Name"
+msgstr "Schermnaam"
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/js/base_calendar.js:168
+#: code:addons/openerp/addons/calendar/static/src/js/base_calendar.js:168
+#, python-format
+msgid "Do you really want to delete this filter from favorite?"
+msgstr "Weet u zeker dat u deze filter wilt verwijderen als favoriet?"
+
+#. module: inherit_product
+#: code:addons/custome_addons/inherit_product/wizard/sale_make_invoice_advance.py:35
+#: code:addons/inherit_product/wizard/sale_make_invoice_advance.py:35
+#, python-format
+msgid "Down Payment"
+msgstr "Down Payment"
+
+#. module: inherit_product
+#: code:addons/custome_addons/inherit_product/wizard/sale_make_invoice_advance.py:32
+#: code:addons/inherit_product/wizard/sale_make_invoice_advance.py:32
+#, python-format
+msgid "Down payment of %s%%"
+msgstr "Down payment of %s%%"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_duration
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Duration"
+msgstr "Duur"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_duration_minutes
+#: model:ir.model.fields,help:calendar.field_calendar_alarm_duration_minutes
+msgid "Duration in minutes"
+msgstr "Tijdsduur in minuten"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_product_template_zean
+msgid "EAN"
+msgstr "EAN"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_product_template_zpro_measur
+msgid "Eenheid"
+msgstr "Eenheid"
+
+#. module: calendar
+#: selection:calendar.alarm,type:0
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee_email
+msgid "Email"
+msgstr "E-mail"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:1374
+#: code:addons/openerp/addons/calendar/calendar.py:1374
+#, python-format
+msgid "Email addresses not found"
+msgstr "E-mail adressen niet gevonden"
+
+#. module: calendar
+#: model:ir.model.fields,help:calendar.field_calendar_attendee_email
+msgid "Email of Invited Person"
+msgstr "E-mail van uitgenodigde persoon"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_contacts_partner_id
+msgid "Employee"
+msgstr "Werknemer"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_stop_date
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_tree
+msgid "End Date"
+msgstr "Einddatum"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_stop_datetime
+msgid "End Datetime"
+msgstr "Eind datum tijd"
+
+#. module: calendar
+#: selection:calendar.event,end_type:0
+msgid "End date"
+msgstr "Einddatum"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Ending at"
+msgstr "Eindigt op"
+
+#. module: calendar
+#: constraint:calendar.event:0
+msgid "Error ! End date cannot be set before start date."
+msgstr "Fout! de einddatum kan niet voor de startdatum liggen."
+
+#. module: calendar
+#: model:ir.model,name:calendar.model_calendar_event
+msgid "Event"
+msgstr "Evenement"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_display_time
+msgid "Event Time"
+msgstr "Evenement tijd"
+
+#. module: calendar
+#: model:ir.model,name:calendar.model_calendar_alarm
+msgid "Event alarm"
+msgstr "Evenement alarm"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:1240
+#: code:addons/openerp/addons/calendar/calendar.py:1240
+#, python-format
+msgid "Event recurrence interval cannot be negative."
+msgstr "Het herhaalinterval van het evenment mag niet negatief zijn."
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/js/base_calendar.js:45
+#: code:addons/openerp/addons/calendar/static/src/js/base_calendar.js:45
+#, python-format
+msgid "Everybody's calendars"
+msgstr "Agenda van iedereen"
+
+#. module: calendar
+#: selection:calendar.event,class:0
+msgid "Everyone"
+msgstr "Iedereen"
+
+#. module: calendar
+#: selection:calendar.event,byday:0
+msgid "Fifth"
+msgstr "Vijfde"
+
+#. modules: smt_invoice_report, inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_account_invoice_fin_reduction_id
+#: model:ir.model.fields,field_description:smt_invoice_report.field_financial_reduction_fin_reduction
+#: model:ir.model.fields,field_description:smt_invoice_report.field_res_partner_fin_reduction_id
+msgid "Financial Reduction"
+msgstr "Korting contant"
+
+#. module: smt_invoice_report
+#: sql_constraint:financial.reduction:0
+msgid "Financial Reduction must be unique!"
+msgstr "Korting contant must be unique!"
+
+#. module: calendar
+#: selection:calendar.event,byday:0
+msgid "First"
+msgstr "Eerste"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:143
+#: code:addons/openerp/addons/calendar/calendar.py:143
+#, python-format
+msgid "First you have to specify the date of the invitation."
+msgstr "Eerst dient u de datum van de uitnodiging in te geven."
+
+#. module: note
+#: model:ir.model.fields,field_description:note.field_note_stage_fold
+msgid "Folded by Default"
+msgstr "Standaard ingevouwen"
+
+#. modules: note, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_message_follower_ids
+#: model:ir.model.fields,field_description:note.field_note_note_message_follower_ids
+msgid "Followers"
+msgstr "Volgers"
+
+#. modules: note, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_message_channel_ids
+#: model:ir.model.fields,field_description:note.field_note_note_message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Volgers (Kanalen)"
+
+#. modules: note, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_message_partner_ids
+#: model:ir.model.fields,field_description:note.field_note_note_message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Volgers (Partners)"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "Fortis"
+msgstr "Fortis"
+
+#. module: calendar
+#: selection:calendar.event,byday:0
+msgid "Fourth"
+msgstr "Vierde"
+
+#. module: calendar
+#: selection:calendar.attendee,availability:0
+#: selection:calendar.event,show_as:0
+msgid "Free"
+msgstr "Vrij"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee_availability
+msgid "Free/Busy"
+msgstr "Vrij/bezet"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_fr
+msgid "Fri"
+msgstr "Vr"
+
+#. module: calendar
+#: selection:calendar.event,week_list:0
+msgid "Friday"
+msgstr "Vrijdag"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "GEBABEBB"
+msgstr "GEBABEBB"
+
+#. modules: note, calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
+#: model:ir.ui.view,arch_db:note.view_note_note_filter
+msgid "Group By"
+msgstr "Groeperen op"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:1667
+#: code:addons/openerp/addons/calendar/calendar.py:1667
+#, python-format
+msgid "Group by date is not supported, use the calendar view instead."
+msgstr "Groeperen op datum wordt niet ondersteund. Gebruik hiervoor de agenda weergave."
+
+#. module: calendar
+#: model:ir.model,name:calendar.model_ir_http
+msgid "HTTP routing"
+msgstr "HTTP routing"
+
+#. module: calendar
+#: selection:calendar.alarm,interval:0
+msgid "Hour(s)"
+msgstr "Uur/Uren"
+
+#. modules: smt_invoice_report, smt_delivery_report, inherit_product, note, smt_purchaseorder_report, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_id
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_manager_id
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee_id
+#: model:ir.model.fields,field_description:calendar.field_calendar_contacts_id
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_id
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_type_id
+#: model:ir.model.fields,field_description:inherit_product.field_delivery_cancel_wiz_id
+#: model:ir.model.fields,field_description:inherit_product.field_product_platnumber_id
+#: model:ir.model.fields,field_description:note.field_note_note_id
+#: model:ir.model.fields,field_description:note.field_note_stage_id
+#: model:ir.model.fields,field_description:note.field_note_tag_id
+#: model:ir.model.fields,field_description:smt_delivery_report.field_report_smt_delivery_report_delivery_report_ext_id
+#: model:ir.model.fields,field_description:smt_delivery_report.field_report_smt_delivery_report_delivery_report_price_ext_id
+#: model:ir.model.fields,field_description:smt_delivery_report.field_report_smt_delivery_report_sale_quotation_report_id
+#: model:ir.model.fields,field_description:smt_delivery_report.field_report_stock_report_picking_id
+#: model:ir.model.fields,field_description:smt_invoice_report.field_financial_reduction_id
+#: model:ir.model.fields,field_description:smt_invoice_report.field_report_smt_invoice_report_account_invoice_id
+#: model:ir.model.fields,field_description:smt_purchaseorder_report.field_report_smt_purchaseorder_report_purchase_order_report_id
+msgid "ID"
+msgstr "ID"
+
+#. modules: note, calendar
+#: model:ir.model.fields,help:calendar.field_calendar_event_message_unread
+#: model:ir.model.fields,help:note.field_note_note_message_unread
+msgid "If checked new messages require your attention."
+msgstr "Als dit is ingeschakeld, zijn er nieuwe berichten die uw aandacht vragen."
+
+#. modules: note, calendar
+#: model:ir.model.fields,help:calendar.field_calendar_event_message_needaction
+#: model:ir.model.fields,help:note.field_note_note_message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Indien aangevinkt vragen nieuwe berichten uw aandacht."
+
+#. module: calendar
+#: model:ir.model.fields,help:calendar.field_calendar_event_active
+msgid "If the active field is set to false, it will allow you to hide the event alarm information without removing it."
+msgstr "Als het actief veld niet is aangevinkt, heeft u de mogelijkheid om het evenement alarm te verbergen zonder deze te verwijderen."
+
+#. module: calendar
+#: model:mail.message.subtype,name:calendar.subtype_invitation
+msgid "Invitation"
+msgstr "Uitnodiging"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee_access_token
+msgid "Invitation Token"
+msgstr "UItnodiging token"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Invitation details"
+msgstr "Details uitnodiging"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Invitations"
+msgstr "Uitnodigingen"
+
+#. module: calendar
+#: model:ir.model,name:calendar.model_mail_wizard_invite
+msgid "Invite wizard"
+msgstr "Uitnodigen wizard"
+
+#. modules: smt_invoice_report, inherit_product
+#: model:ir.model,name:inherit_product.model_account_invoice
+#: model:ir.model,name:smt_invoice_report.model_account_invoice
+msgid "Invoice"
+msgstr "Factuur"
+
+#. module: inherit_product
+#: model:ir.model,name:inherit_product.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Factuurlijn"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_account_invoice_is_print
+msgid "Invoice Print"
+msgstr "Factuur Geprint"
+
+#. module: smt_invoice_report
+#: model:ir.actions.report.xml,name:smt_invoice_report.report_account_invoice
+msgid "Invoices"
+msgstr "Facturen"
+
+#. modules: note, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_message_is_follower
+#: model:ir.model.fields,field_description:note.field_note_note_message_is_follower
+msgid "Is Follower"
+msgstr "Is Volger"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_product_template_zcolor
+msgid "Kleur"
+msgstr "Kleur"
+
+#. module: calendar
+#: selection:calendar.event,byday:0
+msgid "Last"
+msgstr "Laatste"
+
+#. modules: note, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_message_last_post
+#: model:ir.model.fields,field_description:note.field_note_note_message_last_post
+msgid "Last Message Date"
+msgstr "Datum laatste bericht"
+
+#. modules: smt_invoice_report, smt_delivery_report, inherit_product, note, smt_purchaseorder_report, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm___last_update
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_manager___last_update
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee___last_update
+#: model:ir.model.fields,field_description:calendar.field_calendar_contacts___last_update
+#: model:ir.model.fields,field_description:calendar.field_calendar_event___last_update
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_type___last_update
+#: model:ir.model.fields,field_description:inherit_product.field_delivery_cancel_wiz___last_update
+#: model:ir.model.fields,field_description:inherit_product.field_product_platnumber___last_update
+#: model:ir.model.fields,field_description:note.field_note_note___last_update
+#: model:ir.model.fields,field_description:note.field_note_stage___last_update
+#: model:ir.model.fields,field_description:note.field_note_tag___last_update
+#: model:ir.model.fields,field_description:smt_delivery_report.field_report_smt_delivery_report_delivery_report_ext___last_update
+#: model:ir.model.fields,field_description:smt_delivery_report.field_report_smt_delivery_report_delivery_report_price_ext___last_update
+#: model:ir.model.fields,field_description:smt_delivery_report.field_report_smt_delivery_report_sale_quotation_report___last_update
+#: model:ir.model.fields,field_description:smt_delivery_report.field_report_stock_report_picking___last_update
+#: model:ir.model.fields,field_description:smt_invoice_report.field_financial_reduction___last_update
+#: model:ir.model.fields,field_description:smt_invoice_report.field_report_smt_invoice_report_account_invoice___last_update
+#: model:ir.model.fields,field_description:smt_purchaseorder_report.field_report_smt_purchaseorder_report_purchase_order_report___last_update
+msgid "Last Modified on"
+msgstr "Laatst Aangepast op"
+
+#. modules: note, calendar, smt_invoice_report, inherit_product
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_write_uid
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee_write_uid
+#: model:ir.model.fields,field_description:calendar.field_calendar_contacts_write_uid
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_type_write_uid
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_write_uid
+#: model:ir.model.fields,field_description:inherit_product.field_delivery_cancel_wiz_write_uid
+#: model:ir.model.fields,field_description:inherit_product.field_product_platnumber_write_uid
+#: model:ir.model.fields,field_description:note.field_note_note_write_uid
+#: model:ir.model.fields,field_description:note.field_note_stage_write_uid
+#: model:ir.model.fields,field_description:note.field_note_tag_write_uid
+#: model:ir.model.fields,field_description:smt_invoice_report.field_financial_reduction_write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. modules: note, calendar, smt_invoice_report, inherit_product
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_write_date
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee_write_date
+#: model:ir.model.fields,field_description:calendar.field_calendar_contacts_write_date
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_type_write_date
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_write_date
+#: model:ir.model.fields,field_description:inherit_product.field_delivery_cancel_wiz_write_date
+#: model:ir.model.fields,field_description:inherit_product.field_product_platnumber_write_date
+#: model:ir.model.fields,field_description:note.field_note_note_write_date
+#: model:ir.model.fields,field_description:note.field_note_stage_write_date
+#: model:ir.model.fields,field_description:note.field_note_tag_write_date
+#: model:ir.model.fields,field_description:smt_invoice_report.field_financial_reduction_write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_res_partner_calendar_last_notif_ack
+msgid "Last notification marked as read from base Calendar"
+msgstr "Laatste melding is gemarkeerd als gelezen"
+
+#. module: note
+#: model:note.stage,name:note.demo_note_stage_03
+#: model:note.stage,name:note.note_stage_03
+msgid "Later"
+msgstr "Later"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_account_invoice_line_zpro_length
+#: model:ir.model.fields,field_description:inherit_product.field_product_template_zpro_length
+#: model:ir.model.fields,field_description:inherit_product.field_purchase_order_line_zpro_length
+#: model:ir.model.fields,field_description:inherit_product.field_sale_order_line_zpro_length
+#: model:ir.model.fields,field_description:inherit_product.field_stock_move_zpro_length
+#: model:ir.model.fields,field_description:inherit_product.field_stock_pack_operation_zpro_length
+msgid "Lengte"
+msgstr "Lengte"
+
+#. module: calendar
+#: model:ir.model.fields,help:calendar.field_calendar_event_rrule_type
+msgid "Let the event automatically repeat at that interval"
+msgstr "Laat de gebeurtenis automatisch herhalen met dit interval"
+
+#. module: smt_delivery_report
+#: model:ir.actions.report.xml,name:smt_delivery_report.report_sale_delivery_price
+msgid "Leveringsbon met prijzen"
+msgstr "Leveringsbon met prijzen"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_location
+msgid "Location"
+msgstr "Locatie"
+
+#. module: calendar
+#: model:ir.model.fields,help:calendar.field_calendar_event_location
+msgid "Location of Event"
+msgstr "Locatie gebeurtenis"
+
+#. module: inherit_product
+#. openerp-web
+#: code:addons/custome_addons/inherit_product/static/src/xml/chatter.xml:7
+#: code:addons/inherit_product/static/src/xml/chatter.xml:7
+#, python-format
+msgid "Log a note. Followers will not be notified."
+msgstr "Log a note. Followers will not be notified."
+
+#. module: inherit_product
+#. openerp-web
+#: code:addons/custome_addons/inherit_product/static/src/xml/chatter.xml:7
+#: code:addons/inherit_product/static/src/xml/chatter.xml:7
+#, python-format
+msgid "Log an internal note"
+msgstr "Log an internal note"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_product_template_zmat_no
+msgid "Materiaalnummer"
+msgstr "Materiaalnummer"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_contacts_user_id
+msgid "Me"
+msgstr "Ik"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
+msgid "Meeting"
+msgstr "Vergadering"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Meeting Details"
+msgstr "Afspraak details"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_name
+msgid "Meeting Subject"
+msgstr "Afspraak onderwerp"
+
+#. module: calendar
+#: model:ir.model,name:calendar.model_calendar_event_type
+msgid "Meeting Type"
+msgstr "Soort afspraak"
+
+#. module: calendar
+#: model:ir.actions.act_window,name:calendar.action_calendar_event_type
+#: model:ir.ui.menu,name:calendar.menu_calendar_event_type
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_type_tree
+msgid "Meeting Types"
+msgstr "Afspraak soorten"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee_event_id
+msgid "Meeting linked"
+msgstr "Afspraak koppeling"
+
+#. module: calendar
+#: model:ir.actions.act_window,name:calendar.action_calendar_event
+#: model:ir.actions.act_window,name:calendar.action_calendar_event_notify
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form_popup
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_tree
+msgid "Meetings"
+msgstr "Vergaderingen"
+
+#. module: calendar
+#: model:ir.model,name:calendar.model_mail_message
+msgid "Message"
+msgstr "Bericht"
+
+#. modules: note, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_message_ids
+#: model:ir.model.fields,field_description:note.field_note_note_message_ids
+msgid "Messages"
+msgstr "Berichten"
+
+#. module: calendar
+#: selection:calendar.alarm,interval:0
+msgid "Minute(s)"
+msgstr "Minu(u)t(en)"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Misc"
+msgstr "Diversen"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_mo
+msgid "Mon"
+msgstr "Ma"
+
+#. module: calendar
+#: selection:calendar.event,week_list:0
+msgid "Monday"
+msgstr "Maandag"
+
+#. module: calendar
+#: selection:calendar.event,rrule_type:0
+msgid "Month(s)"
+msgstr "Maand(en)"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
+msgid "My Events"
+msgstr "Mijn evenementen"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
+msgid "My Meetings"
+msgstr "Mijn afspraken"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_name
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_type_name
+msgid "Name"
+msgstr "Naam:"
+
+#. module: calendar
+#: selection:calendar.attendee,state:0
+#: selection:calendar.event,attendee_status:0
+msgid "Needs Action"
+msgstr "Vereist actie"
+
+#. module: note
+#: model:note.stage,name:note.note_stage_00
+msgid "New"
+msgstr "Nieuw"
+
+#. module: note
+#: code:addons/note/note.py:165
+#: code:addons/openerp/addons/note/note.py:165
+#, python-format
+msgid "New Note"
+msgstr "Nieuwe notitie"
+
+#. module: inherit_product
+#. openerp-web
+#: code:addons/custome_addons/inherit_product/static/src/xml/chatter.xml:11
+#: code:addons/inherit_product/static/src/xml/chatter.xml:11
+#, python-format
+msgid "New message"
+msgstr "New message"
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/xml/base_calendar.xml:36
+#: code:addons/openerp/addons/calendar/static/src/xml/base_calendar.xml:36
+#, python-format
+msgid "No I'm not going."
+msgstr "Nee ik ga niet."
+
+#. module: inherit_product
+#: selection:sale.order,delivery_status:0
+msgid "Not Delivered"
+msgstr "Nog te leveren"
+
+#. module: note
+#: model:ir.model,name:note.model_note_note
+#: model:ir.ui.view,arch_db:note.view_note_note_filter
+#: model:ir.ui.view,arch_db:note.view_note_note_form
+msgid "Note"
+msgstr "Nota"
+
+#. module: note
+#: model:ir.model.fields,field_description:note.field_note_note_memo
+msgid "Note Content"
+msgstr "Notitie inhoud"
+
+#. module: note
+#: model:ir.model,name:note.model_note_stage
+msgid "Note Stage"
+msgstr "Notitie fase"
+
+#. module: note
+#: model:ir.model.fields,field_description:note.field_note_note_name
+msgid "Note Summary"
+msgstr "Notitie samenvatting"
+
+#. module: note
+#: model:ir.model,name:note.model_note_tag
+msgid "Note Tag"
+msgstr "Notitie label"
+
+#. module: note
+#: model:ir.actions.act_window,name:note.action_note_note
+#: model:ir.ui.menu,name:note.menu_note_notes
+#: model:ir.ui.view,arch_db:note.view_note_note_filter
+#: model:note.stage,name:note.note_stage_04
+msgid "Notes"
+msgstr "Nota"
+
+#. module: calendar
+#: selection:calendar.alarm,type:0
+msgid "Notification"
+msgstr "Melding"
+
+#. modules: note, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_message_needaction_counter
+#: model:ir.model.fields,field_description:note.field_note_note_message_needaction_counter
+msgid "Number of Actions"
+msgstr "Aantal acties"
+
+#. modules: note, calendar
+#: model:ir.model.fields,help:calendar.field_calendar_event_message_needaction_counter
+#: model:ir.model.fields,help:note.field_note_note_message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Aantal berichten die actie vereisen"
+
+#. module: calendar
+#: selection:calendar.event,end_type:0
+msgid "Number of repetitions"
+msgstr "Aantal herhalingen"
+
+#. modules: note, calendar
+#: model:ir.model.fields,help:calendar.field_calendar_event_message_unread_counter
+#: model:ir.model.fields,help:note.field_note_note_message_unread_counter
+msgid "Number of unread messages"
+msgstr "Aantal ongelezen berichten"
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/xml/base_calendar.xml:17
+#: code:addons/openerp/addons/calendar/static/src/xml/base_calendar.xml:17
+#, python-format
+msgid "OK"
+msgstr "OK"
+
+#. module: smt_delivery_report
+#: model:ir.actions.report.xml,name:smt_delivery_report.report_sale_quotation
+msgid "Offerte / Bestelling"
+msgstr "Offerte / Bestelling"
+
+#. module: calendar
+#: selection:calendar.event,class:0
+msgid "Only internal users"
+msgstr "Alleen interne gebruikers"
+
+#. module: calendar
+#: selection:calendar.event,class:0
+msgid "Only me"
+msgstr "Alleen mijzelf"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_month_by
+msgid "Option"
+msgstr "Optie"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Options"
+msgstr "Opties"
+
+#. modules: note, calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+#: model:ir.model.fields,field_description:note.field_note_note_user_id
+#: model:ir.model.fields,field_description:note.field_note_stage_user_id
+msgid "Owner"
+msgstr "Eigenaar"
+
+#. module: note
+#: model:ir.model.fields,help:note.field_note_stage_user_id
+msgid "Owner of the note stage."
+msgstr "Eigenaar van de berichten fase"
+
+#. module: inherit_product
+#: model:ir.model,name:inherit_product.model_stock_pack_operation
+msgid "Packing Operation"
+msgstr "Verpakking bewerking"
+
+#. module: inherit_product
+#: selection:sale.order,delivery_status:0
+msgid "Partially Delivered"
+msgstr "Gedeeltelijk"
+
+#. modules: calendar, smt_invoice_report
+#: model:ir.model,name:calendar.model_res_partner
+#: model:ir.model,name:smt_invoice_report.model_res_partner
+msgid "Partner"
+msgstr "Relatie"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_product_template_zpro_palnt_ids
+msgid "Plaatnummer"
+msgstr "Plaatnummer"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:1253
+#: code:addons/openerp/addons/calendar/calendar.py:1253
+#, python-format
+msgid "Please select a proper day of the month."
+msgstr "Kies een geschikte dag in de maand."
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_class
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
+msgid "Privacy"
+msgstr "Privacy"
+
+#. module: inherit_product
+#: model:ir.model,name:inherit_product.model_procurement_order
+msgid "Procurement"
+msgstr "Bevoorrading"
+
+#. module: inherit_product
+#: model:ir.ui.view,arch_db:inherit_product.inherit_product_view
+msgid "Product Detail"
+msgstr "Product Detail"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_product_platnumber_name
+msgid "Product Name"
+msgstr "Productnaam"
+
+#. module: inherit_product
+#: model:ir.model,name:inherit_product.model_product_template
+msgid "Product Template"
+msgstr "Productsjabloon"
+
+#. module: smt_purchaseorder_report
+#: model:ir.actions.report.xml,name:smt_purchaseorder_report.action_report_purchase_order
+#: model:ir.actions.report.xml,name:smt_purchaseorder_report.report_purchase_order
+#: model:ir.model,name:smt_purchaseorder_report.model_purchase_order
+msgid "Purchase Order"
+msgstr "Aankooporder"
+
+#. module: inherit_product
+#: model:ir.model,name:inherit_product.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Aankooporderlijn"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_end_type
+msgid "Recurrence Termination"
+msgstr "Einde herhalingen"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_rrule_type
+msgid "Recurrency"
+msgstr "Herhaling"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_recurrency
+msgid "Recurrent"
+msgstr "Herhalend"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_recurrent_id
+msgid "Recurrent ID"
+msgstr "Herhaal ID"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_recurrent_id_date
+msgid "Recurrent ID date"
+msgstr "Herhaling ID datum"
+
+#. module: calendar
+#: model:ir.model.fields,help:calendar.field_calendar_event_recurrency
+msgid "Recurrent Meeting"
+msgstr "Herhalende afspraak"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_rrule
+msgid "Recurrent Rule"
+msgstr "Herhaling regel"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_alarm_ids
+msgid "Reminders"
+msgstr "Herinneringen"
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/xml/base_calendar.xml:26
+#: code:addons/openerp/addons/calendar/static/src/xml/base_calendar.xml:26
+#, python-format
+msgid "Remove this favorite from the list"
+msgstr "Verwijder deze favoriet van de lijst"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_count
+msgid "Repeat"
+msgstr "Herhaal"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_interval
+msgid "Repeat Every"
+msgstr "Herhaal iedere"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_final_date
+msgid "Repeat Until"
+msgstr "Herhaal tot"
+
+#. module: calendar
+#: model:ir.model.fields,help:calendar.field_calendar_event_interval
+msgid "Repeat every (Days/Week/Month/Year)"
+msgstr "Elke (Dag/Week/Maand/Jaar) herhalen"
+
+#. module: calendar
+#: model:ir.model.fields,help:calendar.field_calendar_event_count
+msgid "Repeat x times"
+msgstr "Aantal keer herhalen"
+
+#. module: smt_purchaseorder_report
+#: model:ir.actions.report.xml,name:smt_purchaseorder_report.report_purchase_quotation
+msgid "Request for Quotation"
+msgstr "Bestelaanvraag"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_user_id
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
+msgid "Responsible"
+msgstr "Verantwoordelijke"
+
+#. module: inherit_product
+#: model:ir.model,name:inherit_product.model_sale_advance_payment_inv
+msgid "Sales Advance Payment Invoice"
+msgstr "Verkoop vooruibetaling factuur"
+
+
+#. modules: inherit_product, smt_delivery_report
+#: model:ir.model,name:inherit_product.model_sale_order
+#: model:ir.model,name:smt_delivery_report.model_sale_order
+msgid "Sales Order"
+msgstr "Verkooporder"
+
+#. module: inherit_product
+#: model:ir.model,name:inherit_product.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Verkooporderlijn"
+
+#. module: inherit_product
+#: model:ir.actions.act_window,name:inherit_product.action_product_history
+msgid "Sale Order Lines"
+msgstr "Bestelling maken"
+
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_sa
+msgid "Sat"
+msgstr "Zat"
+
+#. module: calendar
+#: selection:calendar.event,week_list:0
+msgid "Saturday"
+msgstr "Zaterdag"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
+msgid "Search Meetings"
+msgstr "Zoek afspraken"
+
+#. module: calendar
+#: selection:calendar.event,byday:0
+msgid "Second"
+msgstr "Seconde"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Select attendees..."
+msgstr "Selecteer aanwezigen..."
+
+#. module: inherit_product
+#. openerp-web
+#: code:addons/custome_addons/inherit_product/static/src/xml/chatter.xml:11
+#: code:addons/inherit_product/static/src/xml/chatter.xml:11
+#, python-format
+msgid "Send a message"
+msgstr "Send a message"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Send mail"
+msgstr "Verstuur e-mail"
+
+#. module: note
+#: model:ir.model.fields,field_description:note.field_note_note_sequence
+#: model:ir.model.fields,field_description:note.field_note_stage_sequence
+msgid "Sequence"
+msgstr "Volgorde"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_show_as
+msgid "Show Time as"
+msgstr "Tijd weergeven als"
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/xml/base_calendar.xml:19
+#: code:addons/openerp/addons/calendar/static/src/xml/base_calendar.xml:19
+#, python-format
+msgid "Snooze"
+msgstr "Snooze"
+
+#. module: note
+#: model:ir.model.fields,field_description:note.field_note_note_stage_id
+#: model:ir.ui.view,arch_db:note.view_note_note_filter
+msgid "Stage"
+msgstr "Fase"
+
+#. module: note
+#: model:ir.model.fields,field_description:note.field_note_stage_name
+msgid "Stage Name"
+msgstr "Fasenaam"
+
+#. module: note
+#: model:ir.ui.view,arch_db:note.view_note_stage_form
+msgid "Stage of Notes"
+msgstr "Notitie fases"
+
+#. module: note
+#: model:ir.actions.act_window,name:note.action_note_stage
+#: model:ir.ui.menu,name:note.menu_notes_stage
+#: model:ir.ui.view,arch_db:note.view_note_note_tree
+msgid "Stages"
+msgstr "Fasen"
+
+#. module: note
+#: model:ir.ui.view,arch_db:note.view_note_stage_tree
+msgid "Stages of Notes"
+msgstr "Notitie fases"
+
+#. module: note
+#: model:ir.model.fields,field_description:note.field_note_note_stage_ids
+msgid "Stages of Users"
+msgstr "Gebruikers fases"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_start
+msgid "Start"
+msgstr "Start"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_start_date
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_tree
+msgid "Start Date"
+msgstr "Begindatum"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_start_datetime
+msgid "Start DateTime"
+msgstr "Start datum tijd"
+
+#. module: calendar
+#: model:ir.model.fields,help:calendar.field_calendar_event_start
+msgid "Start date of an event, without time for full days events"
+msgstr "Startdatum van het evenement, zonder tijdsaanduiding voor evenmenten die een hele dag duren"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form_popup
+msgid "Starting at"
+msgstr "Vanaf"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_attendee_state
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_state
+msgid "Status"
+msgstr "Status"
+
+#. module: calendar
+#: model:ir.model.fields,help:calendar.field_calendar_attendee_state
+msgid "Status of the attendee's participation"
+msgstr "Deelnamestatus genodigde"
+
+#. module: inherit_product
+#: model:ir.model,name:inherit_product.model_stock_move
+msgid "Stock Move"
+msgstr "Voorraadbeweging"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_stop
+msgid "Stop"
+msgstr "Stoppen"
+
+#. module: calendar
+#: model:ir.model.fields,help:calendar.field_calendar_event_stop
+msgid "Stop date of an event, without time for full days events"
+msgstr "Einddatum van het evenement, zonder tijdsaanduiding voor evenmenten die een hele dag duren"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_product_template_zemb
+msgid "Structuur"
+msgstr "Structuur"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_tree
+msgid "Subject"
+msgstr "Onderwerp"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_su
+msgid "Sun"
+msgstr "Zon"
+
+#. module: calendar
+#: selection:calendar.event,week_list:0
+msgid "Sunday"
+msgstr "Zondag"
+
+#. module: note
+#: model:ir.model.fields,field_description:note.field_note_tag_name
+msgid "Tag Name"
+msgstr "Label naam"
+
+#. modules: note, calendar
+#: sql_constraint:calendar.event.type:0
+#: sql_constraint:note.tag:0
+msgid "Tag name already exists !"
+msgstr "Labelnaam bestaat al!"
+
+#. modules: note, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_categ_ids
+#: model:ir.model.fields,field_description:note.field_note_note_tag_ids
+#: model:ir.ui.view,arch_db:note.view_note_note_form
+msgid "Tags"
+msgstr "Labels"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "The"
+msgstr "De"
+
+#. module: calendar
+#: model:ir.actions.act_window,help:calendar.action_calendar_event
+msgid "The calendar is shared between employees and fully integrated with\n"
+"            other applications such as the employee holidays or the business\n"
+"            opportunities."
+msgstr "De agenda is gedeeld met werknemers en volledig geïntegreerd met \n"
+"andere programma's, zoals werknemersvakanties en prospects."
+
+#. module: inherit_product
+#: code:addons/custome_addons/inherit_product/model/stock_move.py:92
+#: code:addons/inherit_product/model/stock_move.py:67
+#: code:addons/inherit_product/model/stock_move.py:92
+#, python-format
+msgid "The destination location must be the same for all the moves of the picking."
+msgstr "The destination location must be the same for all the moves of the picking."
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:1370
+#: code:addons/openerp/addons/calendar/calendar.py:1370
+#, python-format
+msgid "The following contacts have no email address :"
+msgstr "De volgende contactpersonen hebben geen e-mail adres:"
+
+#. module: inherit_product
+#: code:addons/custome_addons/inherit_product/model/stock_move.py:95
+#: code:addons/inherit_product/model/stock_move.py:70
+#: code:addons/inherit_product/model/stock_move.py:95
+#, python-format
+msgid "The source location must be the same for all the moves of the picking."
+msgstr "The source location must be the same for all the moves of the picking."
+
+#. module: inherit_product
+#: code:addons/custome_addons/inherit_product/wizard/sale_make_invoice_advance.py:29
+#: code:addons/inherit_product/wizard/sale_make_invoice_advance.py:29
+#, python-format
+msgid "The value of the down payment amount must be positive."
+msgstr "The value of the down payment amount must be positive."
+
+#. module: inherit_product
+#: code:addons/custome_addons/inherit_product/wizard/sale_make_invoice_advance.py:25
+#: code:addons/inherit_product/wizard/sale_make_invoice_advance.py:25
+#, python-format
+msgid "There is no income account defined for this product: \"%s\". You may have to install a chart of account from Accounting app, settings menu."
+msgstr "There is no income account defined for this product: \"%s\". You may have to install a chart of account from Accounting app, settings menu."
+
+#. module: calendar
+#: selection:calendar.event,byday:0
+msgid "Third"
+msgstr "Derde"
+
+#. module: note
+#: model:note.stage,name:note.demo_note_stage_04
+#: model:note.stage,name:note.note_stage_02
+msgid "This Week"
+msgstr "Deze week"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "This event is linked to a recurrence...<br/>"
+msgstr "Dit evenement is gekoppeld aan een herhaling..."
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_th
+msgid "Thu"
+msgstr "Tot"
+
+#. module: calendar
+#: selection:calendar.event,week_list:0
+msgid "Thursday"
+msgstr "Donderdag"
+
+#. module: note
+#: model:note.stage,name:note.demo_note_stage_01
+#: model:note.stage,name:note.note_stage_01
+msgid "Today"
+msgstr "Vandaag"
+
+#. module: note
+#: model:note.stage,name:note.demo_note_stage_02
+msgid "Tomorrow"
+msgstr "Morgen"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_account_invoice_tot_fin_reduction
+msgid "Total Financial Reduction"
+msgstr "Totaal Korting contant"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_account_invoice_line_total_length
+#: model:ir.model.fields,field_description:inherit_product.field_purchase_order_line_total_length
+#: model:ir.model.fields,field_description:inherit_product.field_sale_order_line_total_length
+#: model:ir.model.fields,field_description:inherit_product.field_stock_move_total_length
+#: model:ir.model.fields,field_description:inherit_product.field_stock_pack_operation_total_length
+msgid "Total Lengte"
+msgstr "Total Lengte"
+
+#. modules: inherit_product, smt_delivery_report
+#: model:ir.model,name:inherit_product.model_stock_picking
+#: model:ir.model,name:smt_delivery_report.model_stock_picking
+msgid "Transfer"
+msgstr "Verplaatsing"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_tu
+msgid "Tue"
+msgstr "di"
+
+#. module: calendar
+#: selection:calendar.event,week_list:0
+msgid "Tuesday"
+msgstr "Dinsdag"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_type
+msgid "Type"
+msgstr "Type"
+
+#. module: inherit_product
+#: model:ir.ui.view,arch_db:inherit_product.stock_picking_form_view_ext
+msgid "Un-Cancel"
+msgstr "BEVESTIG"
+
+#. module: calendar
+#: selection:calendar.attendee,state:0
+#: selection:calendar.event,attendee_status:0
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Uncertain"
+msgstr "Onzeker"
+
+#. module: calendar
+#: selection:calendar.event,state:0
+msgid "Unconfirmed"
+msgstr "Onbevestigd"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_alarm_interval
+msgid "Unit"
+msgstr "Eenheid"
+
+#. modules: note, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_message_unread
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
+#: model:ir.model.fields,field_description:note.field_note_note_message_unread
+msgid "Unread Messages"
+msgstr "Ongelezen berichten"
+
+#. modules: note, calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_message_unread_counter
+#: model:ir.model.fields,field_description:note.field_note_note_message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Teller ongelezen berichten"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Until"
+msgstr "T/m"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "Update only this instance"
+msgstr "Alleen deze instantie bijwerken"
+
+#. module: note
+#: model:ir.actions.act_window,help:note.action_note_note
+msgid "Use notes to organize personal tasks or notes. All\n"
+"            notes are private; no one else will be able to see them. However\n"
+"            you can share some notes with other people by inviting followers\n"
+"            on the note. (Useful for meeting minutes, especially if\n"
+"            you activate the pad feature for collaborative writings)."
+msgstr "Gebruik notities voor het organiseren van persoonlijke taken en notities.\n"
+"Alle notities zijn privé; ze zijn voor niemand zichtbaar, tenzij je de\n"
+"notities deelt door andere medewerkers uit te nodigen als volger voor\n"
+"de notitie. (Handig voor verslagen van vergaderingen, zeker als je ook\n"
+"nog eens de pads voor samenwerking hebt geïnstalleerd.)"
+
+#. module: note
+#: model:ir.model.fields,help:note.field_note_stage_sequence
+msgid "Used to order the note stages"
+msgstr "Wordt gebruikt om de notitie fases te sorteren"
+
+#. module: note
+#: model:ir.model,name:note.model_res_users
+msgid "Users"
+msgstr "Gebruikers"
+
+#. module: inherit_product
+#: model:ir.model.fields,field_description:inherit_product.field_product_template_zpro_vol
+msgid "Verpakking"
+msgstr "Verpakking"
+
+#. module: inherit_product
+#: model:ir.ui.view,arch_db:inherit_product.delivery_cancel_wiz_form
+msgid "WAARSCHUWING ! U gaat een levering annuleren! Bent u zeker."
+msgstr "WAARSCHUWING ! U gaat een levering annuleren! Bent u zeker."
+
+#. module: calendar
+#: model:mail.message.subtype,description:calendar.subtype_invitation
+msgid "Warning, a mandatory field has been modified since the creation of this event"
+msgstr "Waarschuwing, een verplicht veld is aangepast sinds het aanmaken van dit evenement"
+
+#. modules: calendar, inherit_product
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_website_message_ids
+#: model:ir.model.fields,field_description:inherit_product.field_sale_order_website_message_ids
+msgid "Website Messages"
+msgstr "Websiteberichten"
+
+#. modules: calendar, inherit_product
+#: model:ir.model.fields,help:calendar.field_calendar_event_website_message_ids
+#: model:ir.model.fields,help:inherit_product.field_sale_order_website_message_ids
+msgid "Website communication history"
+msgstr "Websitecommunicatiehistoriek"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_we
+msgid "Wed"
+msgstr "Wo"
+
+#. module: calendar
+#: selection:calendar.event,week_list:0
+msgid "Wednesday"
+msgstr "Woensdag"
+
+#. module: calendar
+#: selection:calendar.event,rrule_type:0
+msgid "Week(s)"
+msgstr "We(e)k(en)"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_week_list
+msgid "Weekday"
+msgstr "Weekdag"
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/xml/base_calendar.xml:48
+#: code:addons/openerp/addons/calendar/static/src/xml/base_calendar.xml:48
+#, python-format
+msgid "When"
+msgstr "Wanneer"
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/xml/base_calendar.xml:52
+#: code:addons/openerp/addons/calendar/static/src/xml/base_calendar.xml:52
+#, python-format
+msgid "Where"
+msgstr "Waar"
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/xml/base_calendar.xml:56
+#: code:addons/openerp/addons/calendar/static/src/xml/base_calendar.xml:56
+#, python-format
+msgid "Who"
+msgstr "Wie"
+
+#. module: calendar
+#: selection:calendar.event,rrule_type:0
+msgid "Year(s)"
+msgstr "Jaar(en)"
+
+#. module: calendar
+#. openerp-web
+#: code:addons/calendar/static/src/xml/base_calendar.xml:35
+#: code:addons/openerp/addons/calendar/static/src/xml/base_calendar.xml:35
+#, python-format
+msgid "Yes I'm going."
+msgstr "Ja ik ga."
+
+#. module: note
+#: model:ir.actions.act_window,help:note.action_note_note
+msgid "You can customize how you process your notes/tasks by adding,\n"
+"            removing or modifying columns."
+msgstr "U kan de manier waarop u uw notities organiseert wijzigen door\n"
+"kolommen toe te voegen, te verwijderen of te wijzigen."
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:106
+#: code:addons/openerp/addons/calendar/calendar.py:106
+#, python-format
+msgid "You cannot duplicate a calendar attendee."
+msgstr "U kunt een kalender deelnemer niet kopieren"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_contacts_active
+msgid "active"
+msgstr "actief"
+
+#. module: calendar
+#: model:ir.model,name:calendar.model_calendar_alarm_manager
+msgid "calendar.alarm_manager"
+msgstr "calendar.alarm_manager"
+
+#. module: calendar
+#: model:ir.model,name:calendar.model_calendar_contacts
+msgid "calendar.contacts"
+msgstr "calendar.contacts"
+
+#. module: calender_metting
+#: model:ir.model,name:calender_metting.model_crm_phonecall_log_wizard
+msgid "crm.phonecall.log.wizard"
+msgstr "crm.phonecall.log.wizard"
+
+#. module: inherit_product
+#: model:ir.model,name:inherit_product.model_delivery_cancel_wiz
+msgid "delivery.cancel.wiz"
+msgstr "delivery.cancel.wiz"
+
+#. module: inherit_product
+#: model:ir.ui.view,arch_db:inherit_product.view_sales_order_filter_inherit
+msgid "To Be Done"
+msgstr "Te Doen"
+
+#. module: calendar
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+msgid "e.g. Business Lunch"
+msgstr "bijv. business lunch"
+
+#. module: smt_invoice_report
+#: model:ir.model,name:smt_invoice_report.model_financial_reduction
+msgid "financial.reduction"
+msgstr "financial.reduction"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "info@smeets-trading.be"
+msgstr "info@smeets-trading.be"
+
+#. module: calendar
+#: code:addons/calendar/calendar.py:1238
+#: code:addons/openerp/addons/calendar/calendar.py:1238
+#, python-format
+msgid "interval cannot be negative."
+msgstr "interval mag niet negatief zijn"
+
+#. module: calendar
+#: model:ir.model,name:calendar.model_ir_attachment
+msgid "ir.attachment"
+msgstr "ir.attachment"
+
+#. module: calendar
+#: model:ir.model,name:calendar.model_ir_values
+msgid "ir.values"
+msgstr "ir.values"
+
+#. module: inherit_product
+#: model:ir.model,name:inherit_product.model_product_platnumber
+msgid "product.platnumber"
+msgstr "product.platnumber"
+
+#. module: smt_delivery_report
+#: model:ir.model,name:smt_delivery_report.model_report_smt_delivery_report_delivery_report_ext
+msgid "report.smt_delivery_report.delivery_report_ext"
+msgstr "report.smt_delivery_report.delivery_report_ext"
+
+#. module: smt_delivery_report
+#: model:ir.model,name:smt_delivery_report.model_report_smt_delivery_report_delivery_report_price_ext
+msgid "report.smt_delivery_report.delivery_report_price_ext"
+msgstr "report.smt_delivery_report.delivery_report_price_ext"
+
+#. module: smt_delivery_report
+#: model:ir.model,name:smt_delivery_report.model_report_smt_delivery_report_sale_quotation_report
+msgid "report.smt_delivery_report.sale_quotation_report"
+msgstr "report.smt_delivery_report.sale_quotation_report"
+
+#. module: smt_invoice_report
+#: model:ir.model,name:smt_invoice_report.model_report_smt_invoice_report_account_invoice
+msgid "report.smt_invoice_report.account_invoice"
+msgstr "report.smt_invoice_report.account_invoice"
+
+#. module: smt_purchaseorder_report
+#: model:ir.model,name:smt_purchaseorder_report.model_report_smt_purchaseorder_report_purchase_order_report
+msgid "report.smt_purchaseorder_report.purchase_order_report"
+msgstr "report.smt_purchaseorder_report.purchase_order_report"
+
+#. module: smt_delivery_report
+#: model:ir.model,name:smt_delivery_report.model_report_stock_report_picking
+msgid "report.stock.report_picking"
+msgstr "report.stock.report_picking"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "verkoopsvoorwaarden op keerzijde"
+msgstr "verkoopsvoorwaarden op keerzijde"
+
+#. modules: smt_invoice_report, smt_purchaseorder_report, smt_delivery_report
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.delivery_report_price_ext
+#: model:ir.ui.view,arch_db:smt_delivery_report.sale_quotation_report
+#: model:ir.ui.view,arch_db:smt_invoice_report.account_invoice
+#: model:ir.ui.view,arch_db:smt_purchaseorder_report.purchase_order_report
+msgid "www.smeets-trading.be"
+msgstr "www.smeets-trading.be"
+

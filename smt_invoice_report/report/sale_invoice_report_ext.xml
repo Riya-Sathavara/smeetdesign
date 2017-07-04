@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<!-- <delete model="ir.ui.view" id="report_invoice_document_inherit_sale_stock"/> -->
+<!-- <delete model="ir.ui.view" id="account_invoice_report_duplicate"/> -->
+<!-- <delete model="ir.ui.view" id="report_invoice_layouted"/> -->
+        <report 
+            id="account.account_invoices"
+            model="account.invoice"
+            string="Invoices"
+            report_type="qweb-pdf"
+            name="account.report_invoice"
+            file="account.report_invoice"
+            attachment_use="True"
+            attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
+            menu='False'
+        />
+
+        <report 
+            id="account.account_invoice_action_report_duplicate"
+            model="account.invoice"
+            string="Duplicates"
+            report_type="qweb-pdf"
+            name="account.account_invoice_report_duplicate_main"
+            file="account.report_invoice_duplicate"
+            attachment_use="False"
+            menu='False'
+        />
+
+        <report 
+            id="report_account_invoice"
+            model="account.invoice"
+            string="Invoices"
+            report_type="qweb-pdf"
+            name="smt_invoice_report.account_invoice"
+            file="smt_invoice_report.account_invoice"
+            attachment_use="True"
+            attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
+        />
+
+
+    <template id="smt_invoice_report.account_invoice">
+        <t t-foreach="docs" t-as="o">
+        <t t-set="total" t-value="0"/>
+        <div class="page" style="margin-left: 30px; margin-right: 70px; font-family: 'Open Sans', sans-serif;">
+        
+        <style type="text/css">
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+        </style>
+
+            <div class="row" style="width:100%;margin-top: 8px;">      
+                <div style="width:60%;">
+                    <img src="/smt_invoice_report/static/src/image/company_logo.png" style="width: 70%;margin-top: 8px;"/>
+                </div>
+                <div style="width:40%;margin-top: -90px;float: right;margin-right: -120px;line-height: 0;color: #654129;">
+                    <p><img src="/smt_invoice_report/static/src/image/address.png" style="height: 20px;padding-right: 11px;"/>Ambachtslaan 1021, B-3990 PEER</p>
+                    <p><img src="/smt_invoice_report/static/src/image/phone.png" style="height: 16px;padding-right: 4px;"/>+32 (0) 11 79 17 34</p>
+                    <p><img src="/smt_invoice_report/static/src/image/fax.png" style="height: 16px;padding-right: 8px;"/>+32 (0) 11 79 17 31</p>
+                    <p><img src="/smt_invoice_report/static/src/image/mail.png" style="height: 12px;padding-right: 8px;"/>info@smeets-trading.be</p>
+                    <p><img src="/smt_invoice_report/static/src/image/web.png" style="height: 16px;padding-right: 8px;"/>www.smeets-trading.be</p>
+                </div>
+            </div>
+            <div>
+                <span t-esc= "o.invoice_printed()"/>
+                <div style="color: #654129;margin-top: 0px;font-size: 25px;">
+                    <b>Leveradres</b>
+                </div>
+                <div style="margin-top: 0px;">
+                    <table width="100%">
+                        <tr>
+<!--                            <td width="50%"> -->
+<!--                                <t t-if ="not o.partner_id.is_company"><p style="margin:0; padding:0;"> <span t-esc="set_company_name(o)"/></p> </t> -->
+<!--                                <p style="margin:0; padding:0;"><span t-esc="set_name(o)" /></p> -->
+<!--                            </td> -->
+<!--                            <td width="50%"> -->
+<!--                                <t t-if ="not o.partner_id.is_company"><p style="margin:0; padding:0;"> <span t-esc="set_company_name(o)"/></p> </t> -->
+<!--                                <p style="margin:0; padding:0;"><span t-esc="set_name(o)" /></p> -->
+<!--                            </td> -->
+                            <td width="50%">
+                                <t t-if="not o.partner_id.is_company">
+                                    <p style="margin:0; padding:0;"> 
+                                        <!-- <span t-esc="set_company_name(o)"/> -->
+                                        <b><span t-field="o.partner_id.parent_id.name"/></b>
+                                    </p>
+                                </t>
+                                <!-- <p style="margin:0; padding:0;"><span t-esc="set_name(o)" /></p> -->
+                                <p style="margin:0; padding:0;"><b><span t-field="o.partner_id.name" /></b></p>
+                            </td>
+                            <td width="50%" style="padding-left: 50px;">
+                                <t t-if="not o.partner_id.is_company">
+                                    <p style="margin:0; padding:0;"> 
+                                        <!-- <span t-esc="set_company_name(o)"/> -->
+                                        <b><span t-field="o.partner_id.parent_id.name"/></b>
+                                    </p>
+                                </t>
+                                <!-- <p style="margin:0; padding:0;"><span t-esc="set_name(o)" /></p> -->
+                                <p style="margin:0; padding:0;"><b><span t-field="o.partner_id.name" /></b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                                <b><span t-field="o.partner_id.street"/></b>
+                            </td>
+                            <td width="50%" style="padding-left: 50px;">
+                                <b><span t-field="o.partner_id.street"/></b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                                <b><span t-field="o.partner_id.street2"/></b>
+                            </td>
+                            <td width="50%" style="padding-left: 50px;">
+                                <b><span t-field="o.partner_id.street2"/></b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                                    <b><span t-field="o.partner_id.zip"/>&amp;nbsp;<span t-field="o.partner_id.city"/></b>
+                            </td>
+                            <td width="50%" style="padding-left: 50px;">
+                                    <b><span t-field="o.partner_id.zip"/>&amp;nbsp;<span t-field="o.partner_id.city"/></b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                            <b><span t-field="o.partner_id.country_id.name"/></b>
+                            </td>
+                            <td width="50%" style="padding-left: 50px;">
+                            <b><span t-field="o.partner_id.country_id.name"/></b>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+
+
+                <div style="color: #654129;margin-top: 45px;font-size: 25px;">
+                    <t t-if="o.type in ['out_invoice','in_invoice'] "><b>FACTUUR</b></t>
+                     <t t-if="o.type in ['in_refund','out_refund']"><b>CREDITNOTA</b></t>
+                </div>
+                
+                <div style="margin-top: 10px;">
+                    <table width="100%" style="border: 1px solid #654129;line-height: 30px;">
+                        <tr>
+                            <td width="15%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;" >
+                                <t t-if="o.type in ['out_invoice','in_invoice'] "><b>Factuurnr.</b></t>
+                                <t t-if="o.type in ['in_refund','out_refund']"><b>Creditnr.</b></t>
+                            </td>
+                            <td width="15%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+                                <b>Klant</b>
+                            </td>
+                            <td width="20%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+                                <b>BTW</b>
+                            </td>
+                            <td width="15%" style="color: #654129;border: 1px solid #654129; padding-left: 15px;">
+                                <b>Datum</b>
+                            </td>
+                            <td width="15%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+                                <b >Vervaldag</b>
+                            </td>
+                            <td width="20%" style="color: #654129;border: 1px solid #654129; padding-left: 15px;">
+                                <b>Uw referentie</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="15%" style="padding-left: 15px;" >
+                                <span t-field="o.number"/>
+                            </td>
+                            <td width="15%" style="padding-left: 15px;">
+                                <span t-field="o.partner_id.ref"/>
+                            </td>
+                            <td width="20%" style="padding-left: 15px;">
+                                <span t-field="o.partner_id.vat"/>
+                            </td>
+                            <td width="15%" style="padding-left: 15px;">
+                                <span t-field="o.date_invoice" t-field-options="{&quot;format&quot;: &quot;dd/MM/yyyy&quot;}" />
+                            </td>
+                            <td width="15%" style="padding-left: 15px;">
+                                <span t-field="o.date_due" t-field-options="{&quot;format&quot;: &quot;dd/MM/yyyy&quot;}"/>
+                            </td>
+                            <td width="20%" style="padding-left: 15px;">
+                                <span t-esc="set_reference(o)"/>
+<!--                            <t t-set="a" t-value="set_reference(o)"/> -->
+<!--                                <t t-if="a"><span t-field="o.name"/></t> -->
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+          
+                <div style="margin-top: 10px;">
+                    <table width="100%" style="border: 1px solid #654129;line-height: 30px;">
+                        <tr>
+                            <td width="22%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;" >
+                                <b>Artikel</b>
+                            </td>
+                            <td width="35%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+                                <b>Omschrijving</b>
+                            </td>
+                            <td width="7%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+                                <b>Aantal</b>
+                            </td>
+                            <td width="6%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+                                <b>Lengte</b>
+                            </td>
+                            <td width="9%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+                                <b>Tot.Aantal</b>
+                            </td>
+                            <td width="8%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+                                <b>Eh.Prijs</b>
+                            </td>
+                            <td width="7%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+                                <b>Tot.Prijs</b>
+                            </td>
+                        </tr>
+                        <tr>
+                        <t t-set="no" t-value="0"/>
+                        <t t-set="i" t-value="0"/>
+                        <t t-set="flag" t-value="0"/>
+                        <t t-set="multi_so" t-value="o.get_multiple_so()"/>
+                        <t t-set="multi_so_1" t-value="o.get_multiple_so_1()"/>
+                        <t t-set="invoice_lines" t-value="o.get_invoice_lines()"/>
+                        <t t-set="invoice_line_length" t-value="invoice_lines[1]"/>
+                        <!-- <table t-foreach="o.invoice_line_ids" t-as="line" width="100%" style="line-height: 17px;"> -->
+                        <table t-foreach="invoice_lines[0]" t-as="line" width="100%" style="line-height: 17px;">
+                            <t t-set="no" t-value="no + line['price_subtotal']"/>
+							
+                            <t t-set="total" t-value="total + line['price_subtotal']"/>
+                            
+                            <tr style="height: 5px; overflow: hidden;">
+                                
+                                <!-- <td width="15%" style="padding-left: 15px;">
+                                    <p>
+                                        <span t-field="line.product_id.default_code"/>
+                                    </p>
+                                </td> -->
+                                <td width="22%" style="padding-left: 10px;">
+                                    <p>
+                                        <!-- <t t-if="multi_so_1"><span><br/></span></t> -->
+                                        <span t-esc="line['default_code']"/>
+                                    </p>
+                                </td>       
+
+                                <td width="35%" style="padding-left: 10px;    padding-top: 10px;">
+<!--                                     <t t-if="multi_so and line['client_ref']"> -->
+<!--                                         <b><span t-esc="line['client_ref']" /></b><br/></t> -->
+									<b><span t-esc="line['client_ref']" /></b>
+                                    <span t-esc="line['description']" />
+<!--                                    <span t-field="line.product_id.description_sale"/> -->
+                                </td>
+                                <td width="7%" style="padding-right: 10px;    padding-top: 10px;text-align:right;">
+                                    <span t-esc="line['qty']" />
+                                </td>
+                                <td width="6%"  style="padding-right: 10px;    padding-top: 10px;text-align:right;">
+                                    <span t-esc="line['length']"/>
+                                </td>
+                                <td width="9%" style="padding-right: 10px;text-align:right;padding-top: 10px;">
+<!--                                    <span t-esc="set_taxes(line)" /> -->
+                                        <span t-esc="line['total_lenge']"/>
+                                </td>
+                                <td width="8%" style="padding-right: 10px;    padding-top: 10px;text-align:right;">
+<!--                                    <span t-esc="line.price_unit"/> -->
+                                    <span t-esc="line['price_unit']" />
+                                </td>
+                                <td width="7%" style="padding-right: 10px;padding-top: 10px;text-align:right">
+<!--                                    <span t-esc="line.price_subtotal"/> -->
+                                    <span t-esc="o.get_notation_amt(line['price_subtotal'])" />
+                                </td>
+                            </tr>
+                            
+                            <t t-set="i" t-value="i + 1"/>
+                            <t t-if="i == 13 and flag == 0 and invoice_line_length &gt; 13">
+                                <t t-set="i" t-value="0"/>
+                                <t t-set="flag" t-value="1"/>
+                                <table width = "20%" style="float:right;margin-right: 10px;">
+                                    <tr>
+                                        <td width = "60%" style="text-align: left;padding-left: 40px;color: #654129;border-top: 1px solid #654129;">
+                                            <b>Basis</b>
+                                        </td>
+                                        <td width = "40%" style=" height: 27px;padding-top: 4px;padding-right: 0px;border-top: 1px solid #654129;text-align: right;">
+<!--                                            <t t-esc="no" style=""/> -->
+                                            <span t-esc="set_amount(no)" />
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div style="page-break-before: always;">
+                                    <table width = "30%" style="float:right;">
+<!--                                        <tr> -->
+<!--                                            <td width = "60%" style="text-align: left;padding-left: 30px;color: #654129;border-bottom: 1px solid black;"> -->
+<!--                                                <b>Basis</b> -->
+<!--                                            </td> -->
+<!--                                            <td width = "40%" style=" height: 27px;padding-top: 4px;padding-left: 30px;border-bottom: 1px solid black;"> -->
+<!--                                                <t t-esc="no" style=""/> -->
+<!--                                            </td> -->
+<!--                                        </tr> -->
+                                        <tr>
+                                                <table width="100%" style="border: 1px solid #654129;line-height: 30px;">
+                                                    <tr>
+                                                        <td width="15%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;" >
+                                                            <t t-if="o.type in ['out_invoice','in_invoice'] "><b>Factuurnr.</b></t>
+                                                            <t t-if="o.type in ['in_refund','out_refund']"><b>Creditnr.</b></t>
+                                                        </td>
+                                                        <td width="15%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+                                                            <b>Klant</b>
+                                                        </td>
+                                                        <td width="20%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+                                                            <b>BTW</b>
+                                                        </td>
+                                                        <td width="15%" style="color: #654129;border: 1px solid #654129; padding-left: 15px;">
+                                                            <b>Datum</b>
+                                                        </td>
+                                                        <td width="15%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+                                                            <b>Vervaldag</b>
+                                                        </td>
+                                                        <td width="20%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+                                                            <b>Uw referentie</b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="15%" style="padding-left: 15px;" >
+                                                            <span t-field="o.number"/>
+                                                        </td>
+                                                        <td width="15%" style="padding-left: 15px;">
+                                                            <span t-field="o.partner_id.ref"/>
+                                                        </td>
+                                                        <td width="20%" style="padding-left: 15px;">
+                                                            <span t-field="o.partner_id.vat"/>
+                                                        </td>
+                                                        <td width="15%" style="padding-left: 15px;">
+                                                            <span t-field="o.date_invoice" t-field-options="{&quot;format&quot;: &quot;dd/MM/yyyy&quot;}" />
+                                                        </td>
+                                                        <td width="15%" style="padding-left: 15px;">
+                                                            <span t-field="o.date_due" t-field-options="{&quot;format&quot;: &quot;dd/MM/yyyy&quot;}"/>
+                                                        </td>
+                                                        <td width="20%" style="padding-left: 15px;">
+<!--                                                            <span t-field="o.name"/> -->
+                                                                <span t-esc="set_reference(o)"/>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                        </tr>
+                                        <tr>
+                                            <div style="margin-top: 10px;">
+                                                <table width="100%" style="line-height: 30px;">
+							                        <tr>
+							                            <td width="22%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;" >
+							                                <b>Artikel</b>
+							                            </td>
+							                            <td width="35%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+							                                <b>Omschrijving</b>
+							                            </td>
+							                            <td width="7%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+							                                <b>Aantal</b>
+							                            </td>
+							                            <td width="6%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+							                                <b>Lengte</b>
+							                            </td>
+							                            <td width="9%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+							                                <b>Tot.Aantal</b>
+							                            </td>
+							                            <td width="8%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+							                                <b>Eh.Prijs</b>
+							                            </td>
+							                            <td width="7%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+							                                <b>Tot.Prijs</b>
+							                            </td>
+							                        </tr>
+                                                    <tr>
+                                                        <td width="22%" style="padding-left: 10px;" >
+                                                        </td>
+                                                        <td width="35%" style="padding-left: 10px;">
+                                                        </td>
+                                                        <td width="7%" style="padding-left: 10px;">
+                                                        </td>
+                                                        <td width="6%" style="padding-left: 10px;">
+                                                        </td>
+                                                        <td width="9%" style="padding-left: 10px;">
+                                                        </td>
+                                                        <td width="8%" style=" padding-left: 10px;color: #654129;">
+                                                            <b>Basis</b>
+                                                        </td>
+                                                        <td width="7%" style="padding-right: 10px;text-align: right;">
+<!--                                                            <t t-esc="no" style=""/> -->
+                                                            <span t-esc="set_amount(no)" />
+                                                        </td>
+                                                    </tr>
+
+                                                </table>
+                                            </div>                                  
+                                        </tr>                                   
+                                    </table>
+                                </div>
+                            </t>
+                            
+                            
+                            <t t-if="(i+1) % 20 == 0">
+                                <table width = "20%" style="float:right;margin-top: 30px;margin-right: 10px;">
+                                    <tr>
+                                        <td width = "60%" style="text-align: left;padding-left: 40px;color: #654129;border-top: 1px solid #654129;">
+                                            <b>Basis</b>
+                                        </td>
+                                        <td width = "40%" style=" height: 27px;padding-top: 4px;padding-right: 0px;border-top: 1px solid #654129;text-align: right;">
+<!--                                            <t t-esc="no" style=""/> -->
+                                            <span t-esc="set_amount(no)" />
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div style="page-break-before: always;">
+                                <table width = "30%" style="float:right;">
+<!--                                    <tr> -->
+<!--                                        <td width = "60%" style="text-align: left;padding-left: 30px;color: #654129;border-bottom: 1px solid black;"> -->
+<!--                                            <b>Basis</b> -->
+<!--                                        </td> -->
+<!--                                        <td width = "40%" style=" height: 27px;padding-top: 4px;padding-left: 30px;border-bottom: 1px solid black;"> -->
+<!--                                            <t t-esc="no" style=""/> -->
+<!--                                        </td> -->
+<!--                                    </tr> -->
+                                    <tr>
+                                            <table width="100%" style="border: 1px solid #654129;line-height: 30px;">
+                                                <tr>
+                                                    <td width="15%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;" >
+                                                        <t t-if="o.type in ['out_invoice','in_invoice'] "><b>Factuurnr.</b></t>
+                                                        <t t-if="o.type in ['in_refund','out_refund']"><b>Creditnr.</b></t>
+                                                    </td>
+                                                    <td width="15%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+                                                        <b>Klant</b>
+                                                    </td>
+                                                    <td width="20%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+                                                        <b>BTW</b>
+                                                    </td>
+                                                    <td width="15%" style="color: #654129;border: 1px solid #654129; padding-left: 15px;">
+                                                        <b>Datum</b>
+                                                    </td>
+                                                    <td width="15%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+                                                        <b>Vervaldag</b>
+                                                    </td>
+                                                    <td width="20%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+                                                        <b>Uw referentie</b>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="15%" style="padding-left: 15px;" >
+                                                        <span t-field="o.number"/>
+                                                    </td>
+                                                    <td width="15%" style="padding-left: 15px;">
+                                                        <span t-field="o.partner_id.ref"/>
+                                                    </td>
+                                                    <td width="20%" style="padding-left: 15px;">
+                                                        <span t-field="o.partner_id.vat"/>
+                                                    </td>
+                                                    <td width="15%" style="padding-left: 15px;">
+                                                        <span t-field="o.date_invoice" t-field-options="{&quot;format&quot;: &quot;dd/MM/yyyy&quot;}" />
+                                                    </td>
+                                                    <td width="15%" style="padding-left: 15px;">
+                                                        <span t-field="o.date_due" t-field-options="{&quot;format&quot;: &quot;dd/MM/yyyy&quot;}"/>
+                                                    </td>
+                                                    <td width="20%" style="padding-left: 15px;">
+                                                    <span t-esc="set_reference(o)"/>
+<!--                                                        <span t-field="o.name"/> -->
+                                                    </td>
+                                                </tr>
+                                                
+                                            </table>
+                                    </tr>
+                                    <tr>
+                                        <div style="margin-top: 10px;">
+                                            <table width="100%" style="line-height: 30px;">
+                                                <tr>
+                                                    <td width="22%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;" >
+                                                        <b>Artikel</b>
+                                                    </td>
+                                                    <td width="35%" style="color: #654129;border: 1px solid #654129;padding-left: 15px;">
+                                                        <b>Omschrijving</b>
+                                                    </td>
+                                                    <td width="7%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+                                                        <b>Aantal</b>
+                                                    </td>
+                                                    <td width="6%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+                                                        <b>Lengte</b>
+                                                    </td>
+                                                    <td width="9%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+                                                        <b>Tot. Aantal</b>
+                                                    </td>
+                                                    <td width="8%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+                                                        <b>Eh.Prijs</b>
+                                                    </td>
+                                                    <td width="7%" style="color: #654129;border: 1px solid #654129;text-align:center;">
+                                                        <b>Tot.Prijs</b>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="22%" style="padding-left: 10px;">
+                                                    </td>
+                                                    <td width="35%" style="padding-left: 10px;">
+                                                    </td>
+                                                    <td width="7%" style="padding-left: 10px;">
+                                                    </td>
+                                                    <td width="6%" style="padding-left: 10px;">
+                                                    </td>
+                                                    <td width="9%" style="padding-left: 10px;">
+                                                    </td>
+                                                    <td width="8%" style=" padding-left: 10px;color: #654129;">
+                                                        <b>Basis</b>
+                                                    </td>
+                                                    <td width="7%" style="padding-right: 10px;text-align: right;">
+<!--                                                        <t t-esc="no" style=""/> -->
+                                                        <span t-esc="set_amount(no)" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>                                  
+                                    </tr>   
+                                                                    
+                                </table>
+                                </div>
+                            </t>
+                        </table>
+                        
+                        </tr>
+                    </table>
+                    
+                </div>
+
+
+
+                <div style="margin-top: 10px;">
+                    <table width="100%" style="line-height: 27px;">
+                        <tr>
+                            <td width="50%">
+                                <table width = "100%" style="border: 1px solid #654129;">
+                                        <tr>
+                                            <td width="40%" style="padding-top: 4px;text-align: left;padding-left: 10px;color: #654129;border-bottom: 1px solid #654129;">
+                                                <b>BTW%</b>
+                                            </td>
+                                            <td width="20%" style="padding-top: 4px;text-align: left;padding-left: 10px;color: #654129;border-bottom: 1px solid #654129;">
+                                                <b>MvH</b>
+                                            </td>
+                                            <td width="20%" style="padding-top: 4px;text-align: left;padding-left: 10px;color: #654129;border-bottom: 1px solid #654129;">
+                                                <b>BTW</b>
+                                            </td>
+<!--                                             <td width="20%" style="padding-top: 4px;text-align: left;padding-left: 10px; color: #654129;border-bottom: 1px solid #654129;"> -->
+<!--                                                 <b>Totaal</b> -->
+<!--                                             </td> -->
+                                        </tr>
+                                        <tr  t-foreach="set_tax_line(o)" t-as="data">
+                                            <td width="40%" style="padding-top: 4px;padding-left: 10px;">
+                                                <span t-esc="data[0]"/>
+                                            </td>
+                                            <td width="20%" style="padding-top: 4px;padding-left: 10px;">
+                                                <span t-esc="data[1]"/>
+                                            </td>
+                                            <td width="20%" style="padding-top: 4px;padding-left: 10px;">
+                                                <span t-esc="data[2]"/>
+                                            </td>
+<!--                                             <td width="20%" style="padding-top: 4px;padding-left: 10px;"> -->
+<!--                                                 <span t-esc="data[3]"/> -->
+<!--                                             </td> -->
+                                        </tr>
+                                </table>
+                            </td>
+                            <td width="50%" >
+                                <table width = "100%" style="margin-left:-1px;">
+                                    <tr>
+                                        <td width = "60%" style="text-align: left;padding-left: 10px;color: #654129;border: 1px solid #654129;">
+                                            <b>Basis</b>
+                                        </td>
+                                        <td width = "40%" style="text-align: right; padding-top: 4px;padding-right: 10px;border: 1px solid #654129;">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width = "30%" style="text-align: left; padding-left: 10px;">€</td>
+                                                    <td style="text-align: right; padding-right: 5px;">
+<!--                                                        <span t-esc="o.amount_untaxed"/> -->
+                                                        <span t-esc="set_amount(o.amount_untaxed)" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width = "60%" style="text-align: left;padding-left: 10px;color: #654129;border: 1px solid #654129;">
+                                            <b>BTW</b>
+                                        </td>
+                                        <td width = "40%" style="text-align: right; padding-top: 4px;padding-right: 10px;border: 1px solid #654129;">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width = "30%" style="text-align: left; padding-left: 10px;">€</td>
+                                                    <td style="text-align: right; padding-right: 5px;">
+<!--                                                        <span t-esc="o.amount_tax"/> -->
+                                                        <span t-esc="set_amount(o.amount_tax)" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width = "60%" style="text-align: left; padding-left: 10px;color: #654129;border: 1px solid #654129;">
+                                            <b>Te betalen</b>
+                                        </td>
+                                        <td  width = "40%" style="text-align: right; padding-top: 4px;padding-right: 10px;border: 1px solid #654129;">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width = "30%" style="text-align: left; padding-left: 10px;">€</td>
+                                                    <td style="text-align: right; padding-right: 5px;">
+<!--                                                        <span t-esc="o.amount_total"/> -->
+                                                        <span t-esc="set_amount(o.amount_total)" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>                            
+                            </td>
+                        </tr>
+                    </table>
+                    <t t-if="o.fin_reduction_id and o.fin_reduction_id.fin_reduction > 0">
+                        <p style="margin-top: 10px;text-align: right;font-size: 12px;margin-right: 35px;">Bij betaling binnen de 8 dagen na factuurdatum geldt een korting van<span style="padding-left: 5px;font-size: 15px;"></span><span style="font-size: 15px;margin-left: 3px;" t-esc="set_amount_1(o)"/> €.</p>
+                    </t>
+                </div>
+                
+            </div>
+            <div style="float: right;top: 0;width: 0px;">
+                <img src="/smt_invoice_report/static/src/image/about-right.png" style="position: absolute;top: 110px;height: 209px;z-index: -2;margin-left: -100px;"/>
+            </div>
+            <p style="page-break-before:always;" />
+            <p>ALGEMENE VERKOOPSVOORWAARDEN</p>
+
+            <p>1. De bedingen van onze algemene voorwaarden maken deel uit van
+                al onze offertes, overeenkomsten, leveringen en facturen. De klant
+                wordt geacht kennis ervan te hebben genomen en er alle bedingen
+                van te hebben aanvaard behoudens wanneer uitdrukkelijk en
+                schriftelijk anders werd overeengekomen. Afwijkingen van deze
+                algemene voorwaarden, zelfs indien vermeld op documenten afkomstig
+                van de klant, zijn alleen van toepassing wanneer deze door ons
+                uitdrukkelijk schriftelijk aanvaard zijn.
+            </p>
+            <p>2. Al onze offertes en prijzen zijn vrijblijvend en verbinden
+                ons niet, tenzij uitdrukkelijk bevestigd zijn. Iedere nieuwe
+                offerte doet alle vorige teniet. Al onze prijzen worden steeds
+                vermeld exclusief BTW en zonder leveringskosten, die behouden
+                wanneer anders voorzien. Wij houden ons het recht voor onze
+                prijzen te wijzigen ook als de order bevestigd zou zijn, wanneer
+                er veranderingen optreden in de faktoren die een de berekening van
+                de prijzen ten grondslag liggen; wijzigingen van de koers van
+                buitenlandse valuta, verhoging invoerkosten, lonen, prijzen van
+                grondstoffen etc. Behoudens anders voorzien bedraagt de
+                geldigheidsduur van de offerte één maand.
+            </p>
+            <p>3. Ingeval van annulering van de bestelling of overeenkomst door
+                de klant zal de klant een forfaitaire schadevergoeding
+                verschuldigd zijn 25% van het bedrag van de overeenkomst of
+                bestelling, tenzij en dit van rechtswege en zonder
+                ingebrekestelling en dit onverminderd ons recht om een hogere
+                schadevergoeding te betalen in geval van bewezen grotere schade,
+                tevens onverminderd ons recht de gedwongen uitvoering van de
+                overeenkomst te vorderen.
+            </p>
+            <p>4. Al onze facturen zijn betaalbaar op 30 dagen factuurdatum op
+                de maatschappelijke zetel van ons bedrijf te Peer, ingeval van
+                betaling binnen de 8 dagen zal echter een korting toegestaan
+                worden van 2%.
+            </p>
+            <p>5. Iedere op de vervaldag onbetaalde factuur zal van rechtswege
+                en zonder ingebrekestelling verhoogd worden met een
+                nalatigheidintrest van 1% per maand en met een forfaitaire
+                schadevergoeding van 10%. De verkochte goederen worden pas
+                eigendom van de klant nadat de verschuldigde bedragen volledig
+                zijn betaald. De risico’s die de goederen lopen zijn volledig ten
+                laste van de klant zodra deze ter zijne beschikking worden
+                gesteld. In geval van wanbetaling houden wij ons het recht voor om
+                met de uitvoering van alle lopende bestellingen te wachten tot de
+                betaling verricht is.
+            </p>
+            <p>6. De klant die ons een opdracht geeft wordt steeds
+                verondersteld als zijnde daartoe gerechtigd. Hij draagt gebeurlijk
+                samen met zijn lastgevers en bij uitsluiting van ons al de
+                verantwoordelijkheid ten opzichte van derden. Al de door ons
+                gebruikte technieken zijn uitsluitend onze eigendom en mogen niet
+                nagemaakt worden, behoudens onze voorafgaande schriftelijke
+                toestemming.
+            </p>
+            <p>7. Onze leveringstermijn is niet bindend. Indien er zich
+                moeilijkheden of vertraging in geval van heirkracht voordoen
+                tijdens de uitvoering van de opdracht.
+            </p>
+            <p>8. De levering heeft plaats bij vertrek uit ons magazijn. Zij
+                heeft in beginsel plaats op kosten en risico van de klant tenzij
+                uitdrukkelijk anders werd overeengekomen.
+            </p>
+            <p>9. De klant dient de door ons geleverde goederen te controleren
+                bij ontvangstnamen van de materialen. Eventuele klachten
+                betreffende zichtbare gebreken moeten ons schriftelijk toekomen
+                binnen de 8 dagen na ontvangst der goederen en voor de verwerking
+                van de goederen, per aangetekend schrijven. Na deze termijn zijn
+                klachten onontvankelijk . Klachten in verband met kleurverschillen
+                zullen slechts geldig zijn indien de geleverde kleur niet
+                overeenstemt met het aan de hand van ons catalogus stelde
+                kleurnummer. Er dient, zowel bij platenfabricage als bij de
+                kantenproductie rekening gehouden te worden met een zekere
+                kleurnuanceverschillen per productie per serie. Een bepaalde kleur
+                kan bij een volgende levering licht afwijken.
+            </p>
+            <p>10. Op straffe van verval moet elke klacht op protest
+                betreffende verborgen gebreken per aangetekend schrijven binnen de
+                8 dagen na ontvangst van de goederen geschieden. Indien de klant
+                verzuimt de goederen in ontvangst te nemen begint de termijn van 8
+                dagen te lopen bij ontvangst van de verzendingsnota of van elk
+                gelijkwaardig document, bij ontstentenis hiervan vanaf de
+                ontvangst van de factuur. Op al onze overeenkomsten is steeds het
+                Belgisch recht van toepassing alsmede deze verkoopsvoorwaarden,
+                tenzij uitdrukkelijk anders overeengekomen wordt. Voor alle
+                geschillen zijn uitsluitend de Rechtbanken van het arrondissement
+                Tongeren en het Vredegerecht van Bree bevoegd. Nietigheid van een
+                beding van deze overeenkomst kan nooit de algehele nietigheid van
+                de overeenkomst met zich meebrengen.
+            </p>
+<!--            <div style="float: left;bottom: 0;width: 0px;"> -->
+<!--                <img src="/smt_invoice_report/static/src/image/about-left.png" style="position: fixed;height: 209px;z-index: -2;top: 1135px;"/> -->
+<!--            </div> -->
+<!--            <div style="float: right;"> -->
+<!--            <table> -->
+<!--                <tr> -->
+<!--                    <td> -->
+<!--                        <img src="/smt_invoice_report/static/src/image/barcode-sticker.png" style="width: 100px;margin-right: 20px;"/> -->
+<!--                    </td> -->
+                                        
+                    
+<!--                    <td> -->
+<!--                        <table style="margin-top: -15px"> -->
+<!--                            <tr> -->
+<!--                                <td style="padding-right: 20px;"> -->
+<!--                                    BTW -->
+<!--                                </td> -->
+<!--                                <td> -->
+<!--                                    BE 0898.796.159 -->
+<!--                                </td> -->
+<!--                            </tr> -->
+<!--                            <tr> -->
+<!--                                <td> -->
+<!--                                    Fortis -->
+<!--                                </td> -->
+<!--                                <td> -->
+<!--                                    BE58 0015 5835 1779 -->
+<!--                                </td> -->
+<!--                            </tr> -->
+<!--                            <tr> -->
+<!--                                <td> -->
+<!--                                    BlC -->
+<!--                                </td> -->
+<!--                                <td> -->
+<!--                                    GEBABEBB -->
+<!--                                </td> -->
+<!--                            </tr> -->
+<!--                        </table> -->
+<!--                    </td> -->
+<!--                </tr> -->
+<!--            </table> -->
+<!--            </div> -->
+        </div>
+
+        
+        <div class="footer" >
+            <img src="/smt_invoice_report/static/src/image/about-left.png" style="height: 200px;z-index: -2;margin-bottom: -150px;margin-left: -13px;"/>                
+            <div style="float: right;width:100%;margin-right: 40px;" >
+                <table style="float: right;">
+                    <tr>
+                        <td>
+                            <img src="/smt_invoice_report/static/src/image/barcode-sticker.png" style="width: 85px;margin-right: 20px;"/>
+                        </td>
+                        
+                        <td>
+                            <table style="margin-top: -14px">
+                                <tr>
+                                    <td style="padding-right: 20px;">
+                                        BTW
+                                    </td>
+                                    <td>
+                                        BE 0898.796.159
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Fortis
+                                    </td>
+                                    <td>
+                                        BE58 0015 5835 1779
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        BlC
+                                    </td>
+                                    <td>
+                                        GEBABEBB
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <div class="clear" style="clear:both"></div>
+                
+                <div style="text-align:left;margin-left: 115px;">
+                    <span>Pagina </span><span class="page" /> / <span class="topage" />
+                </div>
+                <center>verkoopsvoorwaarden op keerzijde</center>
+            </div>
+        </div>
+    </t>
+    </template>
+</data>
+</openerp>

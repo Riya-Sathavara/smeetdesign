@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+	<t t-extend="mail.chat.InboxItem" t-name="menu_banner.InboxItem1">
+		<t t-jquery="li.o_mail_navbar_item" t-operation="replace">
+			 <li class="o_mail_navbar_item"> 
+		            <a href="#" title="Customers" class="customer_icon">
+		                <i class="fa fa-user"/> 
+		            </a>
+		      </li> 
+		 </t>
+    </t>
+    
+    <!-- <t t-extend="crm_voip.switch_panel_top_button" t-name="menu_banner.InboxItem1">
+		<t t-jquery="li.oe_topbar_item" t-operation="replace">
+			 <li class="o_mail_navbar_item"> 
+		            <a href="#" title="Customers" class="customer_icon">
+		                <i class="fa fa-user"/> 
+		            </a>
+		      </li> 
+		 </t>
+    </t> -->
+</templates>

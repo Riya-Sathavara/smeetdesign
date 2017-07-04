@@ -1,0 +1,70 @@
+<openerp>
+	<data>
+	
+ 		<template id="website_smeets_news_detail_1"  name=" News Detail  1">
+			<t t-call="website.layout">
+				<div class="oe_structure"/>
+				<title>News Detail 1</title>
+				<div class="smeet_news_detail_1">
+					<section class="news_sec_1">
+					    <div class="news_header">
+					        <img class="news_banner_img" src="/website_smeet/static/src/image/news/News-Banner.jpg"  alt=""/>
+					        <div class="container">
+					            <h1 class="news_heading">Nieuws Informatie</h1>
+					        </div>
+					    </div>
+					</section>
+					<div class="news_middle_menu">
+						<div class="container">
+							<div class="col-md-12 news-middle-menu-left">
+								<div class="news-breadcrumbs-menu">
+					                <ul>
+					                    <li><a href="/page/homepage">Home </a></li>
+					                    <img src="/website_smeet/static/src/image/about/breadcrumb-img.png" alt="Chania"/>
+					                    <li><a href="/page/newsdetail/1">Nieuws Informatie</a></li>
+					                </ul>
+					            </div>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="news-page-detail-1-top-right-bg-img"><img src="/website_smeet/static/src/image/about-right.png" alt=""/></div>	 -->				
+					<div class="news_detail_1_middle">
+						<div class="my_container">
+								<div class="container">
+							<div class="col-md-12 news_detail1_middle_parts">
+								<div class="col-md-7 news_detail1_middle_left">
+									<div class="news_detail1_middle_left_header">
+										<h1>Voor Het Leven Verbonden</h1>
+									</div>
+									<div class="news_detail1_middle_left_middle">
+										<p class="news_detail1_middle_left_middle_text">Oktober, 2016</p>
+									</div>
+									<div class="news_detail1_middle_left_bottom">
+										<p class="news_detail1_middle_left_bottom_text1">Materialen kunnen op veel verschillende manieren met elkaar verbonden worden. Wie schroeven of bouten gebruikt, kan de stukken nadien opnieuw los maken. Solderen, lassen en lijmen zijn voorbeelden van permanente verbindingstechnieken. Lijmen blijft nog steeds één van de meest efficiënte oplossingen. Jowat is al bijna 100 jaar actief op de markt van de industrië-le lijmen en is door z’n drang naar innovatie uitgegroeid tot één van de toonaangevende fabrikanten.</p>
+										<p class="news_detail1_middle_left_bottom_text2">Met de Jowacoll Five Star 102.49 dispersielijm, de smeltlijm type Jowatherm 280.58 en de reactieve PUR-smeltlijm Jowathem-Reaktant ® 608.00 stelt de firma vandaag opnieuw enkele nieuwe producten voor. Jowat Nederland B.V. verdeelt deze producten naar de grote klanten in de Benelux, terwijl Smeets Trading de interieurbouwers op de Belgische markt belevert.</p>
+<!-- 										<p class="news_detail1_middle_left_bottom_text3">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p> -->
+<!-- 										<p class="news_detail1_middle_left_bottom_text4">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p> -->
+									</div>
+								</div>
+								<div class="col-md-5 news_detail1_middle_right">
+									<img src="/website_smeet/static/src/image/img-1.png" alt="Chania"/>
+								</div>
+							</div>
+							<div class="col-md-12 news_detail1_bottom_parts">
+								<p class="news_detail1_bottom_parts_text1">Jowat SE, opgericht in 1919, is één van de voornaamste spelers op de internatio- nale markt van de industriële lijmen. Het gamma omvat dispersie- en oplosmiddelhou- dende lijmen, conventionele -, PUR- en POR- smeltlijmen, reactieve 1- en 2-componentenoplossingen, contactlijmen en andere soor-ten lijmen alsook speciale producten, zoals bind- en scheidingsmiddelen, reinigingspro-ducten, etc. De specialist met hoofdzetel in het Duitse Detmold en 4 andere productiefa-ciliteiten in Zwitserland, de Verenigde Staten,Australië en Maleisië telt wereldwijd zowat 1000 medewerkers en produceert jaarlijks meer dan 73000 ton lijm. Een netwerk van 21 dochterondernemingen en partners zorgt voor een nauwe opvolging van klanten in de houtverwerkende nijverheid en de meubelin- dustrie, de papier- en verpakkingssector, degrafische wereld, de textiel- en automobiel-branche en de elektro-industrie.</p>
+								<p class="news_detail1_bottom_parts_text2">INNOVATIE
+								<p class="news_detail1_bottom_parts_text3">De productie van lijmen blijft een groeimarkt.Daarom luistert Jowat naar de markt envertaalt de trends naar nieuwe, innovatieve producten. Ongeveer 10 % van alle mede-werkers is dagelijks bezig met ontwikkeling en toepassingstechniek. Meer dan de helft van de 20 producten met de hoogste omzetzijn in de laatste 5 jaar voorgesteld. Ook vandaag presenteert Jowat opnieuw enkele nieuwe oplossingen.De Jowacoll ® Five Star 102.49 is een hoog-waardige 2-componenten dispersielijm, diein combinatie met 15 % Jowat ® bindmiddel 195.60 zorgt voor een stabiele en betrouw-bare verlijming van zowat elke houtsoort,zelfs in buitentoepassingen waar extreme omstandigheden op het vlak van watervast-heid en stevigheid bij droge warmte heersen.Jowat heeft met de Jowatherm ® 280.50 ook een echt allround product voor kantenverlij-ming in huis. Deze klassieke lijm op basis van ethyleen-vinylacetaat is tevens beschikbaar in het wit (280.51) voor witte decoren en kanten. De lijmspecialist breidt deze serie nu uit met een nieuwe kleurloze, opake versie:Jowatherm ® 280.58. Deze smeltlijm met transparante, glasheldere look en kleurloze,opake voeg opent nieuwe mogelijkheden voor de verwerking van donkere decoren of voor toepassingen waar materialen met ver-schillende decoren gecombineerd worden.</p></p>
+								<p class="news_detail1_bottom_parts_text4">NIEUWE PUR-SMELTLIJM IN DE KIJKER</p>					
+								<p class="news_detail1_bottom_parts_text5">De kwaliteit van de kantenverlijming is vandaag zeer belangrijk voor de waarde van een meubelstuk. De invoering van de lasertechnologie en het begrip ‘optische nulvoeg’ hebben er mede voor gezorgd dat ook de lat op het vlak van lijm en verlij-mingstechniek steeds hoger gelegd wordt.Voor veeleisende toepassingen op vlak van kantenverlijming in de moderne meubel-industrie heeft Jowat met de Jowatherm-Reaktant ® 608.00 een volledig nieuwe PUR-smeltlijm ontwikkeld, die uitblinkt door zijn transparante voeg, uitstekende thermischestabiliteit en een snelle hechting op veel materialen. Dankzij deze eigenschappen is deze nieuwe reactieve smeltlijm ideaal voor gebruik bij traditionele automatische kantenaanlijmmachines, maar ook voor toe-passingen met een sleepmond, waarbij een nog dunnere laag lijm aangebracht wordt.Jowat levert deze Jowatherm-Reaktant ® ook in het wit (608.01).</p>
+								<p class="news_detail1_bottom_parts_text6">JOWAT NEDERLAND B.V. ENSMEETS TRADING</p>					
+								<p class="news_detail1_bottom_parts_text7">Jowat Se verdeelt deze producten via zijn netwerk van dochterondernemingen en part-ners. Zo heeft de lijmspecialist met Jowat Nederland B.V. (Fleringen) een vestiging die de grote klanten in de Benelux direct belevert.Smeets Trading staat in voor de verdeling van de producten naar de interieurbouwers in België. Deze groothandel uit Peer verdeelt een brede waaier kwaliteitsproducten: hoog-waardige kantenband, manuele cleaners en reinigingsproducten voor alle kantenlijmers met elektronisch gestuurde sproei-installaties en een compleet gamma kwaliteitslijmen.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</t>
+							<!-- <div class="testing-bd-img"><div class="testing"></div></div> -->
+		</template>
+	</data>
+</openerp>

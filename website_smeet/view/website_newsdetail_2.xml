@@ -1,0 +1,66 @@
+<openerp>
+	<data>
+	
+ 		<template id="website_smeets_news_detail_2"  name=" News Detail 2">
+			<t t-call="website.layout">
+				<div class="oe_structure"/>
+				<title>News Detail 2</title>
+				<div class="smeet_news_detail_2">
+					<section class="news_sec_1">
+					    <div class="news_header">
+					        <img class="news_banner_img" src="/website_smeet/static/src/image/news/News-Banner.jpg"  alt=""/>
+					        <div class="container">
+					            <h1 class="news_heading">Nieuws Informatie</h1>
+					        </div>
+					    </div>
+					</section>
+					<div class="news_middle_menu">
+						<div class="container">
+							<div class="col-md-12 news-middle-menu-left">
+								<div class="news-breadcrumbs-menu">
+					                <ul>
+					                    <li><a href="/page/homepage">Home </a></li>
+					                    <img src="/website_smeet/static/src/image/about/breadcrumb-img.png" alt="Chania"/>
+					                    <li><a href="/page/newsdetail/2">Nieuws Informatie</a></li>
+					                </ul>
+					            </div>
+							</div>
+						</div>
+					</div>
+					<div class="news-page-detail-1-top-right-bg-img"><img src="/website_smeet/static/src/image/about-right.png" alt=""/></div>					
+					<div class="news_detail_1_middle">
+						<div class="container">
+							<div class="col-md-12 news_detail1_middle_parts">
+								<div class="col-md-6 news_detail1_middle_left">
+									<div class="news_detail1_middle_left_header">
+										<h1>Nauwe Samenwerking</h1>
+									</div>
+									<div class="news_detail1_middle_left_middle">
+										<p class="news_detail1_middle_left_middle_text">April, 2016</p>
+									</div>
+									<div class="news_detail1_middle_left_bottom">
+										<p class="news_detail1_middle_left_bottom_text1">tussen leverancier en producent van sproeisystemen </p>
+										<p class="news_detail1_middle_left_bottom_text2">Smeets Trading is toeleverancier van producten voor de keuken- en interieurbouw, zoals kantenbanden van Rehau en lijmen vanJowat. Het bedrijf levert ook reinigingsproducten voor kantenlijmers en sproeisystemen van het Duitse merk Riepe. Door de jarenlange professionele samenwerking is er een erg hechte band ontstaan.</p>
+										<p class="news_detail1_middle_left_bottom_text3">En die informatie is nodig, ook voor klanten die een nieuwe machine aankopen. Smeets: “Vaak kiezen klanten voor een machine zonder sproeisysteem, maar krijgen ze spijt nadien. Zonder sproeisysteem is er natuurlijk meer manuele reiniging nodig, en dat is een kostbare zaak. De oorspronkelijke meerprijs win je dus dubbel en dik terug tijdens het gebruik. De verkoop, levering, plaatsing van de sproeisy- stemen kan natuurlijk altijd achteraf, waarbij we ook deskundige uit-leg geven. Het nazicht ter plaatse van een reeds bestaand sproeisy-steem op de kantenlijmer is vrijblijvend. We verliezen ook het belang van de poetsborstels niet uit het oog en raden aan om die twee tot drie maal per jaar te wisselen om de kwaliteit te garanderen. Tot slot vervangen we de oudere types gratis, en is er levenslange garantie op de sproeiers bij gebruik van de Riepe producten.”</p>
+										
+									</div>
+								</div>
+								<div class="col-md-4 news_detail1_middle_right">
+									<img src="/website_smeet/static/src/image/img-2.png" alt="Chania"/>
+								</div>
+							</div>
+							<div class="col-md-11 news_detail1_bottom_parts">
+								<p class="news_detail1_bottom_parts_text1">Riepe is al meer dan 25 jaar dé specialist in sproeisystemen en rei-nigingsproducten voor de kantenlijmer. De sproeisystemen zorgen ervoor dat een plaat volledig gereinigd uit de kantenlijmmachine komt. Vooraan wordt er daarvoor een antihechtmiddel voor de lijm op de plaat gesproeid, in het midden een antistatisch koelmiddel en/of trennmiddel, en achteraan een reinigingsmiddel. Die laatste verwij-dert door middel van de poetsborstels achtergebleven lijmresten en vuil van de plaat.</p>
+								<p class="news_detail1_bottom_parts_text2">DIEPERE SAMENWERKING</p>
+								<p class="news_detail1_bottom_parts_text3">Smeets Trading, uit Peer, is de importeur van Riepe in België. De firma verdeelt de producten al enkele jaren, maar sinds vorig jaar werken de twee bedrijven nauwer samen, ook naar de machinefabrikanten en de klanten toe. Kristof Smeets, zaakvoerder van Smeets Trading: “De producten van Riepe zijn van topkwaliteit. Het bedrijf levert krachtige producten die werken, platen die uit de machine komen zijn volledig zuiver. Bij één van de grootste keukenbouwers in België hebben wij zes machines opnieuw aangepast met Riepe producten en sproeisy-stemen, en die werken perfect. Als je merkt dat die keukenbouwer zelf naar je toekomt om je producten te kunnen gebruiken, dan weet je dat het topproducten zijn. Bovendien zijn de vloeistoffen van Riepe benzeenvrij, dat is uniek en de grote sterkte van het bedrijf.”</p>
+								<p class="news_detail1_bottom_parts_text4">MEER BEGELEIDING NODIG</p>
+								<p class="news_detail1_bottom_parts_text5">Met de samenwerking tussen Smeets Trading en Riepe wil Kristof Smeets vooral ook schrijnwerkers en interieurbouwers beter inlich-ten. We voelen aan dat de kennis van de Riepe-producten niet altijd up-to-date is en er nog steeds manueel dient gereinigd te worden. Klanten hechten er soms ook te weinig aandacht aan. Er is dus nood aan een goede informatieverstrekking, en dat kunnen wij leveren voor de producten van Riepe.” </p>
+							</div>
+						</div>
+					</div>
+					<div class="testing-bd-img"><div class="testing"></div></div>
+				</div>
+			</t>
+		</template>
+	</data>
+</openerp>
